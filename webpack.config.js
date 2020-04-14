@@ -14,6 +14,13 @@ Encore
     // only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
 
+    // Réfléchir au chemin de sortie si besoin
+    .copyFiles({
+        from: './assets/img'
+
+        //to: 'images/[path][name].[ext]'
+    })
+
     /*
      * ENTRY CONFIG
      *
