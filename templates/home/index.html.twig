@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue sur My Cantine{% endblock %}
+
+{% block body %}
+
+<nav class=" container-fluid navbar navbar-expand-lg navbar-light bg-light mb-5">
+<div class="container mt-3 mb-3">
+  <a class="navbar-brand font-weight-bold" href="/">My Cantine</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor03">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link font-weight-bold" style="margin:0 30px; color: #000" href="#">Les repas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link font-weight-bold" style="margin:0 30px; color: #000" href="#">Comment ça marche</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link font-weight-bold"  style="margin:0 30px; color: #000" href="#">A propos</a>
+      </li>
+    </ul>
+    <div class="nav-item">
+    <button class="btn btn-success my-2 my-sm-0" style="margin:0 30px" type="submit">Inscription</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Connexion</button>
+    </div>
+  </div>
+  </div>
+</nav>
+
+<main role="main" class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col">
+        <div class="mt-5 mb-5 text-center">
+            <h1>Nous créons une cantine <span class="inner-green">innovante</span> pour vos enfants</h1>
+            <p class="h5 mt-3 mb-3">Réservez les jours de cantine, prévisualisez en avance les repas des prochains jours, tout ça en ligne, garantie sans papier.</p>
+        </div>
+        <div class="mt-5 mb-5 text-center">
+            <button class="btn btn-success my-2 my-sm-0" style="margin:0 30px" type="submit">Créer un compte</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Connexion</button>
+        </div>
+        
+    </div>
+    
+    <div class="col">
+        <div class="mt-5 mb-5 text-center">
+            <img src="{{ asset('/img/family_meal.svg') }}" alt="family meal">
+        </div>
+    </div>
+</div>
+
+<div class="mt-5 mb-5 text-center">
+
+    <div class="row">
+
+        <div class="col">
+        <img src="{{ asset('/img/roubaix.png') }}" alt="Image Roubaix">
+        </div>
+
+        <div class="col">
+        <img src="{{ asset('/img/grenoble.png') }}" alt="Image Grenoble">
+        </div>
+
+        <div class="col">
+        <img src="{{ asset('/img/paris.png') }}" alt="Image Paris">
+        </div>
+
+        <div class="col">
+        <img src="{{ asset('/img/lille.png') }}" alt="Image Lille">
+        </div>
+
+  </div>
+    
+</div>
+
+<h1 class="text-center mt-5 mb-5">Marre de la paperasse?<br> Nous aussi!</h1>
+
+
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+        <img class="mt-5 mb-5" src="{{ asset('/img/menu.png') }}" alt="Image des menus">
+    </div>
+    <div class="col">
+        <div class="mt-5 mb-5 text-center">
+            <h3>Une interface <span class="inner-green">ergonomique</span></h3>
+        </div>
+        
+        <p class="h5 mt-5 mb-5">Notre équipe à réfléchi à une interface <span class="inner-green">efficace</span> et <span class="inner-green">dynamique</span>. Envie de savoir ce que vos enfants mangent demain ? C'est possible !</p>
+        
+    </div>
+</div>
+
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col">
+        <h3>Besoin de gérer <span class="inner-green">plusieurs</span> enfants ?</h3>
+
+      <p class="h5 mt-5 mb-5">Pas de souci ! Nous avons pensé à <span class="inner-green">tout</span>, gerez <span class="inner-green">facilement</span> le profil de chacun de vos enfants depuis votre compte <span class="inner-green">parent</span>.</p>
+    </div>
+    <div class="col">
+        <img src="{{ asset('/img/undraw_baby.png') }}" alt="Image Mom and baby">
+    </div>
+</div>
+
+</main>
+
+{% include "partials/footer.html.twig" %}
+
+{% endblock %}
