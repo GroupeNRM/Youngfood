@@ -1,57 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Inscription{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('register') }}
+{% endblock %}
 
 {% block body %}
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <h1>Bienvenue sur <span class="inner-green">votre</span> cantine en ligne, <br> personnalisée pour <span class="inner-green">vous</span></h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>Bienvenue sur <span class="inner-green">votre</span> cantine en ligne, <br> personnalisée pour <span class="inner-green">vous</span></h1>
+            </div>
         </div>
+
+        <div id="app"></div>
     </div>
 
-    <div class="row">
-        <div class="col-md-5 mx-auto">
-            {{ form_start(registrationForm) }}
-            <div class="row">
-                <div class="col-md-6">
-                    {{ form_row(registrationForm.firstname) }}
-                </div>
-                <div class="col-md-6">
-                    {{ form_row(registrationForm.lastname) }}
-                </div>
-            </div>
+{% endblock %}
 
-            <div class="row">
-                <div class="col-md-6">
-                    {{ form_row(registrationForm.email) }}
-                </div>
-
-                <div class="col-md-6">
-                    {{ form_row(registrationForm.gender) }}
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    {{ form_row(registrationForm.password) }}
-                </div>
-
-                <div class="col-md-6">
-                    {{ form_row(registrationForm.verifpassword) }}
-                </div>
-            </div>
-
-            {{ form_row(registrationForm.agreeTerms) }}
-
-            <button class="btn">Register</button>
-            {{ form_end(registrationForm) }}
-        </div>
-    </div>
-
-    <div class="row mx-auto">
-        <div class="col-md-6">
-
-        </div>
-    </div>
-
+{% block javascripts %}
+    {{ encore_entry_script_tags('vue') }}
 {% endblock %}

@@ -1,0 +1,12 @@
+@import "variables";
+
+.id-card {
+  background-color: $card-main-grey;
+  border-radius: 30px;
+  width: 650px;
+  max-height: 360px;
+
+  .card-title {
+    font-size: 24px;
+  }
+}

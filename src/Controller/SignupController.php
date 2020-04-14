@@ -15,12 +15,11 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class SignupController extends AbstractController
 {
     /**
-     * @Route("/register", name="Signup.index")
+     * @Route("/register", name="signup.index")
      * @param Request $request
      * @param UserPasswordEncoderInterface $passwordEncoder
      * @param MailerInterface $mailer
      * @return Response
-     * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, MailerInterface $mailer): Response
     {
