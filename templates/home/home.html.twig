@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Bienvenue sur My Cantine{% endblock %}
+{% block title %}Bienvenue sur MyCantine{% endblock %}
 
 {% block body %}
 
@@ -24,30 +24,31 @@
       </li>
     </ul>
     <div class="nav-item">
-    <button class="btn btn-success my-2 my-sm-0" style="margin:0 30px" type="submit"><i class="fas fa-plus"></i>Inscription</button>
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-pencil-alt"></i>Connexion</button>
+    <button class="btn btn-success my-2 my-sm-0" style="margin:0 30px" type="submit" style="font-weight: bold;"><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;Inscription&nbsp;&nbsp;&nbsp;</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="font-weight: bold;"><i class="fa fa-pencil"></i>&nbsp;&nbsp;&nbsp;Connexion&nbsp;&nbsp;&nbsp;</button>
     </div>
   </div>
   </div>
 </nav>
 
-<main role="main" class="container mt-5 mb-5">
+<main role="main" class="container mt-5 mb-5 text-center" style="background-color: #f2f2f2">
+
   <div class="row">
     <div class="col">
         <div class="mt-5 mb-5 text-center">
-            <h1>Nous créons une cantine <span class="inner-green">innovante</span> pour vos enfants</h1>
-            <p class="h5 mt-3 mb-3">Réservez les jours de cantine, prévisualisez en avance les repas des prochains jours, tout ça en ligne, garantie sans papier.</p>
+            <h1 class="h2">Nous créons une cantine <span class="inner-green">innovante</span> pour vos enfants</h1>
+            <p class="h5 mt-3 mb-3 text-center">Réservez les jours de cantine, prévisualisez en avance les repas des prochains jours, tout ça en ligne, garantie sans papier.</p>
         </div>
         <div class="mt-5 mb-5 text-center">
-            <button class="btn btn-success my-2 my-sm-0" style="margin:0 30px" type="submit"><i class="fas fa-plus"></i>Créer un compte</button>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-pencil-alt"></i>Connexion</button>
+            <button class="btn btn-success my-2 my-sm-0" style="margin:0 30px" type="submit" style="font-weight: bold;"><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;Créer un compte</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="font-weight: bold;"><i class="fa fa-pencil"></i>&nbsp;&nbsp;&nbsp;&nbsp;Connexion&nbsp;&nbsp;&nbsp;&nbsp;</button>
         </div>
         
     </div>
     
-    <div class="col float-left">
-        <div class="mt-5 mb-5 float-left">
-            <img src="{{ asset('./build/Group.png') }}" alt="family meal" style="" width=550>
+    <div class="col ml-5">
+        <div class="mt-5 mb-5">
+            <img src="{{ asset('./build/Group.png') }}" alt="family meal" style="" width=400>
         </div>
     </div>
 </div>
@@ -57,7 +58,7 @@
     <div class="row">
 
         <div class="col">
-        <img src="{{ asset('./build/roubaix.png') }}" alt="Image Roubaix" width=100>
+        <img src="{{ asset('./build/roubaix.png') }}" alt="Image Roubaix" width=180>
         </div>
 
         <div class="col">
@@ -76,7 +77,7 @@
     
 </div>
 
-<h1 class="text-center mt-5 mb-5">Marre de la paperasse?<br> Nous aussi!</h1>
+<h1 class="h2 text-center mt-5 mb-5">Marre de la paperasse?<br> Nous aussi!</h1>
 
 
 
@@ -102,8 +103,8 @@
 
       <p class="h5 mt-5 mb-5">Pas de souci ! Nous avons pensé à <span class="inner-green">tout</span>, gerez <span class="inner-green">facilement</span> le profil de chacun de vos enfants depuis votre compte <span class="inner-green">parent</span>.</p>
     </div>
-    <div class="col">
-        <img src="{{ asset('./build/undraw_baby.png') }}" alt="Image Mom and baby" width=560>
+    <div class="col mb-5">
+        <img src="{{ asset('./build/undraw_baby.png') }}" alt="Image Mom and baby" width=500>
     </div>
 </div>
 
