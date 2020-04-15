@@ -6,25 +6,17 @@
 }
 
 body{
-
   font-family: Gilroy-SemiBold, serif;
   background: url('../img/BG_CONNEXION.svg') no-repeat bottom;
-
+  
   form{
-
     button{
-
       width: 225px;
       height: 50px;
-
     }
-
   }
 
-  a{
-
+  a {
     color: $main-green !important;
-
   }
-
 }
