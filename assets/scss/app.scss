@@ -1,0 +1,18 @@
+@import "variables";
+@import "form";
+
+@font-face {
+  font-family: Gilroy-SemiBold;
+  src: url("../fonts/Gilroy-SemiBold.woff");
+}
+
+h1 {
+  font-family: Gilroy-SemiBold, serif;
+  font-size: 48px;
+}
+
+.inner-green {
+  color: $main-green;
+}
+
+@import "~bootstrap/scss/bootstrap";

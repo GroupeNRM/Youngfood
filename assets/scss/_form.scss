@@ -1,0 +1,21 @@
+form {
+  font-family: Gilroy-SemiBold, serif;
+
+  label {
+    text-transform: uppercase;
+    font-size: 13px;
+    margin-bottom: 0 !important;
+  }
+
+  input[type=text], input[type=email], input[type=password], select {
+    border: 2px solid $main-grey;
+    border-radius: 3px;
+    width: 350px;
+    height: 44px;
+
+    &:focus {
+      border-color: $main-green;
+      outline: 0;
+    }
+  }
+}
