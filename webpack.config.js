@@ -14,6 +14,13 @@ Encore
     // only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
 
+    // Réfléchir au chemin de sortie si besoin
+    .copyFiles({
+        from: './assets/img'
+
+        //to: 'images/[path][name].[ext]'
+    })
+
     /*
      * ENTRY CONFIG
      *
@@ -29,6 +36,9 @@ Encore
     .addEntry('register', './assets/js/register.js')
     .addEntry('home', './assets/js/home.js')
     //.addEntry('page2', './assets/js/page2.js')
+
+    // Login Page
+    .addEntry('login', './assets/js/login.js')
 
     .enableVueLoader()
 
