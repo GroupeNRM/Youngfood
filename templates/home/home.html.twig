@@ -2,11 +2,17 @@
 
 {% block title %}Bienvenue sur MyCantine{% endblock %}
 
+{% block stylesheets %}
+
+    {{ encore_entry_link_tags('home') }}
+
+{% endblock %}
+
 {% block body %}
 
 <nav class=" container-fluid navbar transparent navbar-expand-lg navbar-light bg-light mb-5">
 <div class="container mt-3 mb-3">
-  <a class="navbar-brand font-weight-bold" href="/">MyCantine</a>
+  <a class="navbar-brand font-weight-bold" href="{{path('home.index')}}">MyCantine</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -24,8 +30,8 @@
       </li>
     </ul>
     <div class="nav-item">
-      <button class="btn btn-success my-2 my-sm-0" style="margin:0 30px" type="submit" style="font-weight: bold;"><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;Inscription&nbsp;&nbsp;&nbsp;</button>
-      <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit" style="font-weight: bold;"><i class="fa fa-pencil"></i>&nbsp;&nbsp;&nbsp;Connexion&nbsp;&nbsp;&nbsp;</button>
+      <a class="btn btn-success my-2 my-sm-0" href="{{path('Signup.index')}}" style="margin:0 30px" style="font-weight: bold;"><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;Inscription&nbsp;&nbsp;&nbsp;</a>
+      <a class="btn btn-outline-secondary my-2 my-sm-0" href="{{path('app_login')}}" style="font-weight: bold;"><i class="fa fa-pencil"></i>&nbsp;&nbsp;&nbsp;Connexion&nbsp;&nbsp;&nbsp;</a>
     </div>
   </div>
   </div>
@@ -33,44 +39,50 @@
 
 <main role="main" class="container mt-5 mb-5 text-center" style="background-color: #f2f2f2">
 
-  <div class="row">
+  <div class="row bg-light">
+
     <div class="col">
+
         <div class="mt-5 mb-5 text-center">
             <h1 class="h2">Nous créons une cantine <span class="inner-green">innovante</span> pour vos enfants</h1>
             <p class="h5 mt-3 mb-3 text-center">Réservez les jours de cantine, prévisualisez en avance les repas des prochains jours, tout ça en ligne, garantie sans papier.</p>
         </div>
+
         <div class="mt-5 mb-5 text-center">
-            <button class="btn btn-success my-2 my-sm-0" style="margin:0 30px" type="submit" style="font-weight: bold;"><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;Créer un compte</button>
-            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit" style="font-weight: bold;"><i class="fa fa-pencil"></i>&nbsp;&nbsp;&nbsp;&nbsp;Connexion&nbsp;&nbsp;&nbsp;&nbsp;</button>
+            <a class="btn btn-success my-2 my-sm-0" style="margin:0 30px" href="{{path('Signup.index')}}" style="font-weight: bold;"><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;Créer un compte</a>
+            <a class="btn btn-outline-secondary my-2 my-sm-0" href="{{path('app_login')}}" style="font-weight: bold;"><i class="fa fa-pencil"></i>&nbsp;&nbsp;&nbsp;&nbsp;Connexion&nbsp;&nbsp;&nbsp;&nbsp;</a>
         </div>
         
     </div>
     
     <div class="col ml-5">
+
         <div class="mt-5 mb-5">
             <img src="{{ asset('./build/Group.png') }}" alt="family meal" style="" width=400>
         </div>
+
     </div>
+
 </div>
 
-<div class="mt-5 mb-5 text-center">
+<div class="mt-5 mb-5 text-center bg-light">
 
     <div class="row">
 
         <div class="col">
-        <img src="{{ asset('./build/roubaix.png') }}" alt="Image Roubaix" width=180>
+            <img src="{{ asset('./build/roubaix.png') }}" alt="Image Roubaix" width=180>
         </div>
 
         <div class="col">
-        <img src="{{ asset('./build/grenoble.png') }}" alt="Image Grenoble" width=100>
+            <img src="{{ asset('./build/grenoble.png') }}" alt="Image Grenoble" width=100>
         </div>
 
         <div class="col">
-        <img src="{{ asset('./build/paris.png') }}" alt="Image Paris" width=100>
+            <img src="{{ asset('./build/paris.png') }}" alt="Image Paris" width=100>
         </div>
 
         <div class="col">
-        <img src="{{ asset('./build/lille.png') }}" alt="Image Lille" width=100>
+            <img src="{{ asset('./build/lille.png') }}" alt="Image Lille" width=100>
         </div>
 
   </div>
@@ -81,12 +93,16 @@
 
 
 
-<div class="container mt-5">
-  <div class="row">
+<div class="mt-5">
+
+  <div class="row bg-light">
+
     <div class="col">
         <img class="mt-5 mb-5" src="{{ asset('./build/menu.png') }}" alt="Image des menus" width=620>
     </div>
+
     <div class="col">
+
         <div class="mt-5 mb-5 text-center">
             <h3>Une interface <span class="inner-green">ergonomique</span></h3>
         </div>
@@ -94,19 +110,24 @@
         <p class="h5 mt-5 mb-5">Notre équipe à réfléchi à une interface <span class="inner-green">efficace</span> et <span class="inner-green">dynamique</span>. Envie de savoir ce que vos enfants mangent demain ? C'est possible !</p>
         
     </div>
+
 </div>
 
-<div class="container mt-5 mb-5">
-  <div class="row">
-    <div class="col">
-        <h3>Besoin de gérer <span class="inner-green">plusieurs</span> enfants ?</h3>
 
-      <p class="h5 mt-5 mb-5">Pas de souci ! Nous avons pensé à <span class="inner-green">tout</span>, gerez <span class="inner-green">facilement</span> le profil de chacun de vos enfants depuis votre compte <span class="inner-green">parent</span>.</p>
-    </div>
-    <div class="col mb-5">
-        <img src="{{ asset('./build/undraw_baby.png') }}" alt="Image Mom and baby" width=500>
-    </div>
+<div class="row mt-5 bg-light">
+
+  <div class="col mt-5 mb-5">
+      <h3>Besoin de gérer <span class="inner-green">plusieurs</span> enfants ?</h3>
+
+      <p class="h5">Pas de souci ! Nous avons pensé à <span class="inner-green">tout</span>, gerez <span class="inner-green">facilement</span> le profil de chacun de vos enfants depuis votre compte <span class="inner-green">parent</span>.</p>
+  </div>
+
+  <div class="col mb-5 mt-5">
+      <img src="{{ asset('./build/undraw_baby.png') }}" alt="Image Mom and baby" width=500>
+  </div>
+
 </div>
+
 
 </main>
 
