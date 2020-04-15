@@ -7,14 +7,20 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h1>Bienvenue sur <span class="inner-green">votre</span> cantine en ligne, <br> personnalisée pour <span class="inner-green">vous</span></h1>
+    <div class="container-fluid min-vh-100">
+        <a href="#" class="nav-title left h3">< Précédent</a>
+        <a href="#" class="nav-title right h3">Suivant ></a>
+        <div class="row vh-100 justify-content-center align-items-center">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12 text-center mb-4">
+                        <h1>Bienvenue sur <span class="inner-green">votre</span> cantine en ligne, <br> personnalisée pour <span class="inner-green">vous</span></h1>
+                    </div>
+                </div>
+
+                <div id="app"></div>
             </div>
         </div>
-
-        <div id="app"></div>
     </div>
 
 {% endblock %}
