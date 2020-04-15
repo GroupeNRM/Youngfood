@@ -2,13 +2,18 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
+ * @ApiResource(
+ *     collectionOperations={"get", "post"},
+ *     itemOperations={"get"}
+ * )
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @UniqueEntity(fields={"email"}, message="Un compte est déjà associé à cette adresse e-mail")
  */
 class User implements UserInterface
 {
@@ -49,6 +54,11 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=1)
      */
     private $gender;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $registered_at;
 
     public function getId(): ?int
     {
@@ -160,6 +170,18 @@ class User implements UserInterface
     public function setGender(string $gender): self
     {
         $this->gender = $gender;
+
+        return $this;
+    }
+
+    public function getRegisteredAt(): ?\DateTimeInterface
+    {
+        return $this->registered_at;
+    }
+
+    public function setRegisteredAt(\DateTimeInterface $registered_at): self
+    {
+        $this->registered_at = new \DateTime();
 
         return $this;
     }

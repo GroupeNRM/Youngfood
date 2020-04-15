@@ -1,19 +1,19 @@
 <template>
     <div>
-        <div class="row">
+        <div class="row mb-5">
             <div class="col-md-5 mx-auto">
                 <form name="registration_form" method="post">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="registration_form_firstname" class="required">Prénom</label>
-                                <input type="text" id="registration_form_firstname" name="registration_form[firstname]" required="required" class="form-control" v-model="prenom">
+                                <input type="text" id="registration_form_firstname" name="registration_form[firstname]" required="required" class="form-control" v-model="fields.firstname">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="registration_form_lastname" class="required">Nom de famille</label>
-                                <input type="text" id="registration_form_lastname" name="registration_form[lastname]" required="required" class="form-control" v-model="nom">
+                                <input type="text" id="registration_form_lastname" name="registration_form[lastname]" required="required" class="form-control" v-model="fields.lastname">
                             </div>
                         </div>
                     </div>
@@ -22,13 +22,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="registration_form_email" class="required">Email</label>
-                                <input type="text" id="registration_form_email" name="registration_form[email]" required="required" class="form-control">
+                                <input type="text" id="registration_form_email" name="registration_form[email]" required="required" class="form-control" v-model="fields.email">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="registration_form_gender" class="required">Sexe</label>
-                                <select id="registration_form_gender" name="registration_form[gender]" v-model="sexe">
+                                <select id="registration_form_gender" name="registration_form[gender]" v-model="fields.sex ">
                                     <option disabled value="">&nbsp</option>
                                     <option value="I">Inconnu</option>
                                     <option value="F">Femme</option>
@@ -42,36 +42,49 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="registration_form_password" class="required">Mot de passe</label>
-                                <input type="password" id="registration_form_password" name="registration_form[password]" required="required" class="form-control">
+                                <input type="password" id="registration_form_password" name="registration_form[password]" required="required" class="form-control" v-model="fields.password">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="registration_form_verifpassword" class="required">Vérification mot de passe</label>
-                                <input type="password" id="registration_form_verifpassword" name="registration_form[verifpassword]" required="required" class="form-control">
+                                <input type="password" id="registration_form_verifpassword" name="registration_form[verifpassword]" required="required" class="form-control" v-model="fields.verifPassword">
                             </div>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-md-5 mx-auto">
-                <Card v-bind:nom="nom" v-bind:prenom="prenom" v-bind:sexe="sexe"/>
-            </div>
-        </div>
+        <a href="#" class="nav-title left h3" @click="">< Précédent</a>
+        <a href="#" class="nav-title right h3" @click="submit">Suivant ></a>
+        <Card v-bind:fields="fields"/>
     </div>
 </template>
 
 <script>
-    import Card from "./Card";
+    import Card from "./views/register/Card";
+    import axios from "axios";
     export default {
         data: function() {
             return {
-                nom: '',
-                prenom: '',
-                sexe: ''
+                fields: {}
+            }
+        },
+        methods: {
+            submit: function() {
+                axios.post('/api/users', {
+                    email: this.fields.email,
+                    password: this.fields.password,
+                    firstname: this.fields.firstname,
+                    lastname: this.fields.lastname,
+                    gender: this.fields.sex,
+                })
+                .then(function(response) {
+                    console.log('ok');
+                })
+                .catch(function(response) {
+                    console.log('erreur');
+                });
             }
         },
         name: "Form",

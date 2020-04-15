@@ -1,9 +1,9 @@
 import Vue from "vue";
-import App from "./App";
+import RegistrationForm from "./Register";
 // import router from "./router";
 
 new Vue({
-    components: { App },
-    template: "<App/>",
+    components: { RegistrationForm },
+    template: "<RegistrationForm/>",
     // router
-}).$mount("#app");
+}).$mount("#registration-form");
