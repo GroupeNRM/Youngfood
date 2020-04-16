@@ -94,25 +94,21 @@
                 }
             },
             submit: function() {
-                if(this.checkForm()) {
-                    axios.post('/api/users', {
-                        email: this.fields.email,
-                        password: this.fields.password,
-                        verifPassword: this.fields.verifPassword,
-                        firstname: this.fields.firstname,
-                        lastname: this.fields.lastname,
-                        gender: this.fields.sex,
-                    })
-                    .then(function(response) {
-                        //TODO
-                    })
-                    .catch(function(response) {
-                        console.log(`Erreur pour aider le développeur dans sa quète du débugage : ${response}`);
-                    });
-                } else {
+                axios.post('/api/users', {
+                    email: this.fields.email,
+                    password: this.fields.password,
+                    verifPassword: this.fields.verifPassword,
+                    firstname: this.fields.firstname,
+                    lastname: this.fields.lastname,
+                    gender: this.fields.sex,
+                })
+                .then(function(response) {
                     //TODO
-                    //Modifier le DOM pour afficher les erreurs
-                }
+                    console.log('ok');
+                })
+                .catch(function(response) {
+                    console.log(`Erreur pour aider le développeur dans sa quète du débugage : ${response}`);
+                });
             }
         },
         name: "Form",
