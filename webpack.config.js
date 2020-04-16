@@ -32,6 +32,8 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
 
+    .addEntry('vue', './assets/vue/index.js')
+
     //Register Page
     .addEntry('register', './assets/js/register.js')
     //.addEntry('page1', './assets/js/page1.js')
@@ -70,6 +72,15 @@ Encore
 
     // enables Sass/SCSS support
     .enableSassLoader()
+
+    .autoProvideVariables({
+        "Routing": "router",
+    })
+
+    .addLoader({
+        test: /jsrouting-bundle\/Resources\/public\/js\/router.min.js$/,
+        loader: "exports-loader?router=window.Routing"
+    })
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
