@@ -67,24 +67,52 @@
     export default {
         data: function() {
             return {
-                fields: {}
+                fields: {},
+                error: []
             }
         },
         methods: {
+            checkForm: function() {
+                if(this.fields.password !== this.fields.verifPassword) {
+                    this.error.push('Les mots de passe ne correspondent pas');
+                }
+
+                if(!this.fields.firstname) {
+                    this.error.push('Merci de renseigner un prénom');
+                }
+
+                if(!this.fields.lastname) {
+                    this.error.push('Merci de renseigner un nom');
+                }
+
+                if(!this.fields.email) {
+                    this.error.push('Merci de renseigner une adresse e-mail');
+                }
+
+                if(!this.fields.sex) {
+                    this.error.push('Merci de sélectionner votre sexe');
+                }
+            },
             submit: function() {
-                axios.post('/api/users', {
-                    email: this.fields.email,
-                    password: this.fields.password,
-                    firstname: this.fields.firstname,
-                    lastname: this.fields.lastname,
-                    gender: this.fields.sex,
-                })
-                .then(function(response) {
-                    console.log('ok');
-                })
-                .catch(function(response) {
-                    console.log('erreur');
-                });
+                if(this.checkForm()) {
+                    axios.post('/api/users', {
+                        email: this.fields.email,
+                        password: this.fields.password,
+                        verifPassword: this.fields.verifPassword,
+                        firstname: this.fields.firstname,
+                        lastname: this.fields.lastname,
+                        gender: this.fields.sex,
+                    })
+                    .then(function(response) {
+                        //TODO
+                    })
+                    .catch(function(response) {
+                        console.log(`Erreur pour aider le développeur dans sa quète du débugage : ${response}`);
+                    });
+                } else {
+                    //TODO
+                    //Modifier le DOM pour afficher les erreurs
+                }
             }
         },
         name: "Form",

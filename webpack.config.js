@@ -70,6 +70,15 @@ Encore
     // enables Sass/SCSS support
     .enableSassLoader()
 
+    .autoProvideVariables({
+        "Routing": "router",
+    })
+
+    .addLoader({
+        test: /jsrouting-bundle\/Resources\/public\/js\/router.min.js$/,
+        loader: "exports-loader?router=window.Routing"
+    })
+
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
 
