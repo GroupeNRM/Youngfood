@@ -45,4 +45,23 @@ body {
       text-align: center;
     }
   }
+
+  .label-error {
+    color: $label-error-color;
+  }
+
+  .loading-tomato {
+    animation: jumpingTomato 1s ease infinite alternate;
+  }
+  
+  @keyframes jumpingTomato {
+    from {
+      transform: translateY(0px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(50px);
+      opacity: 1;
+    }
+  }
 }

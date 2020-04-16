@@ -30,18 +30,29 @@ class UserDataPersister implements \ApiPlatform\Core\DataPersister\DataPersister
     /**
      * @inheritDoc
      * @param User $data
+     * @throws \Exception
      */
     public function persist($data)
     {
-        if($data->getPassword()) {
-            $data->setPassword($this->passwordEncoder->encodePassword($data, $data->getPassword()));
+        // Checking if all the input are filled
+        if($data->getPassword() != null && $data->getFirstname() != null && $data->getLastname() != null && $data->getGender() != null) {
+            // Checking the Email format
+            if(filter_var($data->getEmail(), FILTER_VALIDATE_EMAIL)) {
+                if($data->getPassword()) {
+                    $data->setPassword($this->passwordEncoder->encodePassword($data, $data->getPassword()));
+                }
+
+                $data->setRoles(['ROLE_USER']);
+                $data->setRegisteredAt(new \DateTime());
+
+                $this->entityManager->persist($data);
+                $this->entityManager->flush();
+            } else {
+                throw new \Exception('Merci de renseigner une adresse e-mail valide', 400);
+            }
+        } else {
+            throw new \Exception('Merci de remplir tous les champs!', 400);
         }
-
-        $data->setRoles(['ROLE_USER']);
-        $data->setRegisteredAt(new \DateTime());
-
-        $this->entityManager->persist($data);
-        $this->entityManager->flush();
     }
 
     /**
