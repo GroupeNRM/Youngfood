@@ -1,20 +1,187 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminController!{% endblock %}
+{% block title %}Tableau de bord - Admin{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <nav class="navbar navbar-dark sticky-top flex-md-nowrap p-3" style="background-color: #F2F2F2">
 
-<div class="example-wrapper">
-    <h1>Hello Admin ✅</h1>
+        <span class="navbar-brand col-sm-3 col-md-2 mr-0 text-center text-dark">Tableau de bord - <span class="inner-green">ADMIN</span></span>
+        
+     
+        <ul class="nav justify-content-end">
+            <li class="nav-item text-light">
+                <img src="{{ asset('build/bell-icon.svg') }}"class="rounded-circle" width="30">
+            </li>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/var/www/symfony/src/Controller/AdminController.php'|file_link(0) }}">src/Controller/AdminController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/var/www/symfony/templates/admin/index.html.twig'|file_link(0) }}">templates/admin/index.html.twig</a></code></li>
-    </ul>
-</div>
+            <li class="nav-item mr-5 ml-5">
+                <img src="{{ asset('build/avatar-homme.svg') }}"class="rounded-circle" width="50">
+            </li>
+            
+        </ul>
+      
+    </nav>
+
+    <div class="container-fluid">
+
+        <div class="row" style="height: 1080px; background-color: #F2F2F2">
+
+            <nav class="col-md-2 d-none d-md-block sidebar" style="background-color: #F2F2F2">
+
+                <div class="sidebar-sticky">
+
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-5 mb-2 text-muted">
+
+                        <span>Infos du site</span>
+
+                    </h6>
+
+                    <ul class="nav flex-column">
+
+                      <li class="nav-item">
+
+                            <a class="nav-link text-dark" href="#" >
+                                <i class="far fa-chart-bar"></i>
+                                Statistiques
+
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link text-dark" href="#" >
+                                <i class="fas fa-utensils"></i>
+                                Menus
+
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link text-dark" href="#" >
+                                <i class="far fa-calendar-check"></i>
+                                Réservations
+
+                            </a>
+
+                        </li>
+                        
+
+                        <li class="nav-item">
+
+                            <a class="nav-link text-dark" href="#">
+                                <i class="far fa-money-bill-alt"></i>
+
+                                Paiements
+
+                            </a>
+
+                        </li>
+
+
+                        <li class="nav-item">
+
+                            <a class="nav-link text-dark" href="#" >
+                                <i class="far fa-heart"></i>
+                                Plats likés
+
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link text-dark" href="#">
+
+                                <i class="fas fa-users"></i>
+                                
+                                Utilisateurs
+
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-5 mb-2 text-muted">
+
+                        <span>Infos personnelles</span>
+
+                    </h6>
+
+                    <ul class="nav flex-column mb-2">
+
+                        <li class="nav-item">
+
+                            <a class="nav-link text-dark" href="#">
+
+                                <i class="far fa-address-card"></i>
+                                Voir mon profil
+
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link text-dark" href="#">
+
+                                <i class="fas fa-unlock-alt"></i>
+                                Modifier le mot de passe
+
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted" style="height: 30px">
+
+                        <span>Paramètres</span>
+
+                    </h6>
+
+                    <ul class="nav flex-column mb-2">
+
+                        <li class="nav-item">
+
+                            <a class="nav-link text-dark" href="#">
+
+                                <i class="fas fa-cog"></i>
+
+                                Mes Paramètres
+
+                            </a>
+
+                        </li>
+                        
+                        <div class="border-top my-3"></div>
+                        
+                        <li class="nav-item">
+
+                            <a class="nav-link text-danger" href="#">
+                            <i class="fas fa-sign-out-alt"></i>
+                                Déconnexion
+
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </nav>
+
+            <!-- Main -->
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 bg-light">
+
+                
+
+            </main>
+
+        </div>
+
+    </div>
+
 {% endblock %}
