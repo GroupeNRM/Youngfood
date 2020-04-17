@@ -2,6 +2,7 @@ form {
   font-family: Gilroy-SemiBold, serif;
 
   label {
+    color: $label-color;
     text-transform: uppercase;
     font-size: 13px;
     margin-bottom: 0 !important;
@@ -15,7 +16,8 @@ form {
 
     &:focus {
       border-color: $main-green;
-      outline: 0;
+      -webkit-appearance: none;
+      box-shadow: none !important;
     }
   }
 }

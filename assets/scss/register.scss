@@ -1,0 +1,67 @@
+@import "variables";
+
+body {
+  background: url("../img/reverse-bg.svg") top no-repeat;
+
+  .nav-title {
+    position: absolute;
+    z-index: 1200;
+    color: $label-color;
+    top: 50%;
+    text-transform: uppercase;
+    font-size: 35px;
+    transition: 0.5s !important;
+
+    &:hover {
+      text-decoration: none;
+      color: $main-green;
+    }
+  }
+
+  .left {
+    left: 5%;
+  }
+
+  .right {
+    right: 5%;
+  }
+
+  .id-card {
+    background-color: $card-main-grey;
+    width: 650px;
+    max-height: 360px;
+    border-radius: 30px 30px 30px 30px;
+
+    .card-title {
+      font-size: 24px;
+    }
+
+    .bottom-card {
+      height: 115px;
+      font-size: 24px;
+      border-radius: 0 0 30px 30px;
+      background: $card-secondary-grey;
+      word-wrap: break-word;
+      text-align: center;
+    }
+  }
+
+  .label-error {
+    color: $label-error-color;
+  }
+
+  .loading-tomato {
+    animation: jumpingTomato 1s ease infinite alternate;
+  }
+  
+  @keyframes jumpingTomato {
+    from {
+      transform: translateY(0px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(50px);
+      opacity: 1;
+    }
+  }
+}

@@ -32,9 +32,13 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
 
+    .addEntry('vue', './assets/vue/index.js')
+
     //Register Page
     .addEntry('register', './assets/js/register.js')
-    //.addEntry('page1', './assets/js/page1.js')
+
+    //Home Page
+    .addEntry('home', './assets/js/home.js')
     //.addEntry('page2', './assets/js/page2.js')
 
     // Login Page
