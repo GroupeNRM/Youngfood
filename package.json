@@ -19,7 +19,8 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^5.13.0",
-        "bootstrap": "^4.4.1"
+        "axios": "^0.19.2",
+        "bootstrap": "^4.4.1",
+        "vue-router": "^3.1.6"
     }
 }

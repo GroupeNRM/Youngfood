@@ -89,19 +89,6 @@
 
                         </div>
 
-                        {#
-
-                            <div class="form-check">
-
-                                <input type="checkbox" id="remember_me" name="_remember_me" checked/>
-                                <label for="remember_me">SE SOUVENIR DE MOI</label>
-
-                            </div>
-
-                            See https://symfony.com/doc/current/security/remember_me.html
-
-                        #}
-
                         <div class="form-group">
 
                             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
@@ -124,7 +111,7 @@
 
                 <div class="col-md-12 col-lg-12 text-center">
 
-                    <p>Vous n'avez pas de compte ? <a href="{{ path('Signup.index') }}">Inscrivez-vous</a> !</p>
+                    <p>Vous n'avez pas de compte ? <a href="{{ path('signup.index') }}">Inscrivez-vous</a> !</p>
 
                 </div>
 

@@ -6,13 +6,18 @@
   src: url("../fonts/Gilroy-SemiBold.woff");
 }
 
-h1 {
-  font-family: Gilroy-SemiBold, serif;
-  font-size: 48px;
-}
+body {
+  font-family: Gilroy-SemiBold, serif !important;
 
-.inner-green {
-  color: $main-green;
+  h1 {
+    font-size: 36px;
+    color: black;
+  }
+
+  .inner-green {
+    color: $main-green;
+  }
 }
 
 @import "~bootstrap/scss/bootstrap";
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
