@@ -44,6 +44,10 @@ Encore
     // Login Page
     .addEntry('login', './assets/js/login.js')
 
+    // Dashboard Pages
+    // New Child Form
+    .addEntry('newchild', './assets/js/newchild.js')
+
     .enableVueLoader()
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
