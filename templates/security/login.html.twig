@@ -10,7 +10,7 @@
 
 {% block body %}
 
-    <div class="container vh-100">
+    <div class="container mt-5 vh-100">
 
         {% if app.user %}
 
@@ -121,7 +121,7 @@
 
                 <div class="col-md-12 col-lg-12 text-left">
 
-                    <button class="btn btn-lg btn-light" type="submit">Précédent</button>
+                    <a class="btn btn-lg btn-light" href="{{path('home.index')}}"><i class="fa fa-chevron-left"></i> Précédent</a>
 
                 </div>
 
