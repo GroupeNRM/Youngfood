@@ -34,6 +34,8 @@ Encore
 
     //Register Page
     .addEntry('register', './assets/js/register.js')
+
+    //Home Page
     .addEntry('home', './assets/js/home.js')
     //.addEntry('page2', './assets/js/page2.js')
 
