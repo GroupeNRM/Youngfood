@@ -3,29 +3,6 @@
 body {
   background: url("../img/reverse-bg.svg") top no-repeat;
 
-  .nav-title {
-    position: absolute;
-    z-index: 1200;
-    color: $label-color;
-    top: 50%;
-    text-transform: uppercase;
-    font-size: 35px;
-    transition: 0.5s !important;
-
-    &:hover {
-      text-decoration: none;
-      color: $main-green;
-    }
-  }
-
-  .left {
-    left: 5%;
-  }
-
-  .right {
-    right: 5%;
-  }
-
   .id-card {
     background-color: $card-main-grey;
     width: 650px;
