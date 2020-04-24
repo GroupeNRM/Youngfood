@@ -16,7 +16,13 @@ body{
     }
   }
 
-  a {
-    color: $main-green !important;
+  // Liens
+  .link-form {
+    color: $main-green;
+  }
+
+  // Centre le form en ne prenant pas en compte le logo
+  .lm-logo {
+    margin-top: -140px;
   }
 }
