@@ -1,0 +1,27 @@
+@import "variables";
+
+@font-face {
+  font-family: Gilroy-SemiBold;
+  src: url("../fonts/Gilroy-SemiBold.woff");
+}
+
+body {
+  font-family: 'Gilroy-SemiBold', sans-serif;
+
+  form{
+    input, textarea{
+      width: 350px;
+    }
+
+    textarea{
+      resize: none;
+    }
+    .btn{
+      width: 225px;
+      height: 50px;
+      color: #fff;
+      background-color: #28a745;
+      border-color: #28a745;
+    }
+  }
+}
