@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}MyCantine - Ajouter un Enfant{% endblock %}
+{% block title %}YoungFood - Ajouter un Enfant{% endblock %}
 
 {% block stylesheets %}
 
@@ -225,7 +225,7 @@
 
                             <li class="nav-item">
 
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="{{path('app_logout')}}">
 
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text" data-darkreader-inline-fill="" data-darkreader-inline-stroke="" style="--darkreader-inline-fill:none; --darkreader-inline-stroke:currentColor;">
 
@@ -252,8 +252,77 @@
                 <!-- Main -->
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 
-                    {{ form_start(addChildForm) }}
-                    {{ form_end(addChildForm) }}
+                    <div class="row">
+
+                        <div class="col-md-12">
+
+                            <h3>Ajouter un <span class="inner-green">nouvel enfant</span> : </h3>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-12 text-center">
+
+                            <img src="{{ asset('build/IMG_CHILD.svg') }}" alt="Image Icone Enfant">
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 col-lg-4 mx-auto">
+
+                            {{ form_start(addChildForm) }}
+
+                            <div class="row">
+
+                                <div class="col-md-12">
+
+                                    {{ form_row(addChildForm.nom) }}
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-md-12">
+
+                                    {{ form_row(addChildForm.prenom) }}
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-md-12">
+
+                                    {{ form_row(addChildForm.dateNaissance) }}
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-md-12 text-center">
+
+                                    <button class="btn"><i class="fa fa-plus mr-3"></i>Enregistrer</button>
+
+                                </div>
+
+                            </div>
+
+                            {{ form_end(addChildForm) }}
+
+                        </div>
+
+                    </div>
 
                 </main>
 
