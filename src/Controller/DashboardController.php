@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class DashboardController extends AbstractController
 {
     /**
-     * @Route("/dashboard", name="dashboard.index")
+     * @Route("/dashboard", name="dashboard.index", options={"expose"=true})
      */
     public function index()
     {
