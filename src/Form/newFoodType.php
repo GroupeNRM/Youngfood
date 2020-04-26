@@ -46,8 +46,9 @@ class newFoodType extends AbstractType
                 ]
             ])
             ->add('submit', SubmitType::class, [
+                'label' => 'Valider',
                 'attr' => [
-                    'class' => 'save'
+                    'class' => 'btn btn-lg btn-success'
                 ]
             ])
         ;

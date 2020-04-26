@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
+{% block title %}Youngfood | Ajouter un aliment{% endblock %}
 
+{% block stylesheets %}
+    {{ encore_entry_link_tags('dashboard') }}
 {% endblock %}
 
 {% block body %}
@@ -188,9 +190,27 @@
             <!-- Main -->
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 bg-light">
 
-                {{ form_start(form) }}
+                <h1>Ajouter un nouvel aliment</h1>
 
-                {{ form_end(form) }}
+                <div class="container main-full-height">
+
+                    <div class="row h-100 justify-content-center align-items-center">
+
+                        <div class="col-md-4">
+
+                            {{ form_start(form) }}
+                                {{ form_row(form.title) }}
+
+                                {{ form_row(form.category) }}
+
+                                {{ form_row(form.picture, { 'attr': {'onchange': 'this.nextElementSibling.innerText = this.files[0].name'} }) }}
+                            {{ form_end(form) }}
+
+                        </div>
+
+                    </div>
+
+                </div>
 
             </main>
 
