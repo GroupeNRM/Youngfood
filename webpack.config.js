@@ -45,6 +45,9 @@ Encore
     .addEntry('login', './assets/js/login.js')
 
     // Dashboard Pages
+    //Style commun aux Dashboard (users & admin)
+    .addEntry('dashboard', './assets/js/dashboard.js')
+
     // New Child Form
     .addEntry('newchild', './assets/js/newchild.js')
 
