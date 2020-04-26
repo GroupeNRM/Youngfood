@@ -15,6 +15,7 @@
 .idea/
 .env
 .env.test
+src/Migrations/
 
 # Generated files
 .idea/**/contentModel.xml
