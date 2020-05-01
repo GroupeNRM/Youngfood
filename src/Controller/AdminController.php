@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Food;
+use App\Entity\Meal;
 use App\Form\newFoodType;
+use App\Form\NewMealType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -22,7 +24,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/admin/new-food", name="admin.newFood")
      * @param Request $request
-     * @param $fileUploader
+     * @param FileUploader $fileUploader
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function newFood(Request $request, FileUploader $fileUploader)
@@ -48,6 +50,22 @@ class AdminController extends AbstractController
         }
 
         return $this->render('admin/newFood.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/admin/new-meal", name="admin.newMeal")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function newMeal(Request $request)
+    {
+        $meal = new Meal();
+        $form = $this->createForm(NewMealType::class, $meal);
+        $form->handleRequest($request);
+
+        return $this->render('admin/newMeal.html.twig', [
             'form' => $form->createView()
         ]);
     }
