@@ -1,0 +1,22 @@
+{
+  "short_name": "Youngfood",
+  "name": "Youngfood: Votre cantine en ligne",
+  "description": "L'application Youngfood en local, chez vous :)",
+  "icons": [
+    {
+      "src": "/build/icons-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/build/icons-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".public/?source=pwa",
+  "background_color": "#3367D6",
+  "display": "standalone",
+  "scope": "/public/",
+  "theme_color": "#3367D6"
+}

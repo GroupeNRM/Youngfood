@@ -3,6 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="manifest" href="{{ asset('build/manifest.webmanifest') }}">
+        <link rel="shortcut icon" href="{{ asset('build/favicon.png') }}" type="image/x-icon">
+        <link rel="icon" href="{{ asset('build/favicon.png') }}" type="image/x-icon">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {{ encore_entry_link_tags('app') }}
         {% block stylesheets %}{% endblock %}
@@ -11,7 +14,7 @@
     
         {% block body %}{% endblock %}
         
+        {{ encore_entry_script_tags('app') }}
         {% block javascripts %}{% endblock %}
-        
     </body>
 </html>

@@ -1,4 +1,5 @@
-var Encore = require('@symfony/webpack-encore');
+const Encore = require('@symfony/webpack-encore');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -15,11 +16,12 @@ Encore
     //.setManifestKeyPrefix('build/')
 
     // Réfléchir au chemin de sortie si besoin
-    .copyFiles({
-        from: './assets/img'
+    .copyFiles([
+        { from: './assets/img' },
+        { from: './assets/misc'}
 
         //to: 'images/[path][name].[ext]'
-    })
+    ])
 
     /*
      * ENTRY CONFIG
@@ -81,6 +83,14 @@ Encore
 
     // enables Sass/SCSS support
     .enableSassLoader()
+
+    .addPlugin(
+        new WorkboxPlugin.GenerateSW({
+            clientsClaim: true,
+            skipWaiting: true,
+            swDest: 'sw.js'
+        })
+    )
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
