@@ -65,6 +65,19 @@ class AdminController extends AbstractController
         $form = $this->createForm(NewMealType::class, $meal);
         $form->handleRequest($request);
 
+        /** @var Meal $mealData */
+        $mealData = $form->getData();
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $meal->setEntree($mealData->getEntree());
+            $meal->setMainDish($mealData->getMainDish());
+            $meal->setMainDish($mealData->getDessert());
+
+            $em->persist($meal);
+            $em->flush();
+        }
+
         return $this->render('admin/newMeal.html.twig', [
             'form' => $form->createView()
         ]);
