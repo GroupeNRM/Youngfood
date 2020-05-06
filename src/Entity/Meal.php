@@ -6,7 +6,6 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource(mercure=true)
  * @ORM\Entity(repositoryClass="App\Repository\MealRepository")
  */
 class Meal
@@ -19,19 +18,19 @@ class Meal
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Food", inversedBy="entree")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Food")
      * @ORM\JoinColumn(nullable=false)
      */
     private $entree;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Food", inversedBy="main_dish")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Food")
      * @ORM\JoinColumn(nullable=false)
      */
     private $main_dish;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Food", inversedBy="dessert")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Food")
      * @ORM\JoinColumn(nullable=false)
      */
     private $dessert;
