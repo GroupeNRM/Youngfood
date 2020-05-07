@@ -12,18 +12,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Food
 {
-    public function __construct()
-    {
-        $this->entree = new ArrayCollection();
-        $this->main_dish = new ArrayCollection();
-        $this->dessert = new ArrayCollection();
-    }
-
-    public function __toString()
-    {
-        return $this->title;
-    }
-
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

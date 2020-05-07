@@ -27,19 +27,22 @@ class NewMealType extends AbstractType
                 'class' => Food::class,
                 'query_builder' => $this->foodRepository->findEntree(),
                 'placeholder' => 'Choisissez une entrée',
-                'label' => 'Entrée'
+                'label' => 'Entrée',
+                'choice_label' => 'title'
             ])
             ->add('main_dish', EntityType::class, [
                 'class' => Food::class,
                 'query_builder' => $this->foodRepository->findMainDish(),
                 'placeholder' => 'Choisissez un plat principal',
-                'label' => 'Plat principal'
+                'label' => 'Plat principal',
+                'choice_label' => 'title'
             ])
             ->add('dessert', EntityType::class, [
                 'class' => Food::class,
                 'query_builder' => $this->foodRepository->findDessert(),
                 'placeholder' => 'Choisissez un dessert',
-                'label' => 'Dessert'
+                'label' => 'Dessert',
+                'choice_label' => 'title'
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Ajouter !',
