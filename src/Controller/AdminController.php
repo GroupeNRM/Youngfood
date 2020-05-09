@@ -39,7 +39,6 @@ class AdminController extends AbstractController
                 ->setNotifTitle($form->get('Notif_Title')->getData())
                 ->setNotifText($form->get('Notif_Text')->getData())
                 ->setNotifDate()
-                ->setUser($this->getUser())
             ;
 
             $entityManager = $this->getDoctrine()->getManager();
