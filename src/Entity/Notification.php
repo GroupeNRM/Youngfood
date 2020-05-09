@@ -67,9 +67,9 @@ class Notification
         return $this->Notif_Date;
     }
 
-    public function setNotifDate(\DateTimeInterface $Notif_Date): self
+    public function setNotifDate(): self
     {
-        $this->Notif_Date = $Notif_Date;
+        $this->Notif_Date = new \DateTime();
 
         return $this;
     }
