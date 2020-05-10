@@ -31,6 +31,9 @@ class newNotificationType extends AbstractType
                 'required' => true
             ])
             ->add('Notif_Text', TextareaType::class, [
+                'attr' => [
+                    'rows' => 5
+                ],
                 'mapped' => false,
                 'constraints' => [
                     new NotBlank([
@@ -38,7 +41,7 @@ class newNotificationType extends AbstractType
                     ]),
                     new Length([
                         'max' => 255,
-                        'maxMessage' => 'Le Titre de la notification ne peut contenir plus de {{ limit }} caractères !'
+                        'maxMessage' => 'Le Message de la notification ne peut contenir plus de {{ limit }} caractères !'
                     ])
                 ],
                 'label' => 'Message de la notification',
