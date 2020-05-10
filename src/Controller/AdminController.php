@@ -57,7 +57,6 @@ class AdminController extends AbstractController
             'newNotification' => $form->createView()
         ]);
     }
-}
 
    /**
      * @Route("/admin/new-food", name="admin.newFood")
