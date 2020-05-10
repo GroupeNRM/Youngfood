@@ -48,9 +48,6 @@ Encore
     // New Child Form
     .addEntry('newchild', './assets/js/newchild.js')
 
-    // New Notification Page */
-    .addEntry('newNotification', './assets/js/newNotification.js')
-
     .enableVueLoader()
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.

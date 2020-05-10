@@ -10,22 +10,39 @@ form {
 
   textarea{
     resize: none;
-    width: 350px !important;
   }
 
-  .btn{
+  .btn {
     width: 225px;
     height: 50px;
-    color: #DDDDDD;
+    color: $pure-white;
     background-color: $main-green;
     border-color: $main-green;
+    font-size: 18px;
+
+    &:hover {
+      color: $pure-white;
+    }
   }
 
-  input[type=text], input[type=email], input[type=password], select, textarea {
+  input[type=text], input[type=email], input[type=password], select {
     border: 2px solid $main-grey;
     border-radius: 3px;
     width: 350px;
     height: 44px;
+
+    &:focus {
+      border-color: $main-green;
+      -webkit-appearance: none;
+      box-shadow: none !important;
+    }
+  }
+
+  //Répétition obligatoire sinon héritera de la hauteur également :/
+  textarea.form-control {
+    border: 2px solid $main-grey;
+    border-radius: 3px;
+    width: 350px;
 
     &:focus {
       border-color: $main-green;

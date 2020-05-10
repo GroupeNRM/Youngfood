@@ -270,43 +270,48 @@
                     </div>
 
                     <!-- Formulaire Nouvelle Intervention -->
-                    <div class="row">
 
-                        <div class="col-md-6 col-lg-4 mx-auto">
+                    <div class="container main-full-height">
 
-                            {{ form_start(newNotification) }}
+                        <div class="row h-100 justify-content-center align-items-center">
 
-                            <div class="row">
+                            <div class="col-md-6 col-lg-4 mx-auto">
 
-                                <div class="col-md-12">
+                                {{ form_start(newNotification) }}
 
-                                    {{ form_row(newNotification.Notif_Title) }}
+                                <div class="row">
 
-                                </div>
+                                    <div class="col-md-12">
 
-                            </div>
+                                        {{ form_row(newNotification.Notif_Title) }}
 
-                            <div class="row">
-
-                                <div class="col-md-12">
-
-                                    {{ form_row(newNotification.Notif_Text) }}
+                                    </div>
 
                                 </div>
 
-                            </div>
+                                <div class="row">
 
-                            <div class="row">
+                                    <div class="col-md-12">
 
-                                <div class="col-md-12 text-center">
+                                        {{ form_row(newNotification.Notif_Text) }}
 
-                                    <button class="btn"><i class="fa fa-plus mr-3"></i>Enregistrer</button>
+                                    </div>
 
                                 </div>
 
-                            </div>
+                                <div class="row">
 
-                            {{ form_end(newNotification) }}
+                                    <div class="col-md-12 text-center">
+
+                                        <button class="btn"><i class="fa fa-plus mr-3"></i>Enregistrer</button>
+
+                                    </div>
+
+                                </div>
+
+                                {{ form_end(newNotification) }}
+
+                            </div>
 
                         </div>
 
