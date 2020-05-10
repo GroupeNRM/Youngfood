@@ -8,6 +8,22 @@ form {
     margin-bottom: 0 !important;
   }
 
+  input, textarea{
+    width: 350px;
+  }
+
+  textarea{
+    resize: none;
+  }
+
+  .btn{
+    width: 225px;
+    height: 50px;
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+
   input[type=text], input[type=email], input[type=password], select {
     border: 2px solid $main-grey;
     border-radius: 3px;

@@ -21,7 +21,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/dashboard/new-notification", name="admin.new-notification")
+     * @Route("/admin/new-notification", name="admin.new-notification")
      * @param Request $request
      * @return Response
      */
