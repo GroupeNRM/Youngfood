@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
-use App\Entity\Notification;
 use App\Entity\User;
+use App\Entity\Notification;
 use App\Form\newNotificationType;
+use App\Entity\Food;
+use App\Form\newFoodType;
+use App\Service\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,7 +24,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/new-notification", name="admin.new-notification")
+     * @Route("/admin/new-notification", name="admin.newNotification")
      * @param Request $request
      * @return Response
      */
@@ -46,12 +49,46 @@ class AdminController extends AbstractController
             $entityManager->flush(); // Envoi de la Requête
 
             /* Redirection */
-            return $this->redirectToRoute('admin.new-notification');
+            return $this->redirectToRoute('admin.newNotification');
 
         }
 
         return $this->render('admin/notification/index.html.twig', [
             'newNotification' => $form->createView()
+        ]);
+    }
+}
+
+   /**
+     * @Route("/admin/new-food", name="admin.newFood")
+     * @param Request $request
+     * @param $fileUploader
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function newFood(Request $request, FileUploader $fileUploader)
+    {
+        $food = new Food();
+        $form = $this->createForm(newFoodType::class, $food);
+        $form->handleRequest($request);
+
+        /** @var Food $foodData */
+        $foodData = $form->getData();
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $food->setTitle($foodData->getTitle());
+            $food->setCategory($foodData->getCategory());
+            $profilePicture = $form->get('picture')->getData();
+            if($profilePicture) {
+                $pictureFileName = $fileUploader->upload($profilePicture);
+                $food->setPicture($pictureFileName);
+            }
+            $em->persist($food);
+            $em->flush();
+        }
+
+        return $this->render('admin/newFood.html.twig', [
+            'form' => $form->createView()
         ]);
     }
 }
