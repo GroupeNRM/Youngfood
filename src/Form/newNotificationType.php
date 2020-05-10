@@ -47,7 +47,6 @@ class newNotificationType extends AbstractType
                 'label' => 'Message de la notification',
                 'required' => true
             ])
-            //->add('Notif_Date')
         ;
     }
 
