@@ -30,7 +30,7 @@
                                 <div class="form-group">
                                     <label for="registration_form_gender" class="required">Sexe</label> <span class="label-error" v-if="this.error.sxError">{{this.error.sxError}}</span>
                                     <select id="registration_form_gender" name="registration_form[gender]" v-model="fields.sex ">
-                                        <option disabled value="">&nbsp</option>
+                                        <option disabled value="">&nbsp;</option>
                                         <option value="I">Inconnu</option>
                                         <option value="F">Femme</option>
                                         <option value="H">Homme</option>
