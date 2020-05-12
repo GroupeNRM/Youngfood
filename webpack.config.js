@@ -30,9 +30,9 @@ Encore
      * Each entry will result in one JavaScript file (e.g. app.js)
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
-    .addEntry('app', './assets/js/app.js')
 
-    .addEntry('vue', './assets/vue/index.js')
+    //Commun
+    .addEntry('app', './assets/js/app.js')
 
     //Register Page
     .addEntry('register', './assets/js/register.js')
@@ -45,8 +45,8 @@ Encore
     .addEntry('login', './assets/js/login.js')
 
     // Dashboard Pages
-    // New Child Form
-    .addEntry('newchild', './assets/js/newchild.js')
+    //Style commun aux Dashboard (users & admin)
+    .addEntry('dashboard', './assets/js/dashboard.js')
 
     .enableVueLoader()
 

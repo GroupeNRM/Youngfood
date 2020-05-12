@@ -8,7 +8,24 @@ form {
     margin-bottom: 0 !important;
   }
 
-  input[type=text], input[type=email], input[type=password], select {
+  textarea{
+    resize: none;
+  }
+
+  .btn {
+    width: 225px;
+    height: 50px;
+    color: $pure-white;
+    background-color: $main-green;
+    border-color: $main-green;
+    font-size: 18px;
+
+    &:hover {
+      color: $pure-white;
+    }
+  }
+
+  .form-control, .custom-file-label, select {
     border: 2px solid $main-grey;
     border-radius: 3px;
     width: 350px;
@@ -18,6 +35,34 @@ form {
       border-color: $main-green;
       -webkit-appearance: none;
       box-shadow: none !important;
+    }
+  }
+
+  //Répétition obligatoire sinon héritera de la hauteur également :/
+  textarea.form-control {
+    border: 2px solid $main-grey;
+    border-radius: 3px;
+    width: 350px;
+
+    &:focus {
+      border-color: $main-green;
+      -webkit-appearance: none;
+      box-shadow: none !important;
+    } 
+  }
+
+  .custom-file-input ~ .custom-file-label:lang(fr)::after {
+    content: "Parcourir...";
+  }
+
+  .custom-file-label {
+    padding-top: 10px;
+    overflow: hidden;
+
+    &::after {
+      padding-top: 10px;
+      border-radius: 0;
+      height: 100%;
     }
   }
 }

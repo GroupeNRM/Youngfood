@@ -90,7 +90,7 @@ class Child
         return $this->dateInscription;
     }
 
-    public function setDateInscription(\DateTimeInterface $dateInscription): self
+    public function setDateInscription(): self
     {
         $this->dateInscription = new \DateTime();
 
@@ -102,7 +102,7 @@ class Child
         return $this->noUser;
     }
 
-    public function setNoUser(?User $noUser): self
+    public function setNoUser($noUser): self
     {
         $this->noUser = $noUser;
 

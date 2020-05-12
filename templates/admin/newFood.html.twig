@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Youngfood - Ajouter un aliment{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('dashboard') }}
+{% endblock %}
+
+{% set centered_content = true %}
+
+{% use 'partials/menu.html.twig' %}
+
+{% block second_title %}
+    Ajouter un <span class="inner-green">nouvel aliment</span>
+{% endblock %}
+
+{% block main_content %}
+
+    <div class="col-md-4">
+
+            {{ form_start(form) }}
+                {{ form_row(form.title) }}
+
+                {{ form_row(form.category) }}
+
+                {{ form_row(form.picture, { 'attr': {'onchange': 'this.nextElementSibling.innerText = this.files[0].name'} }) }}
+            {{ form_end(form) }}
+
+        </div>
+
+{% endblock %}
+
+

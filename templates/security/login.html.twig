@@ -10,7 +10,7 @@
 
 {% block body %}
 
-    <div class="container mt-5 vh-100">
+    <div class="container-fluid">
 
         {% if app.user %}
 
@@ -36,96 +36,89 @@
 
         {% else %}
 
-            <div class="row">
+            <div class="row vh-100 d-flex align-items-center justify-content-center">
 
-                <div class="col-md-12 col-lg-12 text-center">
+                <div class="col-md-8">
 
-                    <h1 class="h3 mb-3 font-weight-normal">Vous êtes de retour ?</h1>
+                    <div class="row justify-content-center lm-logo">
+
+                        <div class="text-center">
+
+                            <img src="{{ asset('build/youngfood.svg') }}" alt="logo youngfood" class="mx-auto">
+
+                            <h1 class="mb-4">Vous êtes de retour ? <br> Vite, <span class="inner-green">connectez-vous !</span> 👍</h1>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row justify-content-center">
+
+                            <form method="post">
+
+                                {% if error %}
+
+                                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+
+                                {% endif %}
+
+                                <div class="form-group">
+
+                                    <label for="inputEmail">Email</label>
+                                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label for="inputPassword">Mot de Passe</label>
+                                    <input type="password" name="password" id="inputPassword" class="form-control" required>
+
+                                </div>
+
+                                <div class="custom-control custom-switch">
+
+                                    <input type="checkbox" class="custom-control-input" id="remember_me" name="_remember_me" checked/>
+                                    <label class="custom-control-label" for="remember_me">SE SOUVENIR DE MOI</label>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                                </div>
+
+                                <div class="form-group text-center">
+
+                                    <button class="btn btn-lg btn-success" type="submit">Connexion</button>
+
+                                </div>
+
+                            </form>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+
+                            <div class="row justify-content-center">
+
+                                <p>Vous n'avez pas de compte ? <a class="link-form" href="{{ path('signup.index') }}">Inscrivez-vous</a> !</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
             </div>
 
-            <div class="row">
-
-                <div class="col-md-12 col-lg-12 text-center">
-
-                    <h1 class="h3 mb-3 font-weight-normal">Vite, connectez-vous ! 👍</h1>
-
-                </div>
-
-            </div>
-
-            <div class="row">
-
-                <div class="col-md-6 col-lg-4 mx-auto">
-
-                    <form method="post">
-
-                        {% if error %}
-
-                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-
-                        {% endif %}
-
-                        <div class="form-group">
-
-                            <label for="inputEmail">Email</label>
-                            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
-
-                        </div>
-
-                        <div class="form-group">
-
-                            <label for="inputPassword">Mot de Passe</label>
-                            <input type="password" name="password" id="inputPassword" class="form-control" required>
-
-                        </div>
-
-                        <div class="custom-control custom-switch">
-
-                            <input type="checkbox" class="custom-control-input" id="remember_me" name="_remember_me" checked/>
-                            <label class="custom-control-label" for="remember_me">SE SOUVENIR DE MOI</label>
-
-                        </div>
-
-                        <div class="form-group">
-
-                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-                        </div>
-
-                        <div class="form-group text-center">
-
-                            <button class="btn btn-lg btn-success" type="submit">Connexion</button>
-
-                        </div>
-
-                    </form>
-
-                </div>
-
-            </div>
-
-            <div class="row">
-
-                <div class="col-md-12 col-lg-12 text-center">
-
-                    <p>Vous n'avez pas de compte ? <a href="{{ path('signup.index') }}">Inscrivez-vous</a> !</p>
-
-                </div>
-
-            </div>
-
-            <div class="row">
-
-                <div class="col-md-12 col-lg-12 text-left">
-
-                    <a class="btn btn-lg btn-light" href="{{path('home.index')}}"><i class="fa fa-chevron-left"></i> Précédent</a>
-
-                </div>
-
-            </div>
+            <a class="nav-title left h3" href="{{path('home.index')}}"><i class="fa fa-chevron-left"></i> Précédent</a>
 
         {% endif %}
 

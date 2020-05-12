@@ -15,6 +15,10 @@
 .idea/
 .env
 .env.test
+src/Migrations/
+
+# Ignore the CSS/JS files of APIPlatform, FosJS etc..
+public/bundles/
 
 # Generated files
 .idea/**/contentModel.xml
