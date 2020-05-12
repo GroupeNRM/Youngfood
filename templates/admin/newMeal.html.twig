@@ -7,9 +7,12 @@
 {% endblock %}
 
 {% block body %}
-    {{ form_start(form) }}
-    {{ form_end(form) }}
+
+    <div id="app-new-meal"></div>
+
 {% endblock %}
 
-
+{% block javascripts %}
+    {{ encore_entry_script_tags('newMeal') }}
+{% endblock %}
 

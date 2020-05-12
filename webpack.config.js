@@ -48,6 +48,8 @@ Encore
     //Style commun aux Dashboard (users & admin)
     .addEntry('dashboard', './assets/js/dashboard.js')
 
+    .addEntry('newMeal', './assets/js/newMeal.js')
+
     // New Child Form
     .addEntry('newchild', './assets/js/newchild.js')
 
