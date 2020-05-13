@@ -1,16 +1,47 @@
 @import "variables";
 
 .food-card {
-  img {
-    border-radius: 15px;
-    min-width: 100%;
-    height: 190px;
+  .img-thumb {
+    position: relative;
+
+    img {
+      border-radius: 15px;
+      min-width: 100%;
+      height: 190px;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .selected {
+      border: 3px solid $main-green;
+      border-radius: 15px;
+    }
+  }
+
+  span {
+    position: absolute;
+    display: block;
+    text-align: center;
+    line-height: 39px;
+    bottom: -20px;
+    right: -20px;
+    background: $main-green;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    color: $pure-white;
+
+    i {
+      z-index: -1;
+    }
   }
 }
 
 #progressBar {
   width: 1000px;
   margin: 3em auto;
+  height: 100px;
+
   .progress_bar {
     counter-reset: step;
 
@@ -20,8 +51,9 @@
       width: 25%;
       position: relative;
       text-align: center;
+      z-index: 1;
 
-      &:before {
+      &::before {
         content: counter(step);
         counter-increment: step;
         width: 50px;
@@ -35,7 +67,7 @@
         background-color: white;
       }
 
-      &:after {
+      &::after {
         content: '';
         position: absolute;
         width: 100%;
@@ -43,10 +75,11 @@
         background-color: $main-green;
         top: 25px;
         left: -50%;
+        z-index: -1;
       }
 
       &:first-child {
-        &:after {
+        &::after {
           content: none;
         }
       }
