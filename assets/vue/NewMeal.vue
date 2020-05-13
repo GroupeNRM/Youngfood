@@ -32,10 +32,11 @@
             this.loadEntree();
         },
         methods: {
+            // Permet de passer à une nouvelle étape
             next: function () {
                 if(this.activeChoice !== undefined) {
                     if(this.step === 0) {
-                        this.loadPlatPrincipaux();
+                        this.loadPlatsPrincipaux();
                     } else if(this.step === 1) {
                         this.loadDessert();
                     }
@@ -47,6 +48,7 @@
                     });
                 }
             },
+            // Charge les entrées en AJAX
             loadEntree: function () {
                 axios.get('/api/food?category=E&page=1')
                     .then(response => this.aliments = response.data['hydra:member'])
@@ -55,7 +57,9 @@
                     });
                 console.log(this.step);
             },
-            loadPlatPrincipaux: function () {
+
+            // Charge les plats principaux en AJAX
+            loadPlatsPrincipaux: function () {
                 axios.get('/api/food?category=P&page=1')
                     .then(response => this.aliments = response.data['hydra:member'])
                     .catch(function() {
@@ -64,6 +68,8 @@
                 this.step++;
                 console.log(this.step);
             },
+
+            // Charge les desserts en AJAX
             loadDessert: function () {
                 axios.get('/api/food?category=D&page=1')
                     .then(response => {
@@ -77,6 +83,8 @@
                 this.btnText = 'Finaliser'
                 console.log(this.step);
             },
+
+            // Permet de selectionner un aliment dans l'étape actuelle
             setActive(index) {
                 this.activeChoice = index;
             }

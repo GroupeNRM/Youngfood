@@ -3,6 +3,7 @@ import Vue from "vue";
 import NewMeal from "../vue/NewMeal";
 import Toasted from "vue-toasted";
 
+// Utilisation des toasts (notifications)
 Vue.use(Toasted);
 
 new Vue({
