@@ -1,17 +1,17 @@
 <template>
     <div id="progressBar">
-        <ul class="progress_bar">
-            <li>Entrée</li>
-            <li>Plat</li>
-            <li>Dessert</li>
-            <li>Validation</li>
+        <ul class="list-unstyled multi-steps">
+            <li id="step1" class="is-active">Entrée</li>
+            <li id="step2">Plat principal</li>
+            <li id="step3">Dessert</li>
+            <li id="step4">Validation</li>
         </ul>
     </div>
 </template>
 
 <script>
     export default {
-        name: "Progression-Bar"
+        name: "Progression-Bar",
     }
 </script>
 
