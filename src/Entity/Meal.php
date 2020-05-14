@@ -7,6 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MealRepository")
+ * @ApiResource(
+ *     collectionOperations={"post"},
+ *     itemOperations={}
+ * )
  */
 class Meal
 {
