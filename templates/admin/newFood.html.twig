@@ -24,6 +24,9 @@
                 {{ form_row(form.category) }}
 
                 {{ form_row(form.picture, { 'attr': {'onchange': 'this.nextElementSibling.innerText = this.files[0].name'} }) }}
+
+                {{ form_row(form.information) }}
+
             {{ form_end(form) }}
 
         </div>
