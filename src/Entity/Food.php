@@ -41,6 +41,9 @@ class Food
     private $picture;
 
     /**
+     * @Assert\Length(
+     *     max = "250"
+     * )
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $information;

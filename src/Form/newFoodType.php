@@ -53,13 +53,10 @@ class newFoodType extends AbstractType
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
-                    new NotBlank([
-                        'message' => 'Veuillez renseignez les informations nécessaires sur le plat choisit !',
-                    ]),
                     new Length([
                         'max' => '250',
                         'maxMessage' => 'Limite de caractères dépassées : {{ limit }} maximum !',
-                    ])
+                    ]),
                 ],
                 'attr' => [
                     'class' => 'form-control',
