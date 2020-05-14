@@ -40,6 +40,11 @@ class Food
      */
     private $picture;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $information;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -77,6 +82,18 @@ class Food
     public function setPicture(?string $picture): self
     {
         $this->picture = $picture;
+
+        return $this;
+    }
+
+    public function getInformation(): ?string
+    {
+        return $this->information;
+    }
+
+    public function setInformation(?string $information): self
+    {
+        $this->information = $information;
 
         return $this;
     }
