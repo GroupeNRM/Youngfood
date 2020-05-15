@@ -44,7 +44,7 @@ Encore
     // Login Page
     .addEntry('login', './assets/js/login.js')
 
-    // Request New Password
+    // Request & Confirmation New Password
     .addEntry('request', './assets/js/request.js')
 
     // Dashboard Pages

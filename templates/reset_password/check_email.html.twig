@@ -1,8 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Password Reset Email Sent{% endblock %}
+{% block stylesheets %}
+    {{ encore_entry_link_tags('request') }}
+{% endblock %}
+
+{% block title %}YoungFood - Requête envoyée{% endblock %}
 
 {% block body %}
-    <p>An email has been sent that contains a link that you can click to reset your password. This link will expire in {{ tokenLifetime|date('g') }} hour(s).</p>
-    <p>If you don't receive an email please check your spam folder or <a href="{{ path('app_forgot_password_request') }}">try again</a>.</p>
+    <div class="container-fluid">
+        <div class="row vh-100 d-flex align-items-center justify-content-center">
+            <div class="col-md-8">
+                <div class="row justify-content-center lm-logo">
+                    <div class="text-center">
+                        <img src="{{ asset('build/youngfood.svg') }}" alt="logo youngfood" class="mx-auto">
+                        <h1 class="mb-4">Requête envoyée !<br> Vous allez recevoir un mail ! <span class="inner-green">Suivez les indications !</span></h1>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="text-center">
+                        <p>Si vous n'avez rien reçu, vous pouvez réessayer en cliquant sur ce <a class="btn-link" href="{{ path('app_forgot_password_request') }}">lien</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
