@@ -157,7 +157,9 @@
             // Envoi le nouveau repas vers l'API
             sendNewMeal() {
                 axios.post('/api/meals', {
-                    '@id': this.selectedFood
+                    'entree': `/api/food/${this.selectedFood.entree}`,
+                    'mainDish': `/api/food/${this.selectedFood.platprincipal}`,
+                    'dessert': `/api/food/${this.selectedFood.dessert}`
                 }).then(function(response) {
                     alert('cc');
                 })
