@@ -51,9 +51,6 @@ Encore
     // New Meal 
     .addEntry('newMeal', './assets/js/newMeal.js')
 
-    // New Child Form
-    .addEntry('newchild', './assets/js/newchild.js')
-
     .enableVueLoader()
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.

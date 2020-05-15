@@ -4,7 +4,6 @@
 
 {% block stylesheets %}
 
-    {{ encore_entry_link_tags('newchild') }}
     {{ encore_entry_link_tags('dashboard') }}
 
 {% endblock %}
@@ -47,4 +46,8 @@
 
         </div>
 
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('dashboard') }}
 {% endblock %}
