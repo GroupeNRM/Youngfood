@@ -44,6 +44,9 @@ Encore
     // Login Page
     .addEntry('login', './assets/js/login.js')
 
+    // Request New Password
+    .addEntry('request', './assets/js/request.js')
+
     // Dashboard Pages
     //Style commun aux Dashboard (users & admin)
     .addEntry('dashboard', './assets/js/dashboard.js')
