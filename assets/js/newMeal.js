@@ -4,7 +4,9 @@ import NewMeal from "../vue/NewMeal";
 import Toasted from "vue-toasted";
 
 // Utilisation des toasts (notifications)
-Vue.use(Toasted);
+Vue.use(Toasted, {
+    iconPack: 'fontawesome'
+});
 
 new Vue({
     components: { NewMeal },

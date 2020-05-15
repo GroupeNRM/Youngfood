@@ -94,7 +94,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/new-meal", name="admin.newMeal")
+     * @Route("/admin/new-meal", name="admin.newMeal", options={"expose"=true})
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
