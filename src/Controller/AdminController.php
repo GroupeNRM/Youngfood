@@ -77,8 +77,10 @@ class AdminController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
             $food->setTitle($foodData->getTitle());
             $food->setCategory($foodData->getCategory());
+            $food->setInformation($form->get('information')->getData());
             $profilePicture = $form->get('picture')->getData();
             if($profilePicture) {
                 $pictureFileName = $fileUploader->upload($profilePicture);
@@ -86,6 +88,8 @@ class AdminController extends AbstractController
             }
             $em->persist($food);
             $em->flush();
+
+            return $this->redirectToRoute('admin.newFood');
         }
 
         return $this->render('admin/newFood.html.twig', [
