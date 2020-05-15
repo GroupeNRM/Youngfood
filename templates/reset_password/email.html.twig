@@ -1,11 +1,11 @@
-<h1>Hi!</h1>
+<h1>Bonjour !</h1>
 
 <p>
-    To reset your password, please visit
-    <a href="{{ url('app_reset_password', {token: resetToken.token}) }}">here</a>
-    This link will expire in {{ tokenLifetime|date('g') }} hour(s)..
+    Pour modifier votre mot de passe, veuillez s'il vous plaît, cliquer
+    <a href="{{ url('app_reset_password', {token: resetToken.token}) }}">ici</a>
+    Attention, ce lien sera désactivé dans {{ tokenLifetime|date('g') }} heure(s) !
 </p>
 
 <p>
-    Cheers!
+    Coredialement ! YoungFood Application ^^
 </p>
