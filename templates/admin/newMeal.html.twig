@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Youngfood | Ajouter un nouveau repas{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('dashboard') }}
+    {{ encore_entry_link_tags('newMeal') }}
+{% endblock %}
+
+{% use 'partials/menu.html.twig' %}
+
+{% block second_title %}
+    Créer un <span class="inner-green">nouveau repas</span>
+{% endblock %}
+
+{% block main_content %}
+
+    <div id="app-new-meal"></div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('newMeal') }}
+{% endblock %}
+
