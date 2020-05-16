@@ -106,4 +106,13 @@ class AdminController extends AbstractController
     {
         return $this->render('admin/newMeal.html.twig');
     }
+
+    /**
+     * @Route("/admin/new-booking", name="admin/newBooking")
+     * @return Response
+     */
+    public function newBooking()
+    {
+        return $this->render('admin/newBooking.html.twig');
+    }
 }

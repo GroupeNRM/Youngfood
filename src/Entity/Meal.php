@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MealRepository")
  * @ApiResource(
- *     collectionOperations={"post"},
+ *     collectionOperations={"post", "get"},
  *     itemOperations={"get"}
  * )
  */
