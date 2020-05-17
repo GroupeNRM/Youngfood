@@ -8,7 +8,10 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=BookingRepository::class)
- * @ApiResource()
+ * @ApiResource(
+ *     collectionOperations={"post", "get"},
+ *     itemOperations={"get"}
+ * )
  */
 class Booking
 {
