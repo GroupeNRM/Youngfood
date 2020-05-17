@@ -39,6 +39,11 @@ class Meal
      */
     private $dessert;
 
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $title;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -76,6 +81,18 @@ class Meal
     public function setDessert(?Food $dessert): self
     {
         $this->dessert = $dessert;
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
 
         return $this;
     }
