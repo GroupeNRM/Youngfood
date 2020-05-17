@@ -51,6 +51,9 @@ Encore
     // New Meal 
     .addEntry('newMeal', './assets/js/newMeal.js')
 
+    // Home Notifications
+    .addEntry('listNotification', './assets/js/listNotification.js')
+
     .enableVueLoader()
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
