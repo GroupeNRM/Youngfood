@@ -44,6 +44,9 @@ Encore
     // Login Page
     .addEntry('login', './assets/js/login.js')
 
+    // Reset Password
+    .addEntry('reset', './assets/js/reset-password.js')
+
     // Dashboard Pages
     //Style commun aux Dashboard (users & admin)
     .addEntry('dashboard', './assets/js/dashboard.js')
