@@ -7,6 +7,8 @@
     {{ encore_entry_link_tags('newBooking') }}
 {% endblock %}
 
+{% set centered_content = true %}
+
 {% use 'partials/menu.html.twig' %}
 
 {% block second_title %}
@@ -15,7 +17,9 @@
 
 {% block main_content %}
 
-    <div id="app-new-booking"></div>
+    <div class="col-md-4">
+        <div id="app-new-booking"></div>
+    </div>
 
 {% endblock %}
 

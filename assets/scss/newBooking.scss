@@ -1,0 +1,7 @@
+@import "variables";
+@import "form";
+
+// Date picker se met automatiquement en readonly
+.form-control:disabled, .form-control[readonly] {
+  background-color: $pure-white !important;
+}
