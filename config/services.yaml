@@ -4,7 +4,7 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    profilePicture_directory: '%kernel.project_dir%/public/uploads/profile_picture'
+    foodPicture_directory: '%kernel.project_dir%/public/uploads/food_picture'
 
 services:
     # default configuration for services in *this* file
@@ -29,4 +29,4 @@ services:
 
     App\Service\FileUploader:
         arguments:
-            $targetDirectory: '%profilePicture_directory%'
+            $targetDirectory: '%foodPicture_directory%'

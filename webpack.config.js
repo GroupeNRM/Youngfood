@@ -51,6 +51,9 @@ Encore
     //Style commun aux Dashboard (users & admin)
     .addEntry('dashboard', './assets/js/dashboard.js')
 
+    // New Meal 
+    .addEntry('newMeal', './assets/js/newMeal.js')
+
     .enableVueLoader()
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.

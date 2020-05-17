@@ -141,7 +141,7 @@
                 }
             }
         },
-        name: "Form",
+        name: "Register",
         components: {Card}
     }
 </script>

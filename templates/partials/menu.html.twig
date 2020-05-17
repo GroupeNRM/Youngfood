@@ -1,27 +1,23 @@
 {% block body %}
-    <nav class="navbar navbar-dark sticky-top flex-md-nowrap p-3" style="background-color: #F2F2F2">
+    <nav class="navbar grey-navbar sticky-top flex-md-nowrap p-3 border-bottom">
 
         <span class="navbar-brand col-sm-3 col-md-2 mr-0 text-center text-dark">Tableau de bord - <span class="inner-green">ADMIN</span></span>
 
-
         <ul class="nav justify-content-end">
-            <li class="nav-item text-light">
-                <img src="{{ asset('build/bell-icon.svg') }}"class="rounded-circle" width="30">
-            </li>
+            <li id="notification"></li>
 
             <li class="nav-item mr-5 ml-5">
-                <img src="{{ asset('build/avatar-homme.svg') }}"class="rounded-circle" width="50">
+                <img src="{{ asset('build/avatar-homme.svg') }}" class="rounded-circle" width="50" alt="Image d'avatar">
             </li>
-
         </ul>
 
     </nav>
 
     <div class="container-fluid">
 
-        <div class="row" style="height: 1080px; background-color: #F2F2F2">
+        <div class="row main-full-height grey-navbar">
 
-            <nav class="col-md-2 d-none d-md-block sidebar" style="background-color: #F2F2F2">
+            <nav class="col-md-2 d-none d-md-block sidebar grey-navbar border-right">
 
                 <div class="sidebar-sticky">
 
@@ -38,7 +34,6 @@
                             <a class="nav-link text-dark" href="#" >
                                 <i class="far fa-chart-bar"></i>
                                 Statistiques
-
                             </a>
 
                         </li>
@@ -48,7 +43,6 @@
                             <a class="nav-link text-dark" href="#" >
                                 <i class="fas fa-utensils"></i>
                                 Menus
-
                             </a>
 
                         </li>
@@ -57,7 +51,6 @@
                             <a class="nav-link text-dark" href="#" >
                                 <i class="far fa-calendar-check"></i>
                                 Réservations
-
                             </a>
 
                         </li>
@@ -67,9 +60,7 @@
 
                             <a class="nav-link text-dark" href="#">
                                 <i class="far fa-money-bill-alt"></i>
-
                                 Paiements
-
                             </a>
 
                         </li>
@@ -80,7 +71,6 @@
                             <a class="nav-link text-dark" href="#" >
                                 <i class="far fa-heart"></i>
                                 Plats likés
-
                             </a>
 
                         </li>
@@ -88,11 +78,8 @@
                         <li class="nav-item">
 
                             <a class="nav-link text-dark" href="#">
-
                                 <i class="fas fa-users"></i>
-
                                 Utilisateurs
-
                             </a>
 
                         </li>
@@ -100,9 +87,7 @@
                     </ul>
 
                     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-5 mb-2 text-muted">
-
                         <span>Infos personnelles</span>
-
                     </h6>
 
                     <ul class="nav flex-column mb-2">
@@ -113,7 +98,6 @@
 
                                 <i class="far fa-address-card"></i>
                                 Voir mon profil
-
                             </a>
 
                         </li>
@@ -124,7 +108,6 @@
 
                                 <i class="fas fa-unlock-alt"></i>
                                 Modifier le mot de passe
-
                             </a>
 
                         </li>
@@ -158,7 +141,6 @@
                             <a class="nav-link text-danger" href="#">
                                 <i class="fas fa-sign-out-alt"></i>
                                 Déconnexion
-
                             </a>
 
                         </li>
@@ -171,7 +153,7 @@
 
                     <small class="mt-5 text-muted">
 
-                        MyCantine V 1.0
+                        Youngfood V0.5
 
                     </small>
 
@@ -210,3 +192,9 @@
 
     </div>
 {% endblock %}
+<script>
+    import Notification from "../../assets/vue/Notification";
+    export default {
+        components: {Notification}
+    }
+</script>

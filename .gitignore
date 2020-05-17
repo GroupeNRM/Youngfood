@@ -14,8 +14,10 @@
 .idea/**/shelf
 .idea/
 .env
+.env.local
 .env.test
 src/Migrations/
+public/uploads/
 
 # Ignore the CSS/JS files of APIPlatform, FosJS etc..
 public/bundles/

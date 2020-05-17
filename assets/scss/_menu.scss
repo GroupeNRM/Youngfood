@@ -1,0 +1,25 @@
+@import "variables";
+
+.center-icon {
+  line-height: 50px;
+}
+
+.grey-navbar {
+  background-color: $navbar-grey;
+}
+
+.passive-bell {
+  position: relative;
+  cursor: pointer;
+}
+
+.new-notification {
+  position: absolute;
+  content: "";
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+  top: 18px;
+  right: 4px;
+  background-color: red;
+}
