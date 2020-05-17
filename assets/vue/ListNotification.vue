@@ -2,21 +2,23 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <table class="table table-striped">
+                <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Titre</th>
-                            <th scope="col">Contenu</th>
-                            <th scope="col">Date</th>
+                            <th scope="col" class="text-center">Titre</th>
+                            <th scope="col" class="text-center">Contenu</th>
+                            <th scope="col" class="text-center">Date</th>
+                            <th scope="col" class="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for="notification in notifications" :key="notification.id">
                             <th scope="row">{{ notification.id }}</th>
-                            <th scope="row">{{ notification.notifTitle }}</th>
-                            <th scope="row">{{ notification.notifText }}</th>
-                            <th scope="row">{{ notification.notifDate }}</th>
+                            <th scope="row" class="text-center">{{ notification.notifTitle }}</th>
+                            <th scope="row" class="text-center">{{ notification.notifText }}</th>
+                            <th scope="row" class="text-center">{{ notification.notifDate }}</th>
+                            <th scope="row" class="text-center"><i class="fas fa-trash" v-on:click="removeElement(notification)"></i></th>
                         </tr>
                     </tbody>
                 </table>
@@ -47,7 +49,20 @@
                         console.log(this.notifications)
                     })
                     .catch(function () {
-                        console.log('Erreur dans le chargement!');
+                        console.log('Erreur dans le chargement!')
+                    })
+                    .finally(function () {
+                        // always executed
+                    });
+            },
+            removeElement: function(notification){
+                axios.delete(`/api/notifications/${notification.id}`)
+                    .then(() => {
+                        this.notifications.splice(this.notifications.indexOf(notification), 1)
+                        console.log('Notification Supprimée !')
+                    })
+                    .catch(function () {
+                        console.log('Erreur : Notification non supprimée !')
                     })
                     .finally(function () {
                         // always executed
