@@ -54,6 +54,9 @@ Encore
     // New Meal 
     .addEntry('newMeal', './assets/js/newMeal.js')
 
+    // Home Notifications
+    .addEntry('listNotification', './assets/js/listNotification.js')
+
     // New Booking
     .addEntry('newBooking', './assets/js/newBooking.js')
 

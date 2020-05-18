@@ -60,6 +60,15 @@ class AdminController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/admin/notifications", name="admin.notifications")
+     * @return Response
+     */
+    public function listNotification()
+    {
+        return $this->render('admin/notification/list.html.twig');
+    }
+
    /**
      * @Route("/admin/new-food", name="admin.newFood")
      * @param Request $request

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Youngfood - Notifications{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('dashboard') }}
+    {{ encore_entry_link_tags('listNotification') }}
+{% endblock %}
+
+{% use 'partials/menu.html.twig' %}
+
+{% block second_title %}
+    Consulter mes <span class="inner-green">notifications</span>
+{% endblock %}
+
+{% block main_content %}
+
+    <div id="app-list-notification"></div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('dashboard') }}
+    {{ encore_entry_script_tags('listNotification') }}
+{% endblock %}
+
