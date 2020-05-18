@@ -1,27 +1,37 @@
 <template>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col" class="text-center">Titre</th>
-                            <th scope="col" class="text-center">Contenu</th>
-                            <th scope="col" class="text-center">Date</th>
-                            <th scope="col" class="text-center">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="notification in notifications" :key="notification.id">
-                            <th scope="row">{{ notification.id }}</th>
-                            <th scope="row" class="text-center">{{ notification.notifTitle }}</th>
-                            <th scope="row" class="text-center">{{ notification.notifText }}</th>
-                            <th scope="row" class="text-center">{{ notification.notifDate }}</th>
-                            <th scope="row" class="text-center"><i class="fas fa-trash" v-on:click="removeElement(notification)"></i></th>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="col-md-1 text-center">
+                ID
+            </div>
+            <div class="col-md-4 text-center">
+                Titre
+            </div>
+            <div class="col-md-4 text-center">
+                Contenu de la notification
+            </div>
+            <div class="col-md-2 text-center">
+                Date d'émission
+            </div>
+            <div class="col-md-1 text-center">
+                Actions
+            </div>
+        </div>
+        <div class="row notification-wrapper mb-2" v-for="notification in notifications" :key="notification.id">
+            <div class="col-md-1 text-center">
+                {{ notification.id }}
+            </div>
+            <div class="col-md-4 text-center">
+                <span class="title-notification">{{ notification.notifTitle }}</span>
+            </div>
+            <div class="col-md-4 text-center overflow-hidden">
+                {{ notification.notifText }}
+            </div>
+            <div class="col-md-2 text-center overflow-hidden">
+                {{ notification.notifDate }}
+            </div>
+            <div class="col-md-1 text-center">
+                <i class="fas fa-trash" v-on:click="removeElement(notification)"></i>
             </div>
         </div>
     </div>
@@ -46,26 +56,18 @@
                 axios.get('/api/notifications?page=1')
                     .then((response) => {
                         this.notifications = response.data['hydra:member']
-                        console.log(this.notifications)
                     })
                     .catch(function () {
                         console.log('Erreur dans le chargement!')
-                    })
-                    .finally(function () {
-                        // always executed
                     });
             },
             removeElement: function(notification){
                 axios.delete(`/api/notifications/${notification.id}`)
                     .then(() => {
-                        this.notifications.splice(this.notifications.indexOf(notification), 1)
-                        console.log('Notification Supprimée !')
+                        this.notifications.splice(this.notifications.indexOf(notification), 1);
                     })
                     .catch(function () {
-                        console.log('Erreur : Notification non supprimée !')
-                    })
-                    .finally(function () {
-                        // always executed
+                        console.log('Erreur : Notification non supprimée !');
                     });
             }
         }
