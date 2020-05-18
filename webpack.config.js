@@ -54,6 +54,9 @@ Encore
     // New Meal 
     .addEntry('newMeal', './assets/js/newMeal.js')
 
+    // New Booking
+    .addEntry('newBooking', './assets/js/newBooking.js')
+
     .enableVueLoader()
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
