@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MealRepository")
  * @ApiResource(
- *     collectionOperations={"post"},
+ *     collectionOperations={"post", "get"},
  *     itemOperations={"get"}
  * )
  */
@@ -38,6 +38,11 @@ class Meal
      * @ORM\JoinColumn(nullable=false)
      */
     private $dessert;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $title;
 
     public function getId(): ?int
     {
@@ -76,6 +81,18 @@ class Meal
     public function setDessert(?Food $dessert): self
     {
         $this->dessert = $dessert;
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
 
         return $this;
     }

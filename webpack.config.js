@@ -44,6 +44,9 @@ Encore
     // Login Page
     .addEntry('login', './assets/js/login.js')
 
+    // Reset Password
+    .addEntry('reset', './assets/js/reset-password.js')
+
     // Dashboard Pages
     //Style commun aux Dashboard (users & admin)
     .addEntry('dashboard', './assets/js/dashboard.js')
@@ -53,6 +56,9 @@ Encore
 
     // Home Notifications
     .addEntry('listNotification', './assets/js/listNotification.js')
+
+    // New Booking
+    .addEntry('newBooking', './assets/js/newBooking.js')
 
     .enableVueLoader()
 

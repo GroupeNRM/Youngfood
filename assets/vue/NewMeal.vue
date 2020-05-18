@@ -23,11 +23,15 @@
         </div>
 
         <div v-else>
-            <button @click="sendNewMeal" class="btn btn-success">Validation!</button>
-            <div class="row">
-                <h1>Votre repas :</h1>
-                <Food v-for="aliment in tempDataActiveChoice" :data="aliment" :path="path" :key="selectedFood.aliment"/>
-            </div>
+            <form>
+                <button @click="sendNewMeal" class="btn btn-success">Validation!</button>
+                <div class="row">
+                    <h1>Votre repas :</h1>
+                    <Food v-for="aliment in tempDataActiveChoice" :data="aliment" :path="path" :key="selectedFood.aliment"/>
+                </div>
+                <label for="title_meal">Titre du repas</label>
+                <input type="text" id="title_meal" class="form-control" v-model="titleMeal">
+            </form>
         </div>
     </div>
 </template>
@@ -57,7 +61,8 @@
                 isLoading: true,
                 selectedFood: {},
                 tempDataActiveChoice: {},
-                final: false
+                final: false,
+                titleMeal: undefined
             }
         },
         mounted() {
@@ -157,28 +162,36 @@
             },
 
             // Envoi le nouveau repas vers l'API
-            sendNewMeal() {
-                axios.post('/api/meals', {
-                    'entree': `/api/food/${this.selectedFood.entree}`,
-                    'mainDish': `/api/food/${this.selectedFood.platprincipal}`,
-                    'dessert': `/api/food/${this.selectedFood.dessert}`
-                }).then(() => {
-                    document.getElementById('step4').classList.remove("is-active");
-                    let toast = this.$toasted.success("Repas enregistré!", {
+            sendNewMeal(e) {
+                e.preventDefault(); // Nous sommes dans une balise form, empêche l'actualisation par défaut
+                if(this.titleMeal !== undefined) {
+                    axios.post('/api/meals', {
+                        'entree': `/api/food/${this.selectedFood.entree}`,
+                        'mainDish': `/api/food/${this.selectedFood.platprincipal}`,
+                        'dessert': `/api/food/${this.selectedFood.dessert}`,
+                        'title': this.titleMeal
+                    }).then(() => {
+                        document.getElementById('step4').classList.remove("is-active");
+                        let toast = this.$toasted.success("Repas enregistré!", {
+                            theme: "toasted-primary",
+                            icon: "check",
+                            position: "top-right",
+                            duration : 3000
+                        });
+                        window.location.href = Routing.generate('admin.newMeal');
+                    }).catch(function(response) {
+                        console.log(`Erreur pour aider le développeur dans sa quète du débugage : ${response}`);
+                    }).finally(() => {
+                        this.isLoading = false;
+                    });
+                } else {
+                    let toast = this.$toasted.error("Veuillez saisir un titre!", {
                         theme: "toasted-primary",
-                        icon: "check",
+                        icon: "times",
                         position: "top-right",
                         duration : 3000
                     });
-
-                    window.location.href = Routing.generate('admin.newMeal');
-                })
-                .catch(function(response) {
-                    console.log(`Erreur pour aider le développeur dans sa quète du débugage : ${response}`);
-                })
-                .finally(() => {
-                    this.isLoading = false;
-                })
+                }
             }
         }
     }
