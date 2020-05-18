@@ -5,3 +5,15 @@
 .form-control:disabled, .form-control[readonly] {
   background-color: $pure-white !important;
 }
+
+.vdp-datepicker__calendar .cell.highlighted {
+  background: lighten($main-green, 20%) !important;
+}
+
+.vdp-datepicker__calendar .cell:hover {
+  border: 1px solid darken($main-green, 10%) !important;
+}
+
+.vdp-datepicker__calendar .cell.selected {
+  background: $main-green !important;
+}

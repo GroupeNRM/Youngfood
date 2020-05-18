@@ -108,7 +108,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/new-booking", name="admin.newBooking", options={"expose"=true})
+     * @Route("/admin/new-booking", name="admin.newBooking")
      * @return Response
      */
     public function newBooking()
