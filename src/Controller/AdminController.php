@@ -15,10 +15,15 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class AdminController
+ * @package App\Controller
+ * @Route("/admin", name="admin.")
+ */
 class AdminController extends AbstractController
 {
     /**
-     * @Route("/admin", name="admin.index")
+     * @Route("/", name="index")
      */
     public function index()
     {
@@ -26,7 +31,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/new-notification", name="admin.newNotification")
+     * @Route("/new-notification", name="newNotification")
      * @param Request $request
      * @return Response
      */
@@ -61,7 +66,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/notifications", name="admin.notifications")
+     * @Route("/notifications", name="notifications")
      * @return Response
      */
     public function listNotification()
@@ -70,7 +75,7 @@ class AdminController extends AbstractController
     }
 
    /**
-     * @Route("/admin/new-food", name="admin.newFood")
+     * @Route("/new-food", name="newFood")
      * @param Request $request
      * @param FileUploader $fileUploader
      * @return \Symfony\Component\HttpFoundation\Response
@@ -107,7 +112,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/new-meal", name="admin.newMeal", options={"expose"=true})
+     * @Route("/new-meal", name="newMeal", options={"expose"=true})
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -117,7 +122,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/new-booking", name="admin.newBooking")
+     * @Route("/new-booking", name="newBooking")
      * @return Response
      */
     public function newBooking()

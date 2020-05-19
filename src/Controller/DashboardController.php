@@ -11,10 +11,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class DashboardController
+ * @package App\Controller
+ * @Route("/dashboard", name="dashboard.")
+ */
 class DashboardController extends AbstractController
 {
     /**
-     * @Route("/dashboard", name="dashboard.index", options={"expose"=true})
+     * @Route("/", name="index", options={"expose"=true})
      */
     public function index()
     {
@@ -24,7 +29,7 @@ class DashboardController extends AbstractController
     }
 
     /**
-     * @Route("/dashboard/newchild", name="dashboard.newchild")
+     * @Route("/newchild", name="newchild")
      * @param Request $request
      * @return RedirectResponse|Response
      */
