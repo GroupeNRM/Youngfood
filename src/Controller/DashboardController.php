@@ -64,4 +64,12 @@ class DashboardController extends AbstractController
             'addChildForm' => $form->createView()
         ]);
     }
+
+    /**
+     * @Route("/new-booking", name="parentNewBooking")
+     */
+    public function newBooking()
+    {
+        return $this->render("dashboard/parentNewBooking/index.html.twig");
+    }
 }
