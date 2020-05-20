@@ -1,7 +1,9 @@
 <template>
     <div class="container-fluid">
-        <div class="row" v-if="step === 0">
-            
+        <div class="row text-center justify-content-around" v-if="step === 0">
+            <div class="col-md-2 clickable-date px-0" v-for="day in availableDays" @click="choseDays(day)" :class="{ selected: chosenDays.includes(day)}">
+                {{day}}
+            </div>
         </div>
     </div>
 </template>
@@ -16,7 +18,8 @@
                 bookings: {},
                 step: 0,
                 today: new Date(),
-                daysAvailable: []
+                availableDays: [],
+                chosenDays: []
             }
         },
         mounted() {
@@ -38,14 +41,26 @@
                 let tomorrow = new Date(this.today);
                 tomorrow.setDate(tomorrow.getDate() + 1);
 
-                while(this.daysAvailable.length < 5) {
+                while(this.availableDays.length < 5) {
                     if(tomorrow.getDay() !== 6 && tomorrow.getDay() !== 0) {
                         let temp = new Date(tomorrow);
-                        this.daysAvailable.push(temp);
+                        this.availableDays.push(temp.toLocaleDateString('fr-FR', {
+                            weekday: "long",
+                            day: "2-digit",
+                            month: "2-digit",
+                            year: "numeric"
+                        }));
                     }
                     tomorrow.setDate(tomorrow.getDate() + 1);
                 }
-            }
+            },
+            choseDays: function(day) {
+                if(this.chosenDays.includes(day)) {
+                    this.chosenDays.splice(this.chosenDays.indexOf(day), 1);
+                } else {
+                    this.chosenDays.push(day);
+                }
+            },
         }
     }
 </script>
