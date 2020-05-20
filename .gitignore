@@ -14,7 +14,16 @@
 .idea/**/shelf
 .idea/
 .env
+.env.local
 .env.test
+<<<<<<< HEAD
+=======
+src/Migrations/
+public/uploads/
+
+# Ignore the CSS/JS files of APIPlatform, FosJS etc..
+public/bundles/
+>>>>>>> template
 
 # Generated files
 .idea/**/contentModel.xml

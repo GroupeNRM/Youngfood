@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tableau de bord - Admin{% endblock %}
+{% block title %}YoungFood - Tableau de Bord Admin{% endblock %}
 
 {% block stylesheets %}
     {{ encore_entry_link_tags('dashboard') }}
@@ -10,6 +10,7 @@
 
 {% use 'partials/menu.html.twig' %}
 
+<<<<<<< HEAD
 {% block second_title %}
     Bienvenue <span class="inner-green">Admin #1</span>
 {% endblock %}
@@ -140,4 +141,11 @@
         </div>
     </div>
 </main>
+=======
+{% block main_content %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('dashboard') }}
+>>>>>>> template
 {% endblock %}

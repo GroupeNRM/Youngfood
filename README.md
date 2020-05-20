@@ -1,4 +1,4 @@
-# MyCantineApp
+# YoungFood
 
 ## Avant de coder
 Il est obligatoire de vérifier que les paramètres d'identification de Git sont corrects.
@@ -18,6 +18,10 @@ Si vous êtes dans un état détaché alors :
 Mettre à jour les dépendances du projet avec :
   * ```composer install```
   * ```yarn install```
+  
+Si vous changez de branche il peut être nécéssaire de mettre à jour la base de donnée, pour cela :
+  * Lancer une migration (propre)
+  * ```docker-compose exec php php /var/www/symfony/bin/console d:s:u --force``` (sale, reservé pour dev)
 
 ## Développement
 Noms et adresses des routes en Anglais, exemple :
@@ -47,5 +51,7 @@ Pour chaque nouvelle page, on créer une nouvelle entrée dans le fichier webpac
  
  ## Nommage des branches
  Nouvelle fonctionnalité : ```feat/nomDeLaNouveauté```
+ 
  Bugfixe : ```fix/bugEnQuestion```
+ 
  Optimisation du code : ```optim/OptimisationCode```

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "353fa43001aff7203008277b626c0cc9",
+    "content-hash": "61f6dbfde1137233fe1c2c35529e4d96",
     "packages": [
         {
             "name": "api-platform/api-pack",
@@ -931,6 +931,7 @@
                 "uppercase",
                 "words"
             ],
+<<<<<<< HEAD
             "funding": [
                 {
                     "url": "https://www.doctrine-project.org/sponsorship.html",
@@ -945,6 +946,8 @@
                     "type": "tidelift"
                 }
             ],
+=======
+>>>>>>> template
             "time": "2020-05-09T15:09:09+00:00"
         },
         {
@@ -3443,6 +3446,7 @@
                 }
             ],
             "description": "Composer plugin for Symfony",
+<<<<<<< HEAD
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3457,6 +3461,8 @@
                     "type": "tidelift"
                 }
             ],
+=======
+>>>>>>> template
             "time": "2020-05-09T12:10:32+00:00"
         },
         {
@@ -4777,6 +4783,7 @@
         },
         {
             "name": "symfony/polyfill-intl-grapheme",
+<<<<<<< HEAD
             "version": "v1.16.0",
             "source": {
                 "type": "git",
@@ -4787,6 +4794,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-intl-grapheme/zipball/81f5385a0237989ec43a5ed2d94176c5c9616cc8",
                 "reference": "81f5385a0237989ec43a5ed2d94176c5c9616cc8",
+=======
+            "version": "v1.17.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-intl-grapheme.git",
+                "reference": "e094b0770f7833fdf257e6ba4775be4e258230b2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-grapheme/zipball/e094b0770f7833fdf257e6ba4775be4e258230b2",
+                "reference": "e094b0770f7833fdf257e6ba4775be4e258230b2",
+>>>>>>> template
                 "shasum": ""
             },
             "require": {
@@ -4798,7 +4817,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-master": "1.16-dev"
+=======
+                    "dev-master": "1.17-dev"
+>>>>>>> template
                 }
             },
             "autoload": {
@@ -4833,6 +4856,7 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< HEAD
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4861,6 +4885,22 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-intl-icu/zipball/0913a9ab67d6042966287c8ad996927b6c710330",
                 "reference": "0913a9ab67d6042966287c8ad996927b6c710330",
+=======
+            "time": "2020-05-12T16:47:27+00:00"
+        },
+        {
+            "name": "symfony/polyfill-intl-icu",
+            "version": "v1.17.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-intl-icu.git",
+                "reference": "4ef3923e4a86e1b6ef72d42be59dbf7d33a685e3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-icu/zipball/4ef3923e4a86e1b6ef72d42be59dbf7d33a685e3",
+                "reference": "4ef3923e4a86e1b6ef72d42be59dbf7d33a685e3",
+>>>>>>> template
                 "shasum": ""
             },
             "require": {
@@ -4873,7 +4913,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-master": "1.16-dev"
+=======
+                    "dev-master": "1.17-dev"
+>>>>>>> template
                 }
             },
             "autoload": {
@@ -4905,6 +4949,7 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< HEAD
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4933,6 +4978,22 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-intl-idn/zipball/ab0af41deab94ec8dceb3d1fb408bdd038eba4dc",
                 "reference": "ab0af41deab94ec8dceb3d1fb408bdd038eba4dc",
+=======
+            "time": "2020-05-12T16:14:59+00:00"
+        },
+        {
+            "name": "symfony/polyfill-intl-idn",
+            "version": "v1.17.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-intl-idn.git",
+                "reference": "3bff59ea7047e925be6b7f2059d60af31bb46d6a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-idn/zipball/3bff59ea7047e925be6b7f2059d60af31bb46d6a",
+                "reference": "3bff59ea7047e925be6b7f2059d60af31bb46d6a",
+>>>>>>> template
                 "shasum": ""
             },
             "require": {
@@ -4946,7 +5007,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-master": "1.16-dev"
+=======
+                    "dev-master": "1.17-dev"
+>>>>>>> template
                 }
             },
             "autoload": {
@@ -4981,6 +5046,7 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< HEAD
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5009,6 +5075,22 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/cc65fba80f49c547e16f1afcc6fd26a1b101556e",
                 "reference": "cc65fba80f49c547e16f1afcc6fd26a1b101556e",
+=======
+            "time": "2020-05-12T16:47:27+00:00"
+        },
+        {
+            "name": "symfony/polyfill-intl-normalizer",
+            "version": "v1.17.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-intl-normalizer.git",
+                "reference": "1357b1d168eb7f68ad6a134838e46b0b159444a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/1357b1d168eb7f68ad6a134838e46b0b159444a9",
+                "reference": "1357b1d168eb7f68ad6a134838e46b0b159444a9",
+>>>>>>> template
                 "shasum": ""
             },
             "require": {
@@ -5020,7 +5102,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-master": "1.16-dev"
+=======
+                    "dev-master": "1.17-dev"
+>>>>>>> template
                 }
             },
             "autoload": {
@@ -5058,6 +5144,7 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< HEAD
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5086,6 +5173,22 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/a54881ec0ab3b2005c406aed0023c062879031e7",
                 "reference": "a54881ec0ab3b2005c406aed0023c062879031e7",
+=======
+            "time": "2020-05-12T16:14:59+00:00"
+        },
+        {
+            "name": "symfony/polyfill-mbstring",
+            "version": "v1.17.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-mbstring.git",
+                "reference": "fa79b11539418b02fc5e1897267673ba2c19419c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/fa79b11539418b02fc5e1897267673ba2c19419c",
+                "reference": "fa79b11539418b02fc5e1897267673ba2c19419c",
+>>>>>>> template
                 "shasum": ""
             },
             "require": {
@@ -5097,7 +5200,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-master": "1.16-dev"
+=======
+                    "dev-master": "1.17-dev"
+>>>>>>> template
                 }
             },
             "autoload": {
@@ -5131,6 +5238,7 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< HEAD
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5159,6 +5267,22 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-php73/zipball/7e95fe59d12169fcf4041487e4bf34fca37ee0ed",
                 "reference": "7e95fe59d12169fcf4041487e4bf34fca37ee0ed",
+=======
+            "time": "2020-05-12T16:47:27+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php73",
+            "version": "v1.17.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php73.git",
+                "reference": "a760d8964ff79ab9bf057613a5808284ec852ccc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php73/zipball/a760d8964ff79ab9bf057613a5808284ec852ccc",
+                "reference": "a760d8964ff79ab9bf057613a5808284ec852ccc",
+>>>>>>> template
                 "shasum": ""
             },
             "require": {
@@ -5167,7 +5291,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-master": "1.16-dev"
+=======
+                    "dev-master": "1.17-dev"
+>>>>>>> template
                 }
             },
             "autoload": {
@@ -5203,6 +5331,7 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< HEAD
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -5218,6 +5347,9 @@
                 }
             ],
             "time": "2020-05-02T14:56:09+00:00"
+=======
+            "time": "2020-05-12T16:47:27+00:00"
+>>>>>>> template
         },
         {
             "name": "symfony/process",
@@ -7956,6 +8088,7 @@
                 "scaffold",
                 "scaffolding"
             ],
+<<<<<<< HEAD
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -7970,6 +8103,8 @@
                     "type": "tidelift"
                 }
             ],
+=======
+>>>>>>> template
             "time": "2020-05-08T13:53:05+00:00"
         },
         {

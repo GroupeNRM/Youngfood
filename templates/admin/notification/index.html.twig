@@ -3,9 +3,7 @@
 {% block title %}YoungFood - Nouvelle notification{% endblock %}
 
 {% block stylesheets %}
-
     {{ encore_entry_link_tags('dashboard') }}
-
 {% endblock %}
 
 {% set centered_content = true %}
@@ -13,34 +11,23 @@
 {% use 'partials/menu.html.twig' %}
 
 {% block second_title %}
-
     Créer une <span class="inner-green">nouvelle notification</span> :
-
 {% endblock %}
 
 {% block main_content %}
-
     <div class="col-md-4">
-
         {{ form_start(newNotification) }}
-
             {{ form_row(newNotification.Notif_Title) }}
-
-
             {{ form_row(newNotification.Notif_Text) }}
-
             <div class="row">
-
                 <div class="col-md-12 text-center">
-
                     <button class="btn"><i class="fa fa-plus mr-3"></i>Enregistrer</button>
-
                 </div>
-
             </div>
-
         {{ form_end(newNotification) }}
-
     </div>
+{% endblock %}
 
+{% block javascripts %}
+    {{ encore_entry_script_tags('dashboard') }}
 {% endblock %}

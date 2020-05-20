@@ -19,6 +19,30 @@ class FoodRepository extends ServiceEntityRepository
         parent::__construct($registry, Food::class);
     }
 
+    public function findEntree()
+    {
+        return $this->createQueryBuilder('_entree')
+            ->andWhere('_entree.category = :category')
+            ->setParameter('category', 'E')
+            ->orderBy('_entree.title', 'ASC');
+    }
+
+    public function findMainDish()
+    {
+        return $this->createQueryBuilder('_main_dish')
+            ->andWhere('_main_dish.category = :category')
+            ->setParameter('category', 'P')
+            ->orderBy('_main_dish.title', 'ASC');
+    }
+
+    public function findDessert()
+    {
+        return $this->createQueryBuilder('_dessert')
+            ->andWhere('_dessert.category = :category')
+            ->setParameter('category', 'D')
+            ->orderBy('_dessert.title', 'ASC');
+    }
+
     // /**
     //  * @return Food[] Returns an array of Food objects
     //  */

@@ -1,0 +1,150 @@
+@import "variables";
+
+.food-card {
+  .img-thumb {
+    position: relative;
+
+    img {
+      border-radius: 15px;
+      min-width: 100%;
+      height: 190px;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .selected {
+      border: 3px solid $main-green;
+      border-radius: 15px;
+    }
+  }
+
+  span {
+    position: absolute;
+    display: block;
+    text-align: center;
+    line-height: 39px;
+    bottom: -20px;
+    right: -20px;
+    background: $main-green;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    color: $pure-white;
+    cursor: pointer;
+
+    i {
+      z-index: -1;
+    }
+  }
+}
+
+// CSS by http://www.athimannil.com/, support him!
+%remain-steps{
+  &:before {
+    content: counter(stepNum);
+    font-family: inherit;
+    font-weight: 700;
+  }
+  &:after{
+    background-color: $grey-light;
+  }
+}
+
+.multi-steps{
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+
+  > li{
+    counter-increment: stepNum;
+    text-align: center;
+    display: table-cell;
+    position: relative;
+    color: $main-green;
+    z-index: 1;
+
+    &:before{
+      content: '\f00c';
+      content: '\2713;';
+      content: '\10003';
+      content: '\10004';
+      content: '\2713';
+      display: block;
+      margin: 0 auto 4px;
+      background-color: $pure-white;
+      width: 36px;
+      height: 36px;
+      line-height: 32px;
+      text-align: center;
+      font-weight: bold;
+      border:{
+        width: 2px;
+        style: solid;
+        color: $main-green;
+        radius: 50%;
+      }
+    }
+
+    &:after{
+      content: '';
+      height: 2px;
+      width: 100%;
+      background-color: $main-green;
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      z-index: -1;
+    }
+
+    &:last-child{
+      &:after{
+        display: none;
+      }
+    }
+
+    &.is-active{
+      @extend %remain-steps;
+      &:before{
+        background-color: $pure-white;
+        border-color: $main-green;
+      }
+
+      ~ li{
+        color: $label-color;
+        @extend %remain-steps;
+        &:before{
+          background-color: $grey-light;
+          border-color: $grey-light;
+        }
+      }
+    }
+  }
+}
+
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+  transition: opacity 0.3s ease;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.modal-container {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  transition: all 0.3s ease;
+  font-family: Helvetica, Arial, sans-serif;
+}
