@@ -3,9 +3,7 @@
 {% block title %}YoungFood - Ajouter un Enfant{% endblock %}
 
 {% block stylesheets %}
-
     {{ encore_entry_link_tags('dashboard') }}
-
 {% endblock %}
 
 {% set centered_content = true %}
@@ -13,39 +11,23 @@
 {% use 'partials/menu.html.twig' %}
 
 {% block second_title %}
-
     Ajouter un <span class="inner-green">nouvel enfant</span> :
-
 {% endblock %}
 
 {% block main_content %}
-
         <div class="col-md-12 text-center">
-
             <img src="{{ asset('build/IMG_CHILD.svg') }}" alt="Image Icone Enfant">
-
         </div>
-
         <div class="col-md-4">
-
             {{ form_start(addChildForm) }}
-
                 {{ form_row(addChildForm.nom) }}
-
                 {{ form_row(addChildForm.prenom) }}
-
                 {{ form_row(addChildForm.dateNaissance) }}
-
                 <div class="col-md-12 text-center">
-
                     <button class="btn btn-lg btn-success"><i class="fa fa-plus mr-3"></i>Enregistrer</button>
-
                 </div>
-
             {{ form_end(addChildForm) }}
-
         </div>
-
 {% endblock %}
 
 {% block javascripts %}
