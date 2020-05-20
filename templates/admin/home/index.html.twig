@@ -1,201 +1,184 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tableau de bord - Admin{% endblock %}
-
-{% block body %}
-    <nav class="navbar navbar-dark sticky-top flex-md-nowrap p-3" style="background-color: #F2F2F2">
-
-        <span class="navbar-brand col-sm-3 col-md-2 mr-0 text-center text-dark">Tableau de bord - <span class="inner-green">ADMIN</span></span>
-        
-     
-        <ul class="nav justify-content-end">
-            <li class="nav-item text-light">
-                <img src="{{ asset('build/bell-icon.svg') }}"class="rounded-circle" width="30">
-            </li>
-
-            <li class="nav-item mr-5 ml-5">
-                <img src="{{ asset('build/avatar-homme.svg') }}"class="rounded-circle" width="50">
-            </li>
-            
-        </ul>
-      
-    </nav>
-
-    <div class="container-fluid">
-
-        <div class="row" style="height: 1080px; background-color: #F2F2F2">
-
-            <nav class="col-md-2 d-none d-md-block sidebar" style="background-color: #F2F2F2">
-
-                <div class="sidebar-sticky">
-
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-5 mb-2 text-muted">
-
-                        <span>Infos du site</span>
-
-                    </h6>
-
-                    <ul class="nav flex-column">
-
-                      <li class="nav-item">
-
-                            <a class="nav-link text-dark" href="#" >
-                                <i class="far fa-chart-bar"></i>
-                                Statistiques
-
-                            </a>
-
-                        </li>
-
-                        <li class="nav-item">
-
-                            <a class="nav-link text-dark" href="#" >
-                                <i class="fas fa-utensils"></i>
-                                Menus
-
-                            </a>
-
-                        </li>
-                        <li class="nav-item">
-
-                            <a class="nav-link text-dark" href="#" >
-                                <i class="far fa-calendar-check"></i>
-                                Réservations
-
-                            </a>
-
-                        </li>
-                        
-
-                        <li class="nav-item">
-
-                            <a class="nav-link text-dark" href="#">
-                                <i class="far fa-money-bill-alt"></i>
-
-                                Paiements
-
-                            </a>
-
-                        </li>
-
-
-                        <li class="nav-item">
-
-                            <a class="nav-link text-dark" href="#" >
-                                <i class="far fa-heart"></i>
-                                Plats likés
-
-                            </a>
-
-                        </li>
-
-                        <li class="nav-item">
-
-                            <a class="nav-link text-dark" href="#">
-
-                                <i class="fas fa-users"></i>
-                                
-                                Utilisateurs
-
-                            </a>
-
-                        </li>
-
-                    </ul>
-
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-5 mb-2 text-muted">
-
-                        <span>Infos personnelles</span>
-
-                    </h6>
-
-                    <ul class="nav flex-column mb-2">
-
-                        <li class="nav-item">
-
-                            <a class="nav-link text-dark" href="#">
-
-                                <i class="far fa-address-card"></i>
-                                Voir mon profil
-
-                            </a>
-
-                        </li>
-
-                        <li class="nav-item">
-
-                            <a class="nav-link text-dark" href="#">
-
-                                <i class="fas fa-unlock-alt"></i>
-                                Modifier le mot de passe
-
-                            </a>
-
-                        </li>
-
-                    </ul>
-
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted" style="height: 30px">
-
-                        <span>Paramètres</span>
-
-                    </h6>
-
-                    <ul class="nav flex-column mb-2">
-
-                        <li class="nav-item">
-
-                            <a class="nav-link text-dark" href="#">
-
-                                <i class="fas fa-cog"></i>
-
-                                Mes Paramètres
-
-                            </a>
-
-                        </li>
-                        
-                        <div class="border-top my-3"></div>
-
-                        <li class="nav-item">
-
-                            <a class="nav-link text-danger" href="#">
-                            <i class="fas fa-sign-out-alt"></i>
-                                Déconnexion
-
-                            </a>
-
-                        </li>
-
-                    </ul>
-
-                </div>
-
-                <div class="border-top my-3 mt-5 text-center">
-
-                    <small class="mt-5 text-muted">
-
-                        MyCantine V 1.0
-
-                    </small>
-
-                </div>
-
-            </nav>
-
-            <!-- Main -->
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 bg-light">
-
-                
-
-            </main>
-
-        </div>
-
-    </div>
-
+{% block title %}Tableau de bord - Admin
 {% endblock %}
+
+{% block stylesheets %}
+	{{ encore_entry_link_tags('dashboard') }}
+{% endblock %}
+
+{% set centered_content = true %}
+
+{% use 'partials/menu.html.twig' %}
+
+{% block second_title %}
+
+<h3>Statistiques du site</h3>
+
+	<span class="inner-green">
+
+		{# {% for role in users.roles %}
+
+			{% if role == "ROLE_ADMIN" %}
+
+				<span class="inner-green">ADMIN</span>👋
+
+			{% elseif role == "ROLE_USER" %}
+
+				<span class="inner-green">USER</span>
+
+
+			{% endif %}
+
+		{% endfor %} #}
+	</span>
+{% endblock %}
+
+{% block main_content %}
+
+	<main>
+		<div class="container-fluid mt-n10">
+
+			<div class="row">
+				<div class="col-xl-3 col-md-6">
+					<div class="card text-dark btn btn-outline-primary mb-4">
+						<div class="card-body">
+							<i class="fas fa-utensils"></i>
+							Menus</div>
+						<div class="card-footer d-flex align-items-center justify-content-between">
+							<a class="small text-dark stretched-link" href="#">Voir plus de détails</a>
+
+							<div class="small text-dark">
+								<svg class="svg-inline--fa fa-angle-right fa-w-8" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 256 512" data-fa-i2svg="">
+									<path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path>
+								</svg><!-- <i class="fas fa-angle-right"></i> --></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 col-md-6">
+					<div class="card btn btn-outline-warning text-dark mb-4">
+						<div class="card-body">
+							<i class="far fa-calendar-check"></i>
+							Réservations</div>
+						<div class="card-footer d-flex align-items-center justify-content-between">
+							<a class="small text-dark stretched-link" href="#">Voir plus de détails</a>
+
+							<div class="small text-dark">
+								<svg class="svg-inline--fa fa-angle-right fa-w-8" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 256 512" data-fa-i2svg="">
+									<path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path>
+								</svg><!-- <i class="fas fa-angle-right"></i> --></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 col-md-6">
+					<div class="card btn btn-outline-success text-dark mb-4">
+						<div class="card-body">
+							<i class="far fa-money-bill-alt"></i>
+							Paiements</div>
+						<div class="card-footer d-flex align-items-center justify-content-between">
+							<a class="small text-dark stretched-link" href="# ">Voir plus de détails</a>
+
+							<div class="small text-dark">
+								<svg class="svg-inline--fa fa-angle-right fa-w-8" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 256 512" data-fa-i2svg="">
+									<path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path>
+								</svg><!-- <i class="fas fa-angle-right"></i> --></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 col-md-6">
+					<div class="card btn btn-outline-danger text-dark mb-4">
+						<div class="card-body">
+							<i class="far fa-heart"></i>
+							Plats likés</div>
+						<div class="card-footer d-flex align-items-center justify-content-between">
+							<a class="small text-dark stretched-link" href="#">Voir plus de détails</a>
+
+							<div class="small text-dark"><!-- <i class="fas fa-angle-right"></i> --></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="container">
+				<canvas id="myChart" width="400" height="150"></canvas>
+
+			</div>
+			<br/><br/><br/>
+
+			<h6 class="text-center text-muted">Nouveaux utilisateurs</h6>
+
+			<div class="col-md-6">
+
+				<table class="table table-hover">
+					<thead>
+						<th></th>
+						<th>Nom</th>
+						<th>Prénom</th>
+						<th>Email</th>
+						<th>Rôles</th>
+						<th>Sexe</th>
+						<th>Date de création</th>
+						<th></th>
+						<th></th>
+						<th></th>
+					</thead>
+
+					<tbody>
+						{% for user in users %}
+							<tr>
+								<td>
+									<i class="fas fa-user-alt"></i>
+								</td>
+								<td>{{user.lastname}}</td>
+								<td>{{user.firstname}}</td>
+								<td>{{user.email}}</td>
+								<td>
+									{% for role in user.roles %}
+
+										{% if role == "ROLE_USER" %}
+											<p class="h6">
+												<span class="text-primary">USER</span>
+											</p>
+										{% elseif role == "ROLE_ADMIN" %}
+											<p class="h6">
+												<span class="text-danger">ADMIN</span>
+											</p>
+										{% endif %}
+
+									{% endfor %}
+								</td>
+								<td>{{user.gender}}</td>
+								<td>
+									{# {{user.registered_at|date("Y-m-d")}}#}
+								</td>
+								<td>
+									<a href="{{path('admin.show_user', {'id': user.id})}}" class="btn btn-outline-success btn-sm">
+										<i class="far fa-eye"></i>
+									</a>
+								</td>
+								<td>
+									<a href="#" class="btn btn-outline-primary btn-sm">
+										<i class="fas fa-edit"></i>
+									</a>
+								</td>
+								<td>
+									<a href="#" class="btn btn-outline-danger btn-sm">
+										<i class="fas fa-trash"></i>
+									</a>
+								</td>
+							</tr>
+						{% endfor %}
+
+					</tbody>
+				</table>
+
+
+			</main>
+
+
+		{% endblock %}
 
 {% block javascripts %}
-    {{ encore_entry_script_tags('dashboard') }}
+	{{ encore_entry_script_tags('dashboard') }}
 {% endblock %}
+

@@ -1,200 +1,247 @@
 {% block body %}
-    <nav class="navbar grey-navbar sticky-top flex-md-nowrap p-3 border-bottom">
+	<nav class="navbar navbar-dark sticky-top flex-md-nowrap p-3" style="background-color: #F2F2F2">
+		<a href="{{ path('admin.index') }}">
+			<span class="navbar-brand col-sm-3 col-md-2 mr-0 text-center text-dark">Tableau de bord -
+				<span class="inner-green">ADMIN</span>
+			</span>
+		</a>
 
-        <span class="navbar-brand col-sm-3 col-md-2 mr-0 text-center text-dark">Tableau de bord - <span class="inner-green">ADMIN</span></span>
+		<ul class="nav justify-content-end">
 
-        <ul class="nav justify-content-end">
-            <li id="notification"></li>
+			<li class="nav-item text-light">
+				<i class="far fa-bell text-dark"></i>
+			</li>
 
-            <li class="nav-item mr-5 ml-5">
-                <img src="{{ asset('build/avatar-homme.svg') }}" class="rounded-circle" width="50" alt="Image d'avatar">
-            </li>
-        </ul>
+			<li class="nav-item dropdown mr-5 ml-5">
+				<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="accountDrodownLink">
+					<i class="fas fa-user-alt"></i>
+				</a>
 
-    </nav>
 
-    <div class="container-fluid">
+				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDrodownLink">
+					<a class="nav-link text-dark" href="#">
 
-        <div class="row main-full-height grey-navbar">
+						{{app.user.lastname}}
+						{{app.user.firstname}}
 
-            <nav class="col-md-2 d-none d-md-block sidebar grey-navbar border-right">
+						{% for role in app.user.roles %}
 
-                <div class="sidebar-sticky">
+							{% if role == "ROLE_ADMIN" %}
+								<span class="text-danger">[ADMIN]</span>
+							{% endif %}
 
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-5 mb-2 text-muted">
+						{% endfor %}
 
-                        <span>Infos du site</span>
+					</a>
+					<a class="nav-link text-dark" href="#">Voir mon profil</a>
+					<a class="nav-link text-dark" href="#">Modifier mot de passe</a>
+					<a class="nav-link text-dark" href="#">Paramètres</a>
+					<div class="dropdown-divider inner-green"></div>
+					<a class="nav-link text-dark" href="{{ path('app_logout') }}">Déconnexion</a>
+				</div>
+			</li>
 
-                    </h6>
+			<div class="dropdown"></ul>
 
-                    <ul class="nav flex-column">
+		</nav>
 
-                        <li class="nav-item">
+		<div class="container-fluid">
 
-                            <a class="nav-link text-dark" href="#" >
-                                <i class="far fa-chart-bar"></i>
-                                Statistiques
-                            </a>
+			<div class="row bg-dark" style="height: 1080px; background-color: #F2F2F2">
 
-                        </li>
+				<nav class="col-md-2 d-none d-md-block sidebar text-light" style="background-color: #0000">
 
-                        <li class="nav-item">
+					<div class="sidebar-sticky">
 
-                            <a class="nav-link text-dark" href="#" >
-                                <i class="fas fa-utensils"></i>
-                                Menus
-                            </a>
+						<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-5 mb-2 text-muted">
 
-                        </li>
-                        <li class="nav-item">
+							<span>Infos du site</span>
 
-                            <a class="nav-link text-dark" href="#" >
-                                <i class="far fa-calendar-check"></i>
-                                Réservations
-                            </a>
+						</h6>
 
-                        </li>
+						<ul class="nav flex-column">
 
+							<li class="nav-item">
 
-                        <li class="nav-item">
+								<a class="nav-link text-light" href="{{ path('admin.index') }}">
 
-                            <a class="nav-link text-dark" href="#">
-                                <i class="far fa-money-bill-alt"></i>
-                                Paiements
-                            </a>
+									<i class="far fa-chart-bar"></i>
+									Statistiques
 
-                        </li>
+								</a>
 
+							</li>
 
-                        <li class="nav-item">
+							<li class="nav-item">
 
-                            <a class="nav-link text-dark" href="#" >
-                                <i class="far fa-heart"></i>
-                                Plats likés
-                            </a>
+								<a class="nav-link text-light" href="#">
 
-                        </li>
+									<i class="fas fa-utensils"></i>
+									Menus
 
-                        <li class="nav-item">
+								</a>
 
-                            <a class="nav-link text-dark" href="#">
-                                <i class="fas fa-users"></i>
-                                Utilisateurs
-                            </a>
+							</li>
+							<li class="nav-item">
 
-                        </li>
+								<a class="nav-link text-light" href="#">
 
-                    </ul>
+									<i class="far fa-calendar-check"></i>
+									Réservations
 
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-5 mb-2 text-muted">
-                        <span>Infos personnelles</span>
-                    </h6>
+								</a>
 
-                    <ul class="nav flex-column mb-2">
+							</li>
 
-                        <li class="nav-item">
 
-                            <a class="nav-link text-dark" href="#">
+							<li class="nav-item">
 
-                                <i class="far fa-address-card"></i>
-                                Voir mon profil
-                            </a>
+								<a class="nav-link text-light" href="#">
 
-                        </li>
+									<i class="far fa-money-bill-alt"></i>
 
-                        <li class="nav-item">
+									Paiements
 
-                            <a class="nav-link text-dark" href="#">
+								</a>
 
-                                <i class="fas fa-unlock-alt"></i>
-                                Modifier le mot de passe
-                            </a>
+							</li>
 
-                        </li>
 
-                    </ul>
+							<li class="nav-item">
 
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted" style="height: 30px">
+								<a class="nav-link text-light" href="#">
+									<i class="far fa-heart"></i>
+									Plats likés
 
-                        <span>Paramètres</span>
+								</a>
 
-                    </h6>
+							</li>
 
-                    <ul class="nav flex-column mb-2">
+							<li class="nav-item">
 
-                        <li class="nav-item">
+								<a class="nav-link text-light" href="{{ path('admin.users') }}">
 
-                            <a class="nav-link text-dark" href="#">
+									<i class="fas fa-users"></i>
 
-                                <i class="fas fa-cog"></i>
+									Utilisateurs
 
-                                Mes Paramètres
+								</a>
 
-                            </a>
+							</li>
 
-                        </li>
+						</ul>
 
-                        <div class="border-top my-3"></div>
+						<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-5 mb-2 text-muted">
 
-                        <li class="nav-item">
+							<span>Infos personnelles</span>
 
-                            <a class="nav-link text-danger" href="#">
-                                <i class="fas fa-sign-out-alt"></i>
-                                Déconnexion
-                            </a>
+						</h6>
 
-                        </li>
+						<ul class="nav flex-column mb-2">
 
-                    </ul>
+							<li class="nav-item">
 
-                </div>
+								<a class="nav-link text-light" href="{{ path('admin.show_profil') }}">
 
-                <div class="border-top my-3 mt-5 text-center">
+									<i class="far fa-address-card"></i>
+									Voir mon profil
 
-                    <small class="mt-5 text-muted">
+								</a>
 
-                        Youngfood V0.5
+							</li>
 
-                    </small>
+							<li class="nav-item">
 
-                </div>
+								<a class="nav-link text-light" href="#">
 
-            </nav>
+									<i class="fas fa-unlock-alt"></i>
+									Modifier le mot de passe
 
-            <!-- Main -->
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 bg-light">
+								</a>
 
-                <h1>{% block second_title %}{% endblock %}</h1>
+							</li>
 
-                {% if centered_content is defined and centered_content == true %}
+						</ul>
 
-                    <div class="container main-full-height">
+						<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted" style="height: 30px">
 
-                        <div class="row h-100 justify-content-center align-items-center">
+							<span>Paramètres</span>
 
-                {% endif %}
+						</h6>
 
-                            {% block main_content %}
+						<ul class="nav flex-column mb-2">
 
-                            {% endblock %}
+							<li class="nav-item">
 
-                {% if centered_content is defined and centered_content == true %}
+								<a class="nav-link text-light" href="#">
 
-                        </div>
+									<i class="fas fa-cog"></i>
 
-                    </div>
+									Mes Paramètres
 
-                {% endif %}
+								</a>
 
-            </main>
+							</li>
 
-        </div>
+							<div class="border-top my-3"></div>
 
-    </div>
+							<li class="nav-item">
+
+								<a class="nav-link text-danger" href="{{ path('app_logout') }}">
+									<i class="fas fa-sign-out-alt"></i>
+									Déconnexion
+
+								</a>
+
+							</li>
+
+						</ul>
+
+					</div>
+
+					<div class="border-top my-3 mt-5 text-center">
+
+						<small class="mt-5 text-muted">
+
+							MyCantine V 1.0
+
+						</small>
+
+					</div>
+
+				</nav>
+
+				<!-- Main -->
+				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 bg-light">
+
+					<h1>
+						{% block second_title %}{% endblock %}
+					</h1>
+
+					{% if centered_content is defined and centered_content == true %}
+
+						<div class="container main-full-height">
+
+							<div>
+
+							{% endif %}
+
+							{% block main_content %}{% endblock %}
+
+							{% if centered_content is defined and centered_content == true %}
+
+							</div>
+
+						</div>
+
+					{% endif %}
+
+				</main>
+
+			</div>
+
+		</div>
+	{% endblock %}
+{% block javascripts %}
+	{{ encore_entry_script_tags('app') }}
 {% endblock %}
-<script>
-    import Notification from "../../assets/vue/Notification";
-    export default {
-        components: {Notification}
-    }
-</script>

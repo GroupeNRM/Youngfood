@@ -3,11 +3,13 @@
 namespace App\Repository;
 
 use App\Entity\User;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use App\Entity\UserSearch;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
-use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
+use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 
 /**
  * @method User|null find($id, $lockMode = null, $lockVersion = null)
@@ -53,15 +55,27 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?User
+
+    public function findUser(UserSearch $search): Query
     {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        /*  $query = $this->findAll();
+
+        if ($search->getEmail()) {
+            $query = $query->where('u.email = :email');
+            $query->setParameter('email', $search->getEmail());
+        }
+        
+        return $query->getResult()
+    
+        ; */
+
+        $query = $this->createQueryBuilder('u');
+
+        if ($search->getEmail()) {
+            $query = $query->andWhere('u.email = :email');
+            $query->setParameter('u.email', $search->getEmail());
+        }
+
+        return $query->getQuery();
     }
-    */
 }

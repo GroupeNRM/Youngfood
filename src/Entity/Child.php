@@ -42,7 +42,13 @@ class Child
      * @ORM\ManyToOne(targetEntity="App\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $noUser;
+    //private $noUser;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="children")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
 
     public function getId(): ?int
     {
@@ -97,7 +103,7 @@ class Child
         return $this;
     }
 
-    public function getNoUser(): ?User
+  /*   public function getNoUser(): ?User
     {
         return $this->noUser;
     }
@@ -105,6 +111,18 @@ class Child
     public function setNoUser($noUser): self
     {
         $this->noUser = $noUser;
+
+        return $this;
+    } */
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
