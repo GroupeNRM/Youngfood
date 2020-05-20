@@ -5,11 +5,13 @@ namespace App\Controller;
 use App\Entity\Child;
 use App\Entity\User;
 use App\Form\NewChildType;
+use App\Form\UpdatePasswordType;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class DashboardController extends AbstractController
 {
@@ -57,6 +59,21 @@ class DashboardController extends AbstractController
 
         return $this->render('dashboard/newchild.html.twig', [
             'addChildForm' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/dashboard/update-password", name="dashboard.updatePassword")
+     * @param Request $request
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @return RedirectResponse|Response
+     */
+    public function updatePassword(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    {
+        $form = $this->createForm(UpdatePasswordType::class); // Génération du Form à partir du fichier Form
+
+        return $this->render('dashboard/updatepassword.html.twig', [
+            'updatePasswordForm' => $form->createView()
         ]);
     }
 }
