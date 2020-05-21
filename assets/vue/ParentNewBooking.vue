@@ -3,6 +3,10 @@
         <div class="row text-center justify-content-around" v-if="step === 0">
             <div class="col-md-2 clickable-date px-0" v-for="day in availableDays" @click="choseDays(day)" :class="{ selected: chosenDays.includes(day)}">
                 {{day}}
+
+                <template v-for="meal in mealData">
+                    {{meal.title}}
+                </template>
             </div>
         </div>
     </div>
@@ -19,12 +23,22 @@
                 step: 0,
                 today: new Date(),
                 availableDays: [],
-                chosenDays: []
+                chosenDays: [],
+                mealData: {},
+            }
+        },
+        computed: {
+            firstDate: function () {
+                return this.availableDays[0].toLocaleDateString('us-US').split('/').join('-');
+            },
+            lastDate: function () {
+                return this.availableDays[this.availableDays.length - 1].toLocaleDateString('us-US').split('/').join('-');
             }
         },
         mounted() {
             this.loadBooking();
             this.getFiveNextWorkingDays();
+            this.getMealForDates();
         },
         methods: {
             loadBooking: function() {
@@ -44,12 +58,7 @@
                 while(this.availableDays.length < 5) {
                     if(tomorrow.getDay() !== 6 && tomorrow.getDay() !== 0) {
                         let temp = new Date(tomorrow);
-                        this.availableDays.push(temp.toLocaleDateString('fr-FR', {
-                            weekday: "long",
-                            day: "2-digit",
-                            month: "2-digit",
-                            year: "numeric"
-                        }));
+                        this.availableDays.push(temp);
                     }
                     tomorrow.setDate(tomorrow.getDate() + 1);
                 }
@@ -60,6 +69,15 @@
                 } else {
                     this.chosenDays.push(day);
                 }
+            },
+            getBookingForDates: function () {
+                axios.get(`/api/bookings/?date[before]=${this.lastDate}&date[after]=${this.firstDate}`)
+                    .then((response) => {
+                        this.mealData = response.data['hydra:member'];
+                    })
+                    .catch(function() {
+                        console.log('Erreur dans le chargement des repas liés aux réservations!');
+                    });
             },
         }
     }

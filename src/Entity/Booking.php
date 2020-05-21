@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\BookingRepository;
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
  *     collectionOperations={"post", "get"},
  *     itemOperations={"get"}
  * )
+ * @ApiFilter(DateFilter::class, properties={"date"})
  */
 class Booking
 {
