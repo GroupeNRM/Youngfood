@@ -2,10 +2,14 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Gedmo\Mapping\Annotation as Gedmo;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ApiResource(
@@ -26,6 +30,8 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Email()
      */
     private $email;
 
@@ -37,16 +43,29 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * Assert\Length(
+     *  min = 8
+     *  minMessage = "Votre mot de passe doit contenir au moins {{ limit }} caractères"
+     * )
+     * 
+     * @Assert\Regex(
+     *  pattern = "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z](?!.*\s).{8,100}$/",
+     *  message = "Votre mot de passe doit containir ua moins une minuscule, une majuscule, et une un chiffre"
+     * )
+     * @Assert\NotBlank()
+     * @Assert\NotCompromisedPassword()
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank()
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank()
      */
     private $lastname;
 
@@ -57,8 +76,21 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="datetime")
+     * @Gedmo\Timestampable(on="create")
      */
     private $registered_at;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Child::class, mappedBy="user", orphanRemoval=true)
+     */
+    private $children;
+
+
+    public function __construct()
+    {
+        $this->children = new ArrayCollection();
+        $this->likes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -94,7 +126,7 @@ class User implements UserInterface
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
+        //$roles[] = 'ROLE_USER';
 
         return array_unique($roles);
     }
@@ -181,8 +213,80 @@ class User implements UserInterface
 
     public function setRegisteredAt(\DateTimeInterface $registered_at): self
     {
-        $this->registered_at = new \DateTime();
+        $this->registered_at = $registered_at;
 
         return $this;
     }
+
+    /**
+     * toString
+     * @return string
+     */
+ 
+   /*  public function __toString()
+    {
+        return $this->getRegisteredAt();
+    } */
+
+    /**
+     * @return Collection|Child[]
+     */
+    public function getChildren(): Collection
+    {
+        return $this->children;
+    }
+
+    public function addChild(Child $child): self
+    {
+        if (!$this->children->contains($child)) {
+            $this->children[] = $child;
+            $child->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeChild(Child $child): self
+    {
+        if ($this->children->contains($child)) {
+            $this->children->removeElement($child);
+            // set the owning side to null (unless already changed)
+            if ($child->getUser() === $this) {
+                $child->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Platlike[]
+     */
+    /* public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(Platlike $like): self
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes[] = $like;
+            $like->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(Platlike $like): self
+    {
+        if ($this->likes->contains($like)) {
+            $this->likes->removeElement($like);
+            // set the owning side to null (unless already changed)
+            if ($like->getUser() === $this) {
+                $like->setUser(null);
+            }
+        }
+
+        return $this;
+    } */
 }

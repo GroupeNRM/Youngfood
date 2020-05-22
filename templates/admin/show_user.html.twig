@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Youngfood - Admin{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('dashboard') }}
+{% endblock %}
+
+{% set centered_content = true %}
+
+{% use 'partials/menu.html.twig' %}
+
+{% block second_title %}
+     <span class="mb-4 text-center h4"># <span class="inner-green">{{ user.id }}</span></span>
+{% endblock %}
+
+{% block main_content %}
+
+ 
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+        <div class="card" style="width: 28rem;">
+    <img src="{{ asset('build/User_Avatar.png') }}"class="rounded mx-auto d-block mt-3" width="150">
+    <div class="dropdown-divider inner-green"></div>
+    <div class="card-body">
+        <h5 class="card-title">ID : <span class="inner-green">{{user.id}}</span></h5>
+        <p class="h5">Nom : <span class="inner-green">{{user.lastname}} {{user.firstname}}</span></p>
+            <p class="h5"><i class="far fa-envelope"></i> : <span class="inner-green">{{user.email}}</span></p>
+            <p class="h5">Sexe : <span class="inner-green">{{user.gender}}</span></p>
+
+            {% for role in user.roles %}
+                {% if role == "ROLE_USER" %}
+                    <p class="h6"><i class="fas fa-user-tie"></i> : <span class="text-primary">USER</span></p>  
+                {% elseif role == "ROLE_ADMIN" %}
+                    <p class="h6"><span class="inner-green">ADMIN</span></p>  
+                {% endif %}     
+            {% endfor %}   
+    </div>
+    <div class="dropdown-divider inner-green"></div>
+    <div class="card-body">
+        <a href="#" class="btn btn-outline-primary btn-sm"><i class="fas fa-edit"></i></a>
+        <a href="#" class="btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></a>
+    </div>
+</div>
+    </div>
+        <div class="col">
+            <p class="text-center inner-green h4">Enfant(s)</p>
+            <table class="table table-light">
+                <thead class="thead-dark">
+                    <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prénom</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for child in user.children %}
+
+                     {% if child|length == 0 %}
+                        <p>Aucun enfant(s) n'est enregistré(s)</p>
+                    {% else %} 
+                        <tr>
+                            <td scope="row"></td>
+                            <td><i class="fas fa-user-alt"></i></td>
+                            <td>{{ child.nom }}</td>
+                            <td>{{ child.prenom }}</td>
+                            <td><a href="#" class="btn btn-outline-primary btn-sm"><i class="fas fa-edit"></i></a></td>
+                            <td><a href="#" class="btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></a></td>
+                        </tr>  
+                    {% endif %}  
+
+                {% endfor %} 
+                </tbody>
+            </table> 
+        </div>
+    
+    </div>
+    </div>
+  </div>
+
+    
+
+{% endblock %}
+
+

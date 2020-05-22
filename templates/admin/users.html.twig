@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Youngfood - Admin{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('dashboard') }}
+{% endblock %}
+
+{% set centered_content = true %}
+
+{% use 'partials/menu.html.twig' %}
+
+{% block second_title %}
+     <span>Gestion des utilisateurs</span>
+{% endblock %}
+
+{% block main_content %}
+
+    <div class="container">
+        <div class="form-row">
+            <div class="col-sm">
+                {{form_row(form.email)}}
+
+                {{form_end(form)}}
+            </div>
+
+            <div class="col-sm">
+                <div class="btn btn-outline-success"><i class="fas fa-search"></i></div>
+            </div>
+        </div>
+    </div>
+ 
+
+    <div class="col-md-6">
+
+           <table class="table table-hover">
+                <thead>
+                    <th></th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Rôles</th>
+                    <th>Sexe</th>
+                    <th>Date de création</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </thead>
+
+                <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td><i class="fas fa-user-alt"></i></td>
+                            <td>{{user.lastname}}</td>
+                            <td>{{user.firstname}}</td>
+                            <td>{{user.email}}</td>
+                            <td>
+                                {% for role in user.roles %}
+
+                                    {% if role == "ROLE_USER" %}
+                                        <p class="h6"><span class="text-primary">USER</span></p>  
+                                    {% elseif role == "ROLE_ADMIN" %}
+                                        <p class="h6"><span class="text-danger">[ADMIN]</span></p>  
+                                    {% endif %} 
+
+                                {% endfor %}
+                            </td>
+                            <td>{{user.gender}}</td>
+                            <td>  {# {{user.registered_at|date("Y-m-d")}}#}</td> 
+                            <td><a href="{{path('admin.show_user', {'id': user.id})}}" class="btn btn-outline-success btn-sm"><i class="far fa-eye"></i></a></td> 
+                            <td><a href="#" class="btn btn-outline-primary btn-sm"><i class="fas fa-edit"></i></a></td>
+                            <td><a href="#" class="btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></a> </td>
+                        </tr>
+                    {% endfor %}
+                    
+                </tbody>
+           </table>
+        <div class="pagination">
+            {{ knp_pagination_render(users) }}
+        </div>
+    </div>
+
+{% endblock %}
+
+

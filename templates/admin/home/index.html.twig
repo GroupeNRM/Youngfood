@@ -1,151 +1,184 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}YoungFood - Tableau de Bord Admin{% endblock %}
+{% block title %}Tableau de bord - Admin
+{% endblock %}
 
 {% block stylesheets %}
-    {{ encore_entry_link_tags('dashboard') }}
+	{{ encore_entry_link_tags('dashboard') }}
 {% endblock %}
 
 {% set centered_content = true %}
 
 {% use 'partials/menu.html.twig' %}
 
-<<<<<<< HEAD
 {% block second_title %}
-    Bienvenue <span class="inner-green">Admin #1</span>
+
+<h3>Statistiques du site</h3>
+
+	<span class="inner-green">
+
+		{# {% for role in users.roles %}
+
+			{% if role == "ROLE_ADMIN" %}
+
+				<span class="inner-green">ADMIN</span>👋
+
+			{% elseif role == "ROLE_USER" %}
+
+				<span class="inner-green">USER</span>
+
+
+			{% endif %}
+
+		{% endfor %} #}
+	</span>
 {% endblock %}
 
 {% block main_content %}
 
-<main>
-    <div class="container-fluid mt-n10">
+	<main>
+		<div class="container-fluid mt-n10">
 
-        <div class="row">
-            <div class="col-xl-3 col-md-6">
-                <div class="card bg-primary text-white mb-4">
-                    <div class="card-body">Menus</div>
-                    <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="#">Voir plus de détails</a>
-                        <div class="small text-white"><svg class="svg-inline--fa fa-angle-right fa-w-8" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg=""><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg><!-- <i class="fas fa-angle-right"></i> --></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-md-6">
-                <div class="card bg-warning text-white mb-4">
-                    <div class="card-body">Réservations</div>
-                    <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="#">Voir plus de détails</a>
-                        <div class="small text-white"><svg class="svg-inline--fa fa-angle-right fa-w-8" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg=""><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg><!-- <i class="fas fa-angle-right"></i> --></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-md-6">
-                <div class="card bg-success text-white mb-4">
-                    <div class="card-body">Paiements</div>
-                    <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="#">Voir plus de détails</a>
-                        <div class="small text-white"><svg class="svg-inline--fa fa-angle-right fa-w-8" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg=""><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg><!-- <i class="fas fa-angle-right"></i> --></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-md-6">
-                <div class="card bg-danger text-white mb-4">
-                    <div class="card-body">Plats likés</div>
-                    <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="#">Voir plus de détails</a>
-                        <div class="small text-white"><!-- <i class="fas fa-angle-right"></i> --></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card mb-4">
-            <div class="card-header">Utilisateurs de la plateforme</div>
-            <div class="card-body">
-                <div class="datatable table-responsive">
-                    <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4"><div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="dataTable_length"><label>Show <select name="dataTable_length" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-12 col-md-6"><div id="dataTable_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="dataTable"></label></div></div></div><div class="row"><div class="col-sm-12"><table class="table table-bordered table-hover dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                        <thead>
-                            <tr role="row"><th>Nom</th><th>Position</th><th>Office</th><th>Age</th><th>Start date</th><th>Salary</th><th>Status</th><th>Actions</th></tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                                <th>Nom</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </tfoot>
-                        <tbody>
-                        <tr role="row" class="odd">
-                                <td class="sorting_1">Airi Satou</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>33</td>
-                                <td>2008/11/28</td>
-                                <td>$162,700</td>
-                                <td><div class="badge badge-primary badge-pill">Full-time</div></td>
-                                <td>
-                                    <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button><button class="btn btn-datatable btn-icon btn-transparent-dark"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button>
-                                </td>
-                            </tr><tr role="row" class="even">
-                                <td class="sorting_1">Angelica Ramos</td>
-                                <td>Chief Executive Officer (CEO)</td>
-                                <td>London</td>
-                                <td>47</td>
-                                <td>2009/10/09</td>
-                                <td>$1,200,000</td>
-                                <td><div class="badge badge-primary badge-pill">Full-time</div></td>
-                                <td>
-                                    <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button><button class="btn btn-datatable btn-icon btn-transparent-dark"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button>
-                                </td>
-                            </tr><tr role="row" class="odd">
-                                <td class="sorting_1">Ashton Cox</td>
-                                <td>Junior Technical Author</td>
-                                <td>San Francisco</td>
-                                <td>66</td>
-                                <td>2009/01/12</td>
-                                <td>$86,000</td>
-                                <td><div class="badge badge-secondary badge-pill">Part-time</div></td>
-                                <td>
-                                    <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button><button class="btn btn-datatable btn-icon btn-transparent-dark"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button>
-                                </td>
-                            </tr><tr role="row" class="even">
-                                <td class="sorting_1">Bradley Greer</td>
-                                <td>Software Engineer</td>
-                                <td>London</td>
-                                <td>41</td>
-                                <td>2012/10/13</td>
-                                <td>$132,000</td>
-                                <td><div class="badge badge-warning badge-pill">Pending</div></td>
-                                <td>
-                                    <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button><button class="btn btn-datatable btn-icon btn-transparent-dark"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button>
-                                </td>
-                            </tr><tr role="row" class="odd">
-                                <td class="sorting_1">Brenden Wagner</td>
-                                <td>Software Engineer</td>
-                                <td>San Francisco</td>
-                                <td>28</td>
-                                <td>2011/06/07</td>
-                                <td>$206,850</td>
-                                <td><div class="badge badge-primary badge-pill">Full-time</div></td>
-                                <td>
-                                    <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button><button class="btn btn-datatable btn-icon btn-transparent-dark"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button>
-                                </td>
-                            </tr></tbody>
-                    </table></div></div><div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="dataTable_previous"><a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="4" tabindex="0" class="page-link">4</a></li><li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="5" tabindex="0" class="page-link">5</a></li><li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="6" tabindex="0" class="page-link">6</a></li><li class="paginate_button page-item next" id="dataTable_next"><a href="#" aria-controls="dataTable" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li></ul></div></div></div></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
-=======
-{% block main_content %}
-{% endblock %}
+			<div class="row">
+				<div class="col-xl-3 col-md-6">
+					<div class="card text-dark btn btn-outline-primary mb-4">
+						<div class="card-body">
+							<i class="fas fa-utensils"></i>
+							Menus</div>
+						<div class="card-footer d-flex align-items-center justify-content-between">
+							<a class="small text-dark stretched-link" href="#">Voir plus de détails</a>
+
+							<div class="small text-dark">
+								<svg class="svg-inline--fa fa-angle-right fa-w-8" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 256 512" data-fa-i2svg="">
+									<path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path>
+								</svg><!-- <i class="fas fa-angle-right"></i> --></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 col-md-6">
+					<div class="card btn btn-outline-warning text-dark mb-4">
+						<div class="card-body">
+							<i class="far fa-calendar-check"></i>
+							Réservations</div>
+						<div class="card-footer d-flex align-items-center justify-content-between">
+							<a class="small text-dark stretched-link" href="#">Voir plus de détails</a>
+
+							<div class="small text-dark">
+								<svg class="svg-inline--fa fa-angle-right fa-w-8" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 256 512" data-fa-i2svg="">
+									<path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path>
+								</svg><!-- <i class="fas fa-angle-right"></i> --></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 col-md-6">
+					<div class="card btn btn-outline-success text-dark mb-4">
+						<div class="card-body">
+							<i class="far fa-money-bill-alt"></i>
+							Paiements</div>
+						<div class="card-footer d-flex align-items-center justify-content-between">
+							<a class="small text-dark stretched-link" href="# ">Voir plus de détails</a>
+
+							<div class="small text-dark">
+								<svg class="svg-inline--fa fa-angle-right fa-w-8" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 256 512" data-fa-i2svg="">
+									<path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path>
+								</svg><!-- <i class="fas fa-angle-right"></i> --></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 col-md-6">
+					<div class="card btn btn-outline-danger text-dark mb-4">
+						<div class="card-body">
+							<i class="far fa-heart"></i>
+							Plats likés</div>
+						<div class="card-footer d-flex align-items-center justify-content-between">
+							<a class="small text-dark stretched-link" href="#">Voir plus de détails</a>
+
+							<div class="small text-dark"><!-- <i class="fas fa-angle-right"></i> --></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="container">
+				<canvas id="myChart" width="400" height="150"></canvas>
+
+			</div>
+			<br/><br/><br/>
+
+			<h6 class="text-center text-muted">Nouveaux utilisateurs</h6>
+
+			<div class="col-md-6">
+
+				<table class="table table-hover">
+					<thead>
+						<th></th>
+						<th>Nom</th>
+						<th>Prénom</th>
+						<th>Email</th>
+						<th>Rôles</th>
+						<th>Sexe</th>
+						<th>Date de création</th>
+						<th></th>
+						<th></th>
+						<th></th>
+					</thead>
+
+					<tbody>
+						{% for user in users %}
+							<tr>
+								<td>
+									<i class="fas fa-user-alt"></i>
+								</td>
+								<td>{{user.lastname}}</td>
+								<td>{{user.firstname}}</td>
+								<td>{{user.email}}</td>
+								<td>
+									{% for role in user.roles %}
+
+										{% if role == "ROLE_USER" %}
+											<p class="h6">
+												<span class="text-primary">USER</span>
+											</p>
+										{% elseif role == "ROLE_ADMIN" %}
+											<p class="h6">
+												<span class="text-danger">ADMIN</span>
+											</p>
+										{% endif %}
+
+									{% endfor %}
+								</td>
+								<td>{{user.gender}}</td>
+								<td>
+									{# {{user.registered_at|date("Y-m-d")}}#}
+								</td>
+								<td>
+									<a href="{{path('admin.show_user', {'id': user.id})}}" class="btn btn-outline-success btn-sm">
+										<i class="far fa-eye"></i>
+									</a>
+								</td>
+								<td>
+									<a href="#" class="btn btn-outline-primary btn-sm">
+										<i class="fas fa-edit"></i>
+									</a>
+								</td>
+								<td>
+									<a href="#" class="btn btn-outline-danger btn-sm">
+										<i class="fas fa-trash"></i>
+									</a>
+								</td>
+							</tr>
+						{% endfor %}
+
+					</tbody>
+				</table>
+
+
+			</main>
+
+
+		{% endblock %}
 
 {% block javascripts %}
-    {{ encore_entry_script_tags('dashboard') }}
->>>>>>> template
+	{{ encore_entry_script_tags('dashboard') }}
 {% endblock %}
+
