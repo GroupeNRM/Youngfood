@@ -14,7 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ApiResource(
  *     collectionOperations={"get"},
  *     itemOperations={"get"}
- *     )
+ *  )
  * @ORM\Entity(repositoryClass="App\Repository\FoodRepository")
  * @ApiFilter(SearchFilter::class, properties={"category": "exact"})
  */

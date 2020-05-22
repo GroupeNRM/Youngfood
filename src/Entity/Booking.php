@@ -7,12 +7,15 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\BookingRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=BookingRepository::class)
  * @ApiResource(
  *     collectionOperations={"post", "get"},
- *     itemOperations={"get"}
+ *     itemOperations={"get"},
+ *     normalizationContext={"groups"={"booking:read"}},
+ *     denormalizationContext={"groups"={"booking:write"}}
  * )
  * @ApiFilter(DateFilter::class, properties={"date"})
  */
@@ -26,13 +29,15 @@ class Booking
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Meal::class)
+     * @ORM\ManyToOne(targetEntity=Meal::class, inversedBy="bookings")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"booking:read", "booking:write"})
      */
     private $meal;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"booking:read", "booking:write"})
      */
     private $date;
 

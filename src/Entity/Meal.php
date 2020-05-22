@@ -3,13 +3,18 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MealRepository")
  * @ApiResource(
  *     collectionOperations={"post", "get"},
- *     itemOperations={"get"}
+ *     itemOperations={"get"},
+ *     normalizationContext={"groups"={"meal:read"}},
+ *     denormalizationContext={"groups"={"meal:write"}}
  * )
  */
 class Meal
@@ -24,25 +29,40 @@ class Meal
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Food")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"meal:read", "meal:write"})
      */
     private $entree;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Food")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"meal:read", "meal:write"})
      */
-    private $main_dish;
+    private $maindish;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Food")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"meal:read", "meal:write"})
      */
     private $dessert;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Groups({"meal:read", "meal:write"})
      */
     private $title;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Booking::class, mappedBy="meal")
+     * @Groups({"meal:read", "meal:write"})
+     */
+    private $bookings;
+
+    public function __construct()
+    {
+        $this->bookings = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -61,14 +81,14 @@ class Meal
         return $this;
     }
 
-    public function getMainDish(): ?Food
+    public function getMaindish(): ?Food
     {
-        return $this->main_dish;
+        return $this->maindish;
     }
 
-    public function setMainDish(?Food $main_dish): self
+    public function setMaindish(?Food $maindish): self
     {
-        $this->main_dish = $main_dish;
+        $this->maindish = $maindish;
 
         return $this;
     }
@@ -93,6 +113,37 @@ class Meal
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Booking[]
+     */
+    public function getBookings(): Collection
+    {
+        return $this->bookings;
+    }
+
+    public function addBooking(Booking $booking): self
+    {
+        if (!$this->bookings->contains($booking)) {
+            $this->bookings[] = $booking;
+            $booking->setMeal($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBooking(Booking $booking): self
+    {
+        if ($this->bookings->contains($booking)) {
+            $this->bookings->removeElement($booking);
+            // set the owning side to null (unless already changed)
+            if ($booking->getMeal() === $this) {
+                $booking->setMeal(null);
+            }
+        }
 
         return $this;
     }
