@@ -29,33 +29,33 @@ class Meal
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Food")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"meal:read", "meal:write"})
+     * @Groups({"meal:read", "meal:write", "booking:read"})
      */
     private $entree;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Food")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"meal:read", "meal:write"})
+     * @Groups({"meal:read", "meal:write", "booking:read"})
      */
     private $maindish;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Food")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"meal:read", "meal:write"})
+     * @Groups({"meal:read", "meal:write", "booking:read"})
      */
     private $dessert;
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Groups({"meal:read", "meal:write"})
+     * @Groups({"meal:read", "meal:write", "booking:read"})
      */
     private $title;
 
     /**
      * @ORM\OneToMany(targetEntity=Booking::class, mappedBy="meal")
-     * @Groups({"meal:read", "meal:write"})
+     * @Groups({"meal:read", "meal:write", "booking:read"})
      */
     private $bookings;
 
@@ -113,37 +113,6 @@ class Meal
     public function setTitle(string $title): self
     {
         $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Booking[]
-     */
-    public function getBookings(): Collection
-    {
-        return $this->bookings;
-    }
-
-    public function addBooking(Booking $booking): self
-    {
-        if (!$this->bookings->contains($booking)) {
-            $this->bookings[] = $booking;
-            $booking->setMeal($this);
-        }
-
-        return $this;
-    }
-
-    public function removeBooking(Booking $booking): self
-    {
-        if ($this->bookings->contains($booking)) {
-            $this->bookings->removeElement($booking);
-            // set the owning side to null (unless already changed)
-            if ($booking->getMeal() === $this) {
-                $booking->setMeal(null);
-            }
-        }
 
         return $this;
     }

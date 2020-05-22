@@ -31,7 +31,7 @@ class Booking
     /**
      * @ORM\ManyToOne(targetEntity=Meal::class, inversedBy="bookings")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"booking:read", "booking:write"})
+     * @Groups({"booking:read", "booking:write", "meal:read"})
      */
     private $meal;
 
