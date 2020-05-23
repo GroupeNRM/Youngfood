@@ -8,12 +8,15 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Core\Annotation\ApiProperty;
 use ApiPlatform\Core\Serializer\Filter\PropertyFilter;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ApiResource(
  *     collectionOperations={"get"},
- *     itemOperations={"get"}
+ *     itemOperations={"get"},
+ *     normalizationContext={"groups"={"food:read"}},
+ *     denormalizationContext={"groups"={"food:write"}}
  *  )
  * @ORM\Entity(repositoryClass="App\Repository\FoodRepository")
  * @ApiFilter(SearchFilter::class, properties={"category": "exact"})
@@ -24,6 +27,7 @@ class Food
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"food:read", "food:write"})
      */
     private $id;
 
@@ -34,6 +38,7 @@ class Food
      *     allowEmptyString = false
      * )
      * @ORM\Column(type="string", length=50)
+     * @Groups({"food:read", "food:write", "booking:read"})
      */
     private $title;
 
@@ -42,11 +47,13 @@ class Food
      *     max = "1"
      * )
      * @ORM\Column(type="string", length=1)
+     * @Groups({"food:read", "food:write", "booking:read"})
      */
     private $category;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"food:read", "food:write", "booking:read"})
      */
     private $picture;
 
@@ -55,6 +62,7 @@ class Food
      *     max = "250"
      * )
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"food:read", "food:write"})
      */
     private $information;
 

@@ -17,7 +17,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *     normalizationContext={"groups"={"booking:read"}},
  *     denormalizationContext={"groups"={"booking:write"}}
  * )
- * @ApiFilter(DateFilter::class, properties={"date"})
+ * @ApiFilter(DateFilter::class, properties={"date": DateFilter::INCLUDE_NULL_BEFORE_AND_AFTER})
  */
 class Booking
 {

@@ -23,20 +23,21 @@ class Meal
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"meal:read", "meal:write"})
      */
     private $id;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Food")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"meal:read", "meal:write", "booking:read"})
+     * @Groups({"meal:read", "meal:write", "booking:read", "food:read"})
      */
     private $entree;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Food")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"meal:read", "meal:write", "booking:read"})
+     * @Groups({"meal:read", "meal:write", "booking:read", "food:read"})
      */
     private $maindish;
 
