@@ -50,4 +50,19 @@
   .little-text {
     font-size: 14px;
   }
+
+  .like-button {
+    position: absolute;
+    display: block;
+    text-align: center;
+    line-height: 39px;
+    bottom: -15px;
+    right: -20px;
+    background: $main-green;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    color: $pure-white;
+    cursor: pointer;
+  }
 }

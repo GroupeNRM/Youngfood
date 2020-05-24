@@ -6,11 +6,13 @@ use App\Entity\Child;
 use App\Entity\Meal;
 use App\Entity\User;
 use App\Form\NewChildType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Class DashboardController
@@ -70,5 +72,21 @@ class DashboardController extends AbstractController
     public function newBooking()
     {
         return $this->render("dashboard/parentNewBooking/index.html.twig");
+    }
+
+    /**
+     * @param UserInterface $user
+     * @return JsonResponse
+     * @Route("/user-connected", name="userConnected")
+     * Petite fonction renvoyant l'ID de l'utilisateur connecté, utile pour la partie Front
+     */
+    public function getConnectedUserId(UserInterface $user): JsonResponse
+    {
+        $userId = $user->getId();
+
+        $response = new JsonResponse();
+        $response->setData(['id' => $userId]);
+        return $response;
+
     }
 }

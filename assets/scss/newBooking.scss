@@ -30,6 +30,17 @@
   }
 }
 
+.child-card {
+  border: 2px solid $main-grey;
+  border-radius: 2px;
+
+  &:hover {
+    border: 2px solid $main-green;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+}
+
 .selected {
   border: 2px solid $main-green;
   border-radius: 2px;

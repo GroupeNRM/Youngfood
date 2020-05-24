@@ -51,6 +51,8 @@ Encore
     //Style commun aux Dashboard (users & admin)
     .addEntry('dashboard', './assets/js/dashboard.js')
 
+    .addEntry('notification', './assets/js/notification.js')
+
     // New Meal 
     .addEntry('newMeal', './assets/js/newMeal.js')
 
