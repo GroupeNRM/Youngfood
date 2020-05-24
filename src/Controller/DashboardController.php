@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Child;
+use App\Entity\Meal;
 use App\Entity\User;
 use App\Form\NewChildType;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -23,9 +24,7 @@ class DashboardController extends AbstractController
      */
     public function index()
     {
-        return $this->render('dashboard/index.html.twig', [
-            'controller_name' => 'DashboardController'
-        ]);
+        return $this->render('dashboard/index.html.twig');
     }
 
     /**

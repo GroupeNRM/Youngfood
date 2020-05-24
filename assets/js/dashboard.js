@@ -1,14 +1,8 @@
 import '../scss/dashboard.scss';
 import Vue from "vue";
-import Toasted from "vue-toasted";
-import Notification from "../vue/Notification";
-
-Vue.use(Toasted, {
-    iconPack: 'fontawesome'
-});
+import Dashboard from "../vue/Dashboard";
 
 new Vue({
-    components: { Notification },
-    template: "<Notification/>",
-    // router
-}).$mount("#notification");
+    components: { Dashboard },
+    template: "<Dashboard/>"
+}).$mount("#app-dashboard");
