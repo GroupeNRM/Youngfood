@@ -20,14 +20,6 @@ class UpdatePasswordType extends AbstractType
             ->add('old_password', PasswordType::class, [
                 'mapped' => false,
                 'required' => true,
-                'constraints' => [
-                    new Length([
-                        'min' => 6,
-                        'minMessage' => 'Votre mot de passe doit contenir au minimum {{ limit }} caractères !',
-                        'max' => 30,
-                        'maxMessage' => 'Votre mot de passe doit contenir au maximum {{ limit }} caractères !',
-                    ])
-                ],
                 'label' => 'Ancien Mot de Passe',
                 'attr' => [
                     'class' => 'form-control',
