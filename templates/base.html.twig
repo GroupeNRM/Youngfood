@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="shortcut icon" href="{{ asset('build/favicon.png') }}" type="image/x-icon">
+        <link rel="icon" href="{{ asset('build/favicon.png') }}" type="image/x-icon">
         {{ encore_entry_link_tags('app') }}
         {% block stylesheets %}{% endblock %}
     </head>
