@@ -60,6 +60,9 @@ Encore
     // New Booking
     .addEntry('newBooking', './assets/js/newBooking.js')
 
+    // Error Pages
+    .addEntry('error', './assets/js/error.js')
+
     .enableVueLoader()
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.

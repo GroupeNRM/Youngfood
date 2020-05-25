@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Error 403{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('error') }}
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row vh-100 d-flex align-items-center justify-content-center">
+            <div class="col-md-8">
+                <div class="row justify-content-center lm-logo">
+                    <div class="text-center">
+                        <img src="{{ asset('build/youngfood.svg') }}" alt="LOGO YoungFood" class="mx-auto">
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <h1 class="mb-4 http-status"><span class="inner-green">4</span>0<span class="inner-green">3</span></h1>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="text-center">
+                        <h2 class="mb-4">Vous n'avez pas les droits !</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('error') }}
+{% endblock %}
