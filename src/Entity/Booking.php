@@ -26,6 +26,7 @@ class Booking
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"booking:read", "booking:write", "meal:read"})
      */
     private $id;
 

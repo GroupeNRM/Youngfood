@@ -13,7 +13,7 @@
             <h2>Choisissez l'enfant que vous souhaitez inscrire</h2>
             <div class="col-md-12">
                 <div class="row">
-                    <Child class="col-md-4 px-0" :childData="child" v-for="child in connectedUserChildren" :key="child.id" @click.native="choseChild(child)" :class="{ selected: chosenChild.includes(child)}"/>
+                    <Child class="col-md-4 px-0" :childData="child" v-for="child in connectedUserChildren" :key="child.id" @click.native="choseChild(child.id)" :class="{ selected: chosenChild === child.id}"/>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
             return {
                 connectedUserId: undefined,
                 connectedUserChildren: {},
-                chosenChild: [],
+                chosenChild: undefined,
                 bookings: {},
                 chosenDays: [],
                 step: 0,
@@ -96,11 +96,11 @@
                 }
             },
             choseChild: function(child) {
-                if(this.chosenChild.length >= 1) {
-                    this.chosenChild = [];
-                    this.chosenChild.push(child);
+                if(this.chosenChild !== undefined) {
+                    this.chosenChild = undefined;
+                    this.chosenChild = child;
                 } else {
-                    this.chosenChild.push(child);
+                    this.chosenChild = child;
                 }
             },
             nextStep: function() {
@@ -117,7 +117,7 @@
                         });
                     }
                 } else {
-                    //envoie api
+                    this.sendNewUserOrder();
                 }
             },
             getChildren: function () {
@@ -135,7 +135,20 @@
                     })
             },
             sendNewUserOrder: function() {
-
+                // dogshit
+                for (let i = 0; i < this.chosenDays.length; i++) {
+                    axios.post('/api/user_orders', {
+                        childId: `/api/children/${this.chosenChild}`,
+                        bookingId: `/api/bookings/${this.chosenDays[i].id}`
+                    }).then(response => {
+                        let toast = this.$toasted.success("Vos demandes de reservations ont bien étés prises en compte", {
+                            theme: "toasted-primary",
+                            icon: "check",
+                            position: "top-right",
+                            duration : 3000
+                        });
+                    })
+                }
             },
         }
     }
