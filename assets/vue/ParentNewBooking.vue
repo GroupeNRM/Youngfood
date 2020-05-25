@@ -1,8 +1,11 @@
 <template>
     <div class="container-fluid">
         <div class="row text-center justify-content-around mb-5" v-if="step === 0">
-            <div class="col-md-2 clickable-date px-0" v-for="day in availableDays" @click="choseDays(day)" :class="{ selected: chosenDays.includes(day)}">
-                {{day}}
+            <div class="col-md-2 clickable-date px-0" v-for="day in bookings" @click="choseDays(day)" :class="{ selected: chosenDays.includes(day)}">
+                <div class="d-block">{{day.date | formatDate(day.date)}}</div>
+                <div class="d-block">{{day.meal.entree.title}}</div>
+                <div class="d-block">{{day.meal.maindish.title}}</div>
+                <div class="d-block">{{day.meal.dessert.title}}</div>
             </div>
         </div>
 
@@ -32,14 +35,28 @@
                 connectedUserId: undefined,
                 connectedUserChildren: {},
                 chosenChild: [],
-                availableDays: [],
+                bookings: {},
                 chosenDays: [],
                 step: 0,
             }
         },
+        computed: {
+            tomorrow: function() {
+                let today = new Date();
+                today.setDate(today.getDate() + 1);
+                return today.toLocaleDateString('us-US').split('/').join('-');
+            },
+        },
+        filters: {
+            // Filtre retournant la date au format Français
+            formatDate: function(date) {
+                let parts = date.match(/(\d+)/g);
+                return new Date(parts[0], parts[1]-1, parts[2]).toLocaleDateString('fr-FR');
+            }
+        },
         mounted() {
             this.getUserId();
-            this.getFiveNextWorkingDays();
+            this.getFiveNextBooking();
         },
         methods: {
             getUserId: function() {
@@ -57,17 +74,19 @@
                     })
             },
             // Récupération de la date des prochains jours (hors week-end)
-            getFiveNextWorkingDays: function () {
-                let tomorrow = new Date();
-                tomorrow.setDate(tomorrow.getDate() + 1);
-
-                while(this.availableDays.length < 5) {
-                    if(tomorrow.getDay() !== 6 && tomorrow.getDay() !== 0) {
-                        let temp = new Date(tomorrow);
-                        this.availableDays.push(temp);
-                    }
-                    tomorrow.setDate(tomorrow.getDate() + 1);
-                }
+            getFiveNextBooking: function () {
+                axios.get(`/api/bookings?date[after]=${this.tomorrow}&page=1`)
+                    .then(response => {
+                        this.bookings = response.data['hydra:member'];
+                    })
+                    .catch(function () {
+                        let toast = this.$toasted.error("Impossible de récuperer l'ID de l'utilisateur", {
+                            theme: "toasted-primary",
+                            icon: "times",
+                            position: "top-right",
+                            duration : 3000
+                        });
+                    })
             },
             choseDays: function(day) {
                 if(this.chosenDays.includes(day)) {

@@ -15,7 +15,8 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *     collectionOperations={"post", "get"},
  *     itemOperations={"get"},
  *     normalizationContext={"groups"={"booking:read"}},
- *     denormalizationContext={"groups"={"booking:write"}}
+ *     denormalizationContext={"groups"={"booking:write"}},
+ *     attributes={"pagination_items_per_page"=5})
  * )
  * @ApiFilter(DateFilter::class, properties={"date": DateFilter::INCLUDE_NULL_BEFORE_AND_AFTER})
  */
