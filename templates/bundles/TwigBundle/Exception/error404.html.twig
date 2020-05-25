@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Error 404{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('error') }}
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row vh-100 d-flex align-items-center justify-content-center">
+            <div class="col-md-8">
+                <div class="row justify-content-center">
+                    <div class="text-center">
+                        <h1 class="mb-4">Oups...<br>Il semblerait que cette page <span class="inner-green">n'existe pas</span> !</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('error') }}
+{% endblock %}
