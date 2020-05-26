@@ -25,7 +25,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class DashboardController extends AbstractController
 {
     /**
-     * @Route("/", name="index", options={"expose"=true})
+     * @Route("/", name="index")
      */
     public function index()
     {
@@ -91,8 +91,8 @@ class DashboardController extends AbstractController
         return $response;
     }
 
-    /*
-     * @Route("/dashboard/update-password", name="dashboard.updatePassword")
+    /**
+     * @Route("/update-password", name="updatePassword")
      * @param Request $request
      * @param UserPasswordEncoderInterface $passwordEncoder
      * @return RedirectResponse|Response
