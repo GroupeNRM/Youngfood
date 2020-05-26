@@ -46,7 +46,7 @@
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="9">No records found</td>
+                    <td colspan="9">Aunce donnée à afficher</td>
                 </tr>
             {% endfor %}
             </tbody>
@@ -61,4 +61,5 @@
 
 {% block javascripts %}
     {{ encore_entry_script_tags('dashboard') }}
+    {{ encore_entry_script_tags('notification') }}
 {% endblock %}

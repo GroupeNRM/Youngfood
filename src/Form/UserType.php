@@ -28,8 +28,8 @@ class UserType extends AbstractType
                 'required' => true,
                 'label' => 'Sexe',
                 'choices' => [
-                    'H' => 'H',
-                    'F' => 'F',
+                    'Homme' => 'H',
+                    'Femme' => 'F',
                     'Inconnue' => 'I'
                 ]
             ])
