@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}YoungFood - Liste des Utilisateurs{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('dashboard') }}
+{% endblock %}
+
+{% set centered_content = false %}
+
+{% use 'partials/menu.html.twig' %}
+
+{% block second_title %}
+    Liste des <span class="inner-green">utilisateurs</span> de YoungFood :
+{% endblock %}
+
+{% block main_content %}
+    <div class="col-12">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOM</th>
+                <th>Prénom</th>
+                <th>Sexe</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Date Inscription</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.lastname }}</td>
+                    <td>{{ user.firstname }}</td>
+                    <td>{{ user.gender }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                    <td>{{ user.registeredAt ? user.registeredAt|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>
+                        <a class="btn btn-info" href="{{ path('admin.infosUtilisateur', {'id': user.id}) }}"><i class="far fa-eye"></i></a>
+                        <a class="btn btn-warning" href="{{ path('admin.editerUtilisateur', {'id': user.id}) }}"><i class="fas fa-pen"></i></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="9">No records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-12">
+        <div class="text-center">
+            <a class="btn btn-success" href="{{ path('signup.index') }}">Nouvel Utilisateur</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('dashboard') }}
+{% endblock %}
