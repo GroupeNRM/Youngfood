@@ -140,7 +140,7 @@
                     axios.post('/api/user_orders', {
                         childId: `/api/children/${this.chosenChild}`,
                         bookingId: `/api/bookings/${this.chosenDays[i].id}`
-                    }).then(response => {
+                    }).then(() => {
                         let toast = this.$toasted.success("Vos demandes de reservations ont bien étés prises en compte", {
                             theme: "toasted-primary",
                             icon: "check",
@@ -148,6 +148,10 @@
                             duration : 3000
                         });
                     })
+
+                    this.chosenDays = [];
+                    this.chosenChild = undefined;
+                    this.step = 0;
                 }
             },
         }
