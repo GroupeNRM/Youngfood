@@ -4,6 +4,7 @@
 
 {% block stylesheets %}
     {{ encore_entry_link_tags('dashboard') }}
+    {{ encore_entry_link_tags('user') }}
 {% endblock %}
 
 {% set centered_content = false %}
@@ -53,12 +54,9 @@
     </div>
     <div class="row">
         <div class="col-12 text-center">
-            <a class="btn btn-info" href="{{ path('admin.listeUtilisateur') }}">Retour</a>
-            <a class="btn btn-warning" href="{{ path('admin.editerUtilisateur', {'id': user.id}) }}">Modifier</a>
+            {{ include('admin/user/_delete_form.html.twig') }}
         </div>
     </div>
-
-    {{ include('admin/user/_delete_form.html.twig') }}
 {% endblock %}
 
 {% block javascripts %}
