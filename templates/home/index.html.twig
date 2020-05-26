@@ -1,16 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Bienvenue sur MyCantine{% endblock %}
+{% block title %}Bienvenue sur YoungFood{% endblock %}
 
 {% block stylesheets %}
     {{ encore_entry_link_tags('home') }}
 {% endblock %}
 
 {% block body %}
-
     <nav class=" container-fluid navbar transparent navbar-expand-lg navbar-light bg-light mb-5">
+        <img class="navbar-brand logo-youngfood mx-auto" src="{{ asset('build/youngfood.svg') }}" alt="LOGO YoungFood">
         <div class="container mt-3 mb-3">
-            <a class="navbar-brand font-weight-bold" href="{{path('home.index')}}">MyCantine</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -26,10 +25,25 @@
                     <li class="nav-item">
                         <a class="nav-link font-weight-bold"  style="margin:0 30px; color: #000" href="#">A propos</a>
                     </li>
+                    {% if app.user %}
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold"  style="margin:0 30px; color: #000" href="{{ path('admin.index') }}">Tableau de Bord</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold"  style="margin:0 30px; color: #000" href="{{ path('dashboard.index') }}">Tableau de Bord</a>
+                            </li>
+                        {% endif %}
+                    {% endif %}
                 </ul>
                 <div class="nav-item">
-                    <a class="btn btn-success my-2 my-sm-0" href="{{path('signup.index')}}" style="margin:0 30px; font-weight: bold;"><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;Inscription&nbsp;&nbsp;&nbsp;</a>
-                    <a class="btn btn-outline-secondary my-2 my-sm-0" href="{{path('app_login')}}" style="font-weight: bold;"><i class="far fa-user"></i>&nbsp;&nbsp;&nbsp;Connexion&nbsp;&nbsp;&nbsp;</a>
+                    {% if app.user %}
+                        <a class="btn btn-danger my-2 my-sm-0" href="{{path('app_logout')}}" style="margin:0 30px; font-weight: bold;"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;&nbsp;Déconnexion&nbsp;&nbsp;&nbsp;</a>
+                    {% else %}
+                        <a class="btn btn-success my-2 my-sm-0" href="{{path('signup.index')}}" style="margin:0 30px; font-weight: bold;"><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;Inscription&nbsp;&nbsp;&nbsp;</a>
+                        <a class="btn btn-outline-secondary my-2 my-sm-0" href="{{path('app_login')}}" style="font-weight: bold;"><i class="far fa-user"></i>&nbsp;&nbsp;&nbsp;Connexion&nbsp;&nbsp;&nbsp;</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -38,100 +52,62 @@
     <button id="topButton" title="Go to top"><i class="fa fa-arrow-up"></i></button>
 
     <main role="main" class="container mt-5 mb-5 text-center">
-
         <div class="row">
-
             <div class="col">
-
                 <div class="mt-5 mb-5 text-center">
                     <h1 class="h2">Nous créons une cantine <span class="inner-green">innovante</span> pour vos enfants</h1>
                     <p class="h5 mt-3 mb-3 text-center">Réservez les jours de cantine, prévisualisez en avance les repas des prochains jours, tout ça en ligne, garantie sans papier.</p>
                 </div>
-
-                <div class="mt-5 mb-5 text-center">
-                    <a class="btn btn-success my-2 my-sm-0" style="margin:0 30px; font-weight: bold;" href="{{ path('signup.index') }}"><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;Créer un compte</a>
-                    <a class="btn btn-outline-secondary my-2 my-sm-0" href="{{ path('app_login') }}" style="font-weight: bold;"><i class="far fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;Connexion&nbsp;&nbsp;&nbsp;&nbsp;</a>
-                </div>
-
             </div>
-
             <div class="col ml-5">
-
                 <div class="mt-5 mb-5">
                     <img src="{{ asset('build/Group.svg') }}" alt="family meal" style="" width=400>
                 </div>
-
             </div>
-
         </div>
-
         <div class="mt-5 mb-5 text-center">
-
             <div class="row">
-
                 <div class="col">
                     <img src="{{ asset('build/roubaix.svg') }}" alt="Image Roubaix" width=180>
                 </div>
-
                 <div class="col">
                     <img src="{{ asset('build/grenoble.svg') }}" alt="Image Grenoble" width=100>
                 </div>
-
                 <div class="col">
                     <img src="{{ asset('build/paris.svg') }}" alt="Image Paris" width=100>
                 </div>
-
                 <div class="col">
                     <img src="{{ asset('build/lille.svg') }}" alt="Image Lille" width=100>
                 </div>
-
             </div>
-
         </div>
 
         <h1 class="h2 text-center mt-5 mb-5">Marre de la paperasse?<br> Nous aussi!</h1>
 
-
-
         <div class="mt-5">
-
             <div class="row">
-
                 <div class="col">
                     <img class="mt-5 mb-5" src="{{ asset('build/menu.svg') }}" alt="Image des menus" width=620>
                 </div>
-
                 <div class="col">
-
                     <div class="mt-5 mb-5 text-center">
                         <h3>Une interface <span class="inner-green">ergonomique</span></h3>
                     </div>
-
                     <p class="h5 mt-5 mb-5">Notre équipe à réfléchi à une interface <span class="inner-green">efficace</span> et <span class="inner-green">dynamique</span>. Envie de savoir ce que vos enfants mangent demain ? C'est possible !</p>
-
                 </div>
-
             </div>
 
-
             <div class="row mt-5">
-
                 <div class="col mt-5 mb-5">
                     <h3>Besoin de gérer <span class="inner-green">plusieurs</span> enfants ?</h3>
-
                     <p class="h5">Pas de souci ! Nous avons pensé à <span class="inner-green">tout</span>, gerez <span class="inner-green">facilement</span> le profil de chacun de vos enfants depuis votre compte <span class="inner-green">parent</span>.</p>
                 </div>
-
                 <div class="col mb-5 mt-5">
                     <img src="{{ asset('build/mum_and_baby.svg') }}" alt="Image Mom and baby" width=500>
                 </div>
-
             </div>
-
         </div>
-
     </main>
-
     {% include "partials/footer.html.twig" %}
 {% endblock %}
 

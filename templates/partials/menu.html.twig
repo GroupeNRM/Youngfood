@@ -1,197 +1,118 @@
 {% block body %}
     <nav class="navbar grey-navbar sticky-top flex-md-nowrap p-3 border-bottom">
-
         <span class="navbar-brand col-sm-3 col-md-2 mr-0 text-center text-dark">Tableau de bord - <span class="inner-green">ADMIN</span></span>
-
         <ul class="nav justify-content-end">
             <li id="notification"></li>
-
             <li class="nav-item mr-5 ml-5">
                 <img src="{{ asset('build/avatar-homme.svg') }}" class="rounded-circle" width="50" alt="Image d'avatar">
             </li>
         </ul>
-
     </nav>
 
     <div class="container-fluid">
-
         <div class="row main-full-height grey-navbar">
-
             <nav class="col-md-2 d-none d-md-block sidebar grey-navbar border-right">
-
                 <div class="sidebar-sticky">
-
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-5 mb-2 text-muted">
-
-                        <span>Infos du site</span>
-
+                    <!-- Contenus "Infos du Site" -->
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-2 text-muted">
+                        <span>Navigation</span>
                     </h6>
-
                     <ul class="nav flex-column">
-
                         <li class="nav-item">
-
-                            <a class="nav-link text-dark" href="#" >
-                                <i class="far fa-chart-bar"></i>
-                                Statistiques
-                            </a>
-
-                        </li>
-
-                        <li class="nav-item">
-
-                            <a class="nav-link text-dark" href="#" >
-                                <i class="fas fa-utensils"></i>
-                                Menus
-                            </a>
-
+                            <a class="nav-link text-dark" href="#"><i class="fas fa-utensils mr-2"></i>Menus</a>
                         </li>
                         <li class="nav-item">
-
-                            <a class="nav-link text-dark" href="#" >
-                                <i class="far fa-calendar-check"></i>
-                                Réservations
-                            </a>
-
+                            <a class="nav-link text-dark" href="#"><i class="far fa-calendar-check mr-2"></i>Réservations</a>
                         </li>
-
-
                         <li class="nav-item">
-
-                            <a class="nav-link text-dark" href="#">
-                                <i class="far fa-money-bill-alt"></i>
-                                Paiements
-                            </a>
-
+                            <a class="nav-link text-dark" href="#"><i class="far fa-money-bill-alt mr-2"></i>Paiements</a>
                         </li>
-
-
                         <li class="nav-item">
-
-                            <a class="nav-link text-dark" href="#" >
-                                <i class="far fa-heart"></i>
-                                Plats likés
-                            </a>
-
+                            <a class="nav-link text-dark" href="#"><i class="far fa-heart mr-2"></i>Plats likés</a>
                         </li>
-
-                        <li class="nav-item">
-
-                            <a class="nav-link text-dark" href="#">
-                                <i class="fas fa-users"></i>
-                                Utilisateurs
-                            </a>
-
-                        </li>
-
                     </ul>
 
+                    <!-- Contenus "Admin" -->
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-2 text-muted">
+                        <span>Administration</span>
+                    </h6>
+                    <ul class="nav flex-column mb-2">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="{{ path('admin.newFood') }}"><i class="fas fa-hamburger mr-2"></i>Nouvel Aliment</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="{{ path('admin.newMeal') }}"><i class="fas fa-utensils mr-2"></i>Nouveau Repas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="{{ path('admin.newNotification') }}"><i class="far fa-envelope mr-2"></i>Nouvelle Notification</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#"><i class="far fa-chart-bar mr-2"></i>Statistiques</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#"><i class="fas fa-users mr-2"></i>Utilisateurs</a>
+                        </li>
+                    </ul>
+
+
+                    <!-- Contenus "Infos Personelles" -->
                     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-5 mb-2 text-muted">
                         <span>Infos personnelles</span>
                     </h6>
-
                     <ul class="nav flex-column mb-2">
-
                         <li class="nav-item">
-
-                            <a class="nav-link text-dark" href="#">
-
-                                <i class="far fa-address-card"></i>
-                                Voir mon profil
-                            </a>
-
+                            <a class="nav-link text-dark" href="#"><i class="far fa-address-card mr-2"></i>Voir mon profil</a>
                         </li>
-
                         <li class="nav-item">
-
                             <a class="nav-link text-dark" href="#">
-
-                                <i class="fas fa-unlock-alt"></i>
-                                Modifier le mot de passe
+                                <i class="fas fa-unlock-alt mr-2"></i>Modifier le mot de passe
                             </a>
-
                         </li>
-
                     </ul>
 
+                    <!-- Contenus Paramètres" -->
                     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted" style="height: 30px">
-
                         <span>Paramètres</span>
-
                     </h6>
-
                     <ul class="nav flex-column mb-2">
-
                         <li class="nav-item">
-
                             <a class="nav-link text-dark" href="#">
-
-                                <i class="fas fa-cog"></i>
-
+                                <i class="fas fa-cog mr-2"></i>
                                 Mes Paramètres
-
                             </a>
-
                         </li>
-
                         <div class="border-top my-3"></div>
-
                         <li class="nav-item">
-
-                            <a class="nav-link text-danger" href="#">
-                                <i class="fas fa-sign-out-alt"></i>
-                                Déconnexion
-                            </a>
-
+                            <a class="nav-link text-danger" href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt mr-2"></i>Déconnexion</a>
                         </li>
-
                     </ul>
-
                 </div>
 
                 <div class="border-top my-3 mt-5 text-center">
-
                     <small class="mt-5 text-muted">
-
                         Youngfood V0.5
-
                     </small>
-
                 </div>
-
             </nav>
 
             <!-- Main -->
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 bg-light">
-
                 <h1>{% block second_title %}{% endblock %}</h1>
-
                 {% if centered_content is defined and centered_content == true %}
-
                     <div class="container main-full-height">
-
                         <div class="row h-100 justify-content-center align-items-center">
-
                 {% endif %}
-
                             {% block main_content %}
-
                             {% endblock %}
-
                 {% if centered_content is defined and centered_content == true %}
-
                         </div>
-
                     </div>
-
                 {% endif %}
-
             </main>
-
         </div>
-
     </div>
 {% endblock %}
+
 <script>
     import Notification from "../../assets/vue/Notification";
     export default {

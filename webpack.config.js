@@ -65,6 +65,9 @@ Encore
     // Booking parent side
     .addEntry('parentNewBooking', './assets/js/parentNewBooking.js')
 
+    // Error Pages
+    .addEntry('error', './assets/js/error.js')
+
     .enableVueLoader()
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
