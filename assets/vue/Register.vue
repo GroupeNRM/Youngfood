@@ -129,7 +129,7 @@
                     })
                     .then(function(response) {
                         if(response.status === 201) {
-                            window.location.href = Routing.generate('dashboard.index');
+                            window.location.href = Routing.generate('app_login');
                         }
                     })
                     .catch(function(response) {

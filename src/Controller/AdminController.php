@@ -66,11 +66,13 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/notifications", name="notifications")
+     * @Route("/notifications", name="notifications", options={"expose"=true})
      * @return Response
      */
     public function listNotification()
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         return $this->render('admin/notification/list.html.twig');
     }
 
