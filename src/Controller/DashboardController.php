@@ -7,7 +7,6 @@ use App\Entity\Meal;
 use App\Entity\User;
 use App\Form\NewChildType;
 use Symfony\Component\Form\FormError;
-use App\Form\NewChildType;
 use App\Form\UpdatePasswordType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
