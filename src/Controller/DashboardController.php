@@ -92,6 +92,7 @@ class DashboardController extends AbstractController
         return $response;
     }
 
+    /*
      * @Route("/dashboard/update-password", name="dashboard.updatePassword")
      * @param Request $request
      * @param UserPasswordEncoderInterface $passwordEncoder
