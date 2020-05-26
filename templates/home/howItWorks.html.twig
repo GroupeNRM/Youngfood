@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}
+    Youngfood - Comment ça marche?
+{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('home') }}
+{% endblock %}
+
+{% use 'partials/top-menu.html.twig' %}
+
+{% block main_content %}
+    <div class="col-md-12">
+        <h1>Youngfood c'est quoi ?</h1>
+        <p>C'est votre nouveau site pour gérer en ligne les jours de cantine de vos enfants !
+            Youngfood permet aux parents d'inscrire facilement leurs enfants à la cantine, mais également de voir les repas en avance.</p>
+
+        <h1>Espace cuisine</h1>
+        <p>Youngfood n'est pas uniquement dédié aux parents, en effet il est possible pour l'administration de créer et d'ajouter des repas que vos enfants pourront déguster!</p>
+        <p>Grâce à une interface simple, mais efficace, il est possible d'ajouter n'importe quel <b>aliment</b>, pour ensuite le rajouter dans un <b>repas</b>. Ensuite il ne reste plus qu'a attribuer ce repas à un jour de cantine, c'est la <b>réservation</b>.</p>
+        <img src="{{ asset('build/create_meal.gif') }}" class="img-fluid" alt="Gif montrant l'interface admin">
+
+        <h1>Comment l'adopter dans votre école ?</h1>
+        <p>Vous aimez le concept? Parlez en autour de vous et proposé cette solution à vos établissements! Vous pouvez également nous joindre par mail afin que Youngfood contacte directement vos établissements 😉🎉</p>
+    </div>
+{% endblock %}
