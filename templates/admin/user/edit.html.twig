@@ -18,7 +18,22 @@
     <div class="row">
         <div class="col-12">
             {{ form_start(formEditUser) }}
-                {{ form_widget(formEditUser) }}
+                <div class="row">
+                    <div class="col-6">
+                        {{ form_row(formEditUser.firstname) }}
+                    </div>
+                    <div class="col-6">
+                        {{ form_row(formEditUser.lastname) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        {{ form_row(formEditUser.gender) }}
+                    </div>
+                    <div class="col-6">
+                        {{ form_row(formEditUser.email) }}
+                    </div>
+                </div>
             {{ form_end(formEditUser) }}
         </div>
     </div>

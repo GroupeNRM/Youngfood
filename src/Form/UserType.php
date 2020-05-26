@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -18,18 +19,28 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('firstname', TextType::class)
-            ->add('lastname', TextType::class)
+            ->add('firstname', TextType::class, [
+                'required' => true,
+                'label' => 'Nom',
+            ])
+            ->add('lastname', TextType::class, [
+                'required' => true,
+                'label' => 'Prénom'
+            ])
             ->add('gender', ChoiceType::class, [
-                'mapped' => false,
+                'required' => true,
+                'label' => 'Sexe',
                 'choices' => [
                     'H' => 'H',
                     'F' => 'F',
                     'Inconnue' => 'I'
                 ]
             ])
-            ->add('email', EmailType::class)
+            ->add('email', EmailType::class, [
+                'required' => true,
+            ])
             ->add('submit', SubmitType::class, [
+                'label' => 'Enregistrer',
                 'row_attr' => [
                     'class' => 'text-center'
                 ],
