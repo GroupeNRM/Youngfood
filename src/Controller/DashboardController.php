@@ -3,14 +3,18 @@
 namespace App\Controller;
 
 use App\Entity\Child;
-use Symfony\Component\Form\FormError;
+use App\Entity\Meal;
+use App\Entity\User;
 use App\Form\NewChildType;
+use Symfony\Component\Form\FormError;
 use App\Form\UpdatePasswordType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
@@ -25,9 +29,7 @@ class DashboardController extends AbstractController
      */
     public function index()
     {
-        return $this->render('dashboard/index.html.twig', [
-            'controller_name' => 'DashboardController'
-        ]);
+        return $this->render('dashboard/index.html.twig');
     }
 
     /**
@@ -68,6 +70,28 @@ class DashboardController extends AbstractController
     }
 
     /**
+     * @Route("/new-booking", name="parentNewBooking")
+     */
+    public function newBooking()
+    {
+        return $this->render("dashboard/parentNewBooking/index.html.twig");
+    }
+
+    /**
+     * @param UserInterface $user
+     * @return JsonResponse
+     * @Route("/user-connected", name="userConnected")
+     * Petite fonction renvoyant l'ID de l'utilisateur connecté, utile pour la partie Front
+     */
+    public function getConnectedUserId(UserInterface $user): JsonResponse
+    {
+        $userId = $user->getId();
+        $response = new JsonResponse();
+        $response->setData(['id' => $userId]);
+        return $response;
+    }
+
+    /*
      * @Route("/dashboard/update-password", name="dashboard.updatePassword")
      * @param Request $request
      * @param UserPasswordEncoderInterface $passwordEncoder

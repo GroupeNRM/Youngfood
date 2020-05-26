@@ -17,3 +17,31 @@
 .vdp-datepicker__calendar .cell.selected {
   background: $main-green !important;
 }
+
+.clickable-date {
+  height: auto;
+  line-height: 48px;
+  border-radius: 3px;
+  border: 2px solid $main-grey;
+  cursor: pointer;
+
+  &:hover {
+    border: 2px solid $main-green;
+  }
+}
+
+.child-card {
+  border: 2px solid $main-grey;
+  border-radius: 2px;
+
+  &:hover {
+    border: 2px solid $main-green;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+}
+
+.selected {
+  border: 2px solid $main-green;
+  border-radius: 2px;
+}
