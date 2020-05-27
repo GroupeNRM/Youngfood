@@ -1,5 +1,7 @@
 # YoungFood
 
+![PHP Composer](https://github.com/GroupeNRM/Youngfood/workflows/PHP%20Composer/badge.svg?branch=master)
+
 ## Avant de coder
 Il est obligatoire de vérifier que les paramètres d'identification de Git sont corrects.
 Pour vérifier ses réglages :
@@ -25,7 +27,7 @@ Si vous changez de branche il peut être nécéssaire de mettre à jour la base 
 
 ## Développement
 Noms et adresses des routes en Anglais, exemple :
-  * mycantine.app/signin, name="sigin.index"
+  * youngfood.app/signin, name="sigin.index"
  
 Les images doivent se trouver dans le dossier "assets/img/"
 

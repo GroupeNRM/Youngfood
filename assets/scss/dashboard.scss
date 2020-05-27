@@ -5,3 +5,64 @@
 .main-full-height {
   height: calc(100vh - 83px);
 }
+
+.grey-bg {
+  background: darken($grey-bg-dashboard, 5%);
+}
+
+.food-card {
+  .img-thumb {
+    position: relative;
+
+    img {
+      border-radius: 15px;
+      min-width: 100%;
+      height: 190px;
+      cursor: pointer;
+      display: inline-block;
+    }
+  }
+}
+
+.col-md-4 {
+  padding-right:50px;
+  padding-left:50px;
+}
+
+.meal-day {
+  position: relative;
+
+  .kcal-indicator {
+    position: absolute;
+    display: block;
+    text-align: center;
+    line-height: 67px;
+    top: -35px;
+    right: -35px;
+    background: $label-error-color;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    color: $pure-white;
+    cursor: pointer;
+  }
+
+  .little-text {
+    font-size: 14px;
+  }
+
+  .like-button {
+    position: absolute;
+    display: block;
+    text-align: center;
+    line-height: 39px;
+    bottom: -15px;
+    right: -20px;
+    background: $main-green;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    color: $pure-white;
+    cursor: pointer;
+  }
+}

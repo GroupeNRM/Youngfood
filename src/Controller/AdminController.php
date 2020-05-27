@@ -9,6 +9,8 @@ use App\Entity\Food;
 use App\Entity\Meal;
 use App\Form\newFoodType;
 use App\Form\NewMealType;
+use App\Form\UserType;
+use App\Repository\UserRepository;
 use App\Service\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -66,11 +68,13 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/notifications", name="notifications")
+     * @Route("/notifications", name="notifications", options={"expose"=true})
      * @return Response
      */
     public function listNotification()
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         return $this->render('admin/notification/list.html.twig');
     }
 
@@ -128,5 +132,69 @@ class AdminController extends AbstractController
     public function newBooking()
     {
         return $this->render('admin/newBooking.html.twig');
+    }
+
+    /**
+     * @Route("/utilisateurs", name="listeUtilisateur", methods={"GET"})
+     * @param UserRepository $userRepository
+     * @return Response
+     */
+    public function listUser(UserRepository $userRepository): Response
+    {
+        return $this->render('admin/user/index.html.twig', [
+            'users' => $userRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/utilisateur/{id}", name="infosUtilisateur", methods={"GET"})
+     * @param User $user
+     * @return Response
+     */
+    public function showUser(User $user): Response
+    {
+        return $this->render('admin/user/show.html.twig', [
+            'user' => $user,
+        ]);
+    }
+
+    /**
+     * @Route("/utilisateur/{id}/modifier", name="editerUtilisateur", methods={"GET","POST"})
+     * @param Request $request
+     * @param User $user
+     * @return Response
+     */
+    public function editUser(Request $request, User $user): Response
+    {
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('admin.listeUtilisateur');
+        }
+
+        return $this->render('admin/user/edit.html.twig', [
+            'user' => $user,
+            'formEditUser' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/utilisateur/{id}/supprimer", name="supprimerUtilisateur", methods={"DELETE"})
+     * @param Request $request
+     * @param User $user
+     * @return Response
+     */
+    public function deleteUser(Request $request, User $user): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($user);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('admin.listeUtilisateur');
     }
 }

@@ -2,16 +2,23 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\BookingRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=BookingRepository::class)
  * @ApiResource(
  *     collectionOperations={"post", "get"},
- *     itemOperations={"get"}
+ *     itemOperations={"get"},
+ *     normalizationContext={"groups"={"booking:read"}},
+ *     denormalizationContext={"groups"={"booking:write"}},
+ *     attributes={"pagination_items_per_page"=5})
  * )
+ * @ApiFilter(DateFilter::class, properties={"date": DateFilter::INCLUDE_NULL_BEFORE_AND_AFTER})
  */
 class Booking
 {
@@ -19,17 +26,20 @@ class Booking
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"booking:read", "booking:write", "meal:read"})
      */
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Meal::class)
+     * @ORM\ManyToOne(targetEntity=Meal::class, inversedBy="bookings")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"booking:read", "booking:write", "meal:read"})
      */
     private $meal;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"booking:read", "booking:write"})
      */
     private $date;
 

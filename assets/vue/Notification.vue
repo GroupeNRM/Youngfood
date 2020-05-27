@@ -1,11 +1,15 @@
 <template>
     <li class="nav-item text-light center-icon passive-bell">
-        <img :src="bell" width="30" alt="Icone cloche">
+        <img @click="redirectListNotification" :src="bell" width="30" alt="Icone cloche">
         <span id="new-icon"></span>
     </li>
 </template>
 
 <script>
+    const routes = require('../../public/js/fos_js_routes.json');
+    import Routing from '../../vendor/friendsofsymfony/jsrouting-bundle/Resources/public/js/router.min.js';
+    Routing.setRoutingData(routes);
+
     export default {
         name: "Notification",
         data: function() {
@@ -28,6 +32,11 @@
                     duration : 3000
                 });
             };
+        },
+        methods: {
+            redirectListNotification: function () {
+                window.location.href = Routing.generate('admin.notifications');
+            }
         }
     }
 </script>

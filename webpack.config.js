@@ -51,6 +51,8 @@ Encore
     //Style commun aux Dashboard (users & admin)
     .addEntry('dashboard', './assets/js/dashboard.js')
 
+    .addEntry('notification', './assets/js/notification.js')
+
     // New Meal 
     .addEntry('newMeal', './assets/js/newMeal.js')
 
@@ -60,8 +62,14 @@ Encore
     // New Booking
     .addEntry('newBooking', './assets/js/newBooking.js')
 
+    // Booking parent side
+    .addEntry('parentNewBooking', './assets/js/parentNewBooking.js')
+
     // Error Pages
     .addEntry('error', './assets/js/error.js')
+
+    // CRUD User
+    .addEntry('user', './assets/js/user.js')
 
     .enableVueLoader()
 

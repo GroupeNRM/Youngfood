@@ -167,7 +167,7 @@
                 if(this.titleMeal !== undefined) {
                     axios.post('/api/meals', {
                         'entree': `/api/food/${this.selectedFood.entree}`,
-                        'mainDish': `/api/food/${this.selectedFood.platprincipal}`,
+                        'maindish': `/api/food/${this.selectedFood.platprincipal}`,
                         'dessert': `/api/food/${this.selectedFood.dessert}`,
                         'title': this.titleMeal
                     }).then(() => {
