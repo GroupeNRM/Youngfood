@@ -24,13 +24,11 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class AdminController extends AbstractController
 {
-    /**
-     * @Route("/", name="index")
-     */
-    public function index()
-    {
-        return $this->render('admin/home/index.html.twig');
-    }
+
+//    public function index()
+//    {
+//        return $this->render('admin/home/index.html.twig');
+//    }
 
     /**
      * @Route("/new-notification", name="newNotification")
@@ -135,7 +133,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/utilisateurs", name="listeUtilisateur", methods={"GET"})
+     * @Route("/", name="index", methods={"GET"})
      * @param UserRepository $userRepository
      * @return Response
      */
@@ -172,7 +170,7 @@ class AdminController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin.listeUtilisateur');
+            return $this->redirectToRoute('admin.index');
         }
 
         return $this->render('admin/user/edit.html.twig', [
@@ -195,6 +193,6 @@ class AdminController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('admin.listeUtilisateur');
+        return $this->redirectToRoute('admin.index');
     }
 }

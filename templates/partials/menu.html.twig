@@ -1,6 +1,6 @@
 {% block body %}
     <nav class="navbar grey-navbar sticky-top flex-md-nowrap p-3 border-bottom">
-        <span class="navbar-brand col-sm-3 col-md-2 mr-0 text-center text-dark">Tableau de bord - <span class="inner-green">ADMIN</span></span>
+        <span class="navbar-brand col-sm-3 col-md-2 mr-0 text-center text-dark">Tableau de bord{% if is_granted('ROLE_ADMIN') %} - <span class="inner-green">ADMIN{% endif %}</span></span>
         <ul class="nav justify-content-end">
             <li id="notification"></li>
             <li class="nav-item mr-5 ml-5">
@@ -19,10 +19,13 @@
                     </h6>
                     <ul class="nav flex-column">
                         <li class="nav-item">
+                            <a class="nav-link text-dark" href="{{ path('dashboard.index') }}"><i class="fas fa-columns mr-2"></i>Tableau de bord</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" href="#"><i class="fas fa-utensils mr-2"></i>Menus</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="#"><i class="far fa-calendar-check mr-2"></i>Réservations</a>
+                            <a class="nav-link text-dark" {% if is_granted('ROLE_ADMIN') %}href="{{ path('admin.newBooking') }}" {% else %} href="{{ path('dashboard.parentNewBooking') }}" {% endif %}><i class="far fa-calendar-check mr-2"></i>Réservations</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="#"><i class="far fa-money-bill-alt mr-2"></i>Paiements</a>
@@ -32,29 +35,30 @@
                         </li>
                     </ul>
 
-                    <!-- Contenus "Admin" -->
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-2 text-muted">
-                        <span>Administration</span>
-                    </h6>
-                    <ul class="nav flex-column mb-2">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="{{ path('admin.newFood') }}"><i class="fas fa-hamburger mr-2"></i>Nouvel Aliment</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="{{ path('admin.newMeal') }}"><i class="fas fa-utensils mr-2"></i>Nouveau Repas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="{{ path('admin.newNotification') }}"><i class="far fa-envelope mr-2"></i>Nouvelle Notification</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="#"><i class="far fa-chart-bar mr-2"></i>Statistiques</a>
-                        </li>
-                        {% if is_granted('ROLE_ADMIN') %}
-                          <li class="nav-item">
-                              <a class="nav-link text-dark" href="{{ path('admin.listeUtilisateur') }}"><i class="fas fa-users mr-2"></i>Utilisateurs</a>
-                          </li>
-                        {% endif %}
-                    </ul>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <!-- Contenus "Admin" -->
+                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-2 text-muted">
+                            <span>Administration</span>
+                        </h6>
+                        <ul class="nav flex-column mb-2">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="{{ path('admin.newFood') }}"><i class="fas fa-hamburger mr-2"></i>Nouvel Aliment</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="{{ path('admin.newMeal') }}"><i class="fas fa-utensils mr-2"></i>Nouveau Repas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="{{ path('admin.newNotification') }}"><i class="far fa-envelope mr-2"></i>Nouvelle Notification</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#"><i class="far fa-chart-bar mr-2"></i>Statistiques</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="{{ path('admin.index') }}"><i class="fas fa-users mr-2"></i>Utilisateurs</a>
+                            </li>
+                        </ul>
+                    {% endif %}
+
 
                     <!-- Contenus "Infos Personelles" -->
                     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-5 mb-2 text-muted">
@@ -91,7 +95,7 @@
 
                 <div class="border-top my-3 mt-5 text-center">
                     <small class="mt-5 text-muted">
-                        Youngfood V0.5
+                        Youngfood V1.0
                     </small>
                 </div>
             </nav>
