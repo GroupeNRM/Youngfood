@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}YoungFood - Modifier Utilisateur{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('dashboard') }}
+{% endblock %}
+
+{% set centered_content = false %}
+
+{% use 'partials/menu.html.twig' %}
+
+{% block second_title %}
+    Modifier l'utilisateur <span class="inner-green">{{ user.lastname }} {{ user.firstname }} </span> :
+{% endblock %}
+
+{% block main_content %}
+    <div class="row">
+        <div class="col-12">
+            {{ form_start(formEditUser) }}
+                <div class="row">
+                    <div class="col-6">
+                        {{ form_row(formEditUser.firstname) }}
+                    </div>
+                    <div class="col-6">
+                        {{ form_row(formEditUser.lastname) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        {{ form_row(formEditUser.gender) }}
+                    </div>
+                    <div class="col-6">
+                        {{ form_row(formEditUser.email) }}
+                    </div>
+                </div>
+            {{ form_end(formEditUser) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('dashboard') }}
+{% endblock %}

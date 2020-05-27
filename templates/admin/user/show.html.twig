@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}YoungFood - {{ user.firstname }}{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('dashboard') }}
+    {{ encore_entry_link_tags('user') }}
+{% endblock %}
+
+{% set centered_content = false %}
+
+{% use 'partials/menu.html.twig' %}
+
+{% block second_title %}
+    Utilisateur <span class="inner-green">{{ user.lastname }} {{ user.firstname }} </span> :
+{% endblock %}
+
+{% block main_content %}
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th>ID</th>
+                    <td>{{ user.id }}</td>
+                </tr>
+                <tr>
+                    <th>NOM</th>
+                    <td>{{ user.firstname }}</td>
+                </tr>
+                <tr>
+                    <th>Prénom</th>
+                    <td>{{ user.lastname }}</td>
+                </tr>
+                <tr>
+                    <th>Sexe</th>
+                    <td>{{ user.gender }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ user.email }}</td>
+                </tr>
+                <tr>
+                    <th>Role</th>
+                    <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                </tr>
+                <tr>
+                    <th>Date Inscription</th>
+                    <td>{{ user.registeredAt ? user.registeredAt|date('Y-m-d H:i:s') : '' }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            {{ include('admin/user/_delete_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('dashboard') }}
+    {{ encore_entry_script_tags('notification') }}
+{% endblock %}

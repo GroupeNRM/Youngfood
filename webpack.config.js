@@ -68,6 +68,9 @@ Encore
     // Error Pages
     .addEntry('error', './assets/js/error.js')
 
+    // CRUD User
+    .addEntry('user', './assets/js/user.js')
+
     .enableVueLoader()
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
