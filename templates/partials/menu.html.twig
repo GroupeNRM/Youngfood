@@ -25,7 +25,7 @@
                             <a class="nav-link text-dark" href="#"><i class="fas fa-utensils mr-2"></i>Menus</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="{{ path('dashboard.parentNewBooking') }}"><i class="far fa-calendar-check mr-2"></i>Réservations</a>
+                            <a class="nav-link text-dark" {% if is_granted('ROLE_ADMIN') %}href="{{ path('admin.newBooking') }}" {% else %} href="{{ path('dashboard.parentNewBooking') }}" {% endif %}><i class="far fa-calendar-check mr-2"></i>Réservations</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="#"><i class="far fa-money-bill-alt mr-2"></i>Paiements</a>
@@ -54,7 +54,7 @@
                                 <a class="nav-link text-dark" href="#"><i class="far fa-chart-bar mr-2"></i>Statistiques</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="{{ path('admin.listeUtilisateur') }}"><i class="fas fa-users mr-2"></i>Utilisateurs</a>
+                                <a class="nav-link text-dark" href="{{ path('admin.index') }}"><i class="fas fa-users mr-2"></i>Utilisateurs</a>
                             </li>
                         </ul>
                     {% endif %}
