@@ -49,11 +49,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="#"><i class="far fa-chart-bar mr-2"></i>Statistiques</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="{{ path('admin.listeUtilisateur') }}"><i class="fas fa-users mr-2"></i>Utilisateurs</a>
-                        </li>
+                        {% if is_granted('ROLE_ADMIN') %}
+                          <li class="nav-item">
+                              <a class="nav-link text-dark" href="{{ path('admin.listeUtilisateur') }}"><i class="fas fa-users mr-2"></i>Utilisateurs</a>
+                          </li>
+                        {% endif %}
                     </ul>
-
 
                     <!-- Contenus "Infos Personelles" -->
                     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-5 mb-2 text-muted">
